@@ -3,9 +3,7 @@ namespace App\Models;
 
 use Cac\Model\Model;
 
-class categories extends Model
+class Category extends Model
 {
     protected $table = "categories";
-
-
 }

@@ -5,7 +5,7 @@ return [
            'timezone' => 'UTC',
 
            'database' => [ 'host'     => '127.0.0.1',
-                           'dbname'   => 'code',
+                           'dbname'   => 'hotspot',
                            'username' => 'root',
                            'password' =>  ''
                           ],

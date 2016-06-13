@@ -7,6 +7,4 @@ class Galery extends Model
 {
     protected $table = "galeries";
 
-
-
 }

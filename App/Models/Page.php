@@ -3,9 +3,7 @@ namespace App\Models;
 
 use Cac\Model\Model;
 
-class Pages extends Model
+class Page extends Model
 {
-
-
     protected $table = "pages";
 }
