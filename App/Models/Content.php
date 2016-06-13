@@ -7,5 +7,4 @@ class Content extends Model
 {
     protected $table = "contents";
 
-
 }
