@@ -18,7 +18,7 @@ USE `hotspot`;
 -- Copiando estrutura para tabela hotspot.categories
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `name` varchar(255) NOT NULL,
   `page_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -42,7 +42,7 @@ INSERT INTO `categories` (`id`, `name`, `page_id`, `created_at`, `updated_at`) V
 -- Copiando estrutura para tabela hotspot.contents
 CREATE TABLE IF NOT EXISTS `contents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `text` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `text` varchar(255) NOT NULL,
   `category_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `galeries` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.galeries: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.galeries: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `galeries` DISABLE KEYS */;
 INSERT INTO `galeries` (`id`, `name`, `created_at`, `update_at`) VALUES
 	(1, 'sala_de_reuniao', '2016-06-13 16:56:51', NULL);
@@ -82,13 +82,13 @@ INSERT INTO `galeries` (`id`, `name`, `created_at`, `update_at`) VALUES
 -- Copiando estrutura para tabela hotspot.pages
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `name` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.pages: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.pages: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
 INSERT INTO `pages` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'inicio', '2016-06-13 16:54:02', NULL),
@@ -101,9 +101,9 @@ INSERT INTO `pages` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- Copiando estrutura para tabela hotspot.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `name` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `password` varchar(6) CHARACTER SET latin1 NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `password` varchar(6) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
