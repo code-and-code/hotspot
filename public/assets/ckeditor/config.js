@@ -22,6 +22,6 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'others' },
 		{ name: 'about' }
 	];
-	
+
 	config.removeDialogTabs = 'link:advanced';
 };
