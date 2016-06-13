@@ -13,12 +13,16 @@ class Init extends Bootstrap
 
         $ar['admin']          = ['route' => '/admin',         'controller' => 'Admin', 'auth' =>true, 'action' => 'index'];
 
+        //Auth
+        $ar['content.edit']        = ['route' => '/content/editar', 'controller' => 'Content', 'action' => 'edit'];
+        $ar['content.update']      = ['route' => '/content/update', 'controller' => 'Content', 'action' => 'update'];
+
+
         $ar['auth.index']     = ['route' => '/auth',          'controller' => 'Auth', 'action' => 'getLogin'    ];
         $ar['auth.login']     = ['route' => '/auth/login',    'method'=>'POST',       'controller' => 'Auth', 'action' => 'postLogin'   ];
         $ar['auth.logout']    = ['route' => '/auth/logout',   'controller' => 'Auth', 'action' => 'logout'      ];
 
-        $ar['register']       = ['route' => '/register',      'controller' => 'Auth', 'action' => 'getRegister' ];
-        $ar['register.store'] = ['route' => '/register/store','method'=>'POST','controller' => 'Auth', 'action' => 'postRegister'];
+
 
         $this->setRoutes($ar);
     }
