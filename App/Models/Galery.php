@@ -6,5 +6,4 @@ use Cac\Model\Model;
 class Galery extends Model
 {
     protected $table = "galeries";
-
 }
