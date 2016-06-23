@@ -16,6 +16,7 @@ USE `hotspot`;
 
 
 -- Copiando estrutura para tabela hotspot.contacts
+DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE IF NOT EXISTS `contacts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -33,6 +34,7 @@ INSERT INTO `contacts` (`id`, `name`, `phone`, `email`, `acting`) VALUES
 
 
 -- Copiando estrutura para tabela hotspot.content
+DROP TABLE IF EXISTS `content`;
 CREATE TABLE IF NOT EXISTS `content` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -60,6 +62,7 @@ INSERT INTO `content` (`id`, `name`, `content`, `flag`, `page_id`, `created_at`,
 
 
 -- Copiando estrutura para tabela hotspot.galeries
+DROP TABLE IF EXISTS `galeries`;
 CREATE TABLE IF NOT EXISTS `galeries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -76,6 +79,7 @@ INSERT INTO `galeries` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 
 -- Copiando estrutura para tabela hotspot.information
+DROP TABLE IF EXISTS `information`;
 CREATE TABLE IF NOT EXISTS `information` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -129,6 +133,7 @@ INSERT INTO `information` (`id`, `title`, `content`, `icon`, `content_id`, `crea
 
 
 -- Copiando estrutura para tabela hotspot.pages
+DROP TABLE IF EXISTS `pages`;
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
@@ -149,6 +154,7 @@ INSERT INTO `pages` (`id`, `name`, `cache`, `created_at`, `updated_at`) VALUES
 
 
 -- Copiando estrutura para tabela hotspot.users
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
