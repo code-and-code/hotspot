@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../../../assets/admin/images/miniLogo.png">
+
+    <title>{CodeAndCode}</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../../assets/admin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/admin/css/bootstrap-theme.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet" type="text/css">
+
+
+    <!-- Bootstrap core JavaScript
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../../../assets/admin/js/bootstrap.min.js"></script>
+
+
+<style>
+    body {
+        font-family: 'Lato';
+        margin-bottom: 60px;
+    }
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 80px;
+        background-color: #e0e0e0;
+        text-align: center;
+        padding-top: 10px;
+    }
+</style>
+
+</head>
+<body id="app-layout">
+
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+
+            <a class="navbar-brand" href="/"></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="/contact">Contato</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+
+                {% if guest() == true %}
+
+                    {{ include(view('admin.auth._infologin')) }}
+
+                {% else %}
+
+                    <li><a href="/auth">Entrar</a></li>
+
+                {% endif %}
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    {% block content %}{% endblock %}
+
+</div>
+
+<!-- /container -->
+
+<footer class="footer">
+    <div class="container ">
+        <p class="text-muted"> <img src="../../../assets/admin/images/miniLogo.png"> Direitos Autorais © 2016 - <a href="http://codeandcode.com.br" target="_blank">{ CodeAndCode }</a>. Todos os direitos reservados ®. | <a href="/">DOCS</a>
+            <a href="https://github.com/code-and-code?tab=repositories" target="_blank" class="btn btn-social-icon btn-sm btn-github">
+                <span class = "fa fa-github"> </span>
+            </a>
+            <a class="btn btn-social-icon btn-sm btn-facebook">
+                <span class = "fa fa-facebook"> </span>
+            </a>
+            <a class="btn btn-social-icon btn-sm btn-google">
+                <span class = "fa fa-google"> </span>
+            </a>
+        </p>
+    </div>
+</footer>
+
+
+
+</body>
+</html>

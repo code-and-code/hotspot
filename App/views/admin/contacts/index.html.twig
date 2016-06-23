@@ -1,0 +1,42 @@
+{% extends view('admin') %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Contatos
+                    </div>
+                    <div class="panel-body">
+
+                        <table class="table table-hover">
+                            <thead>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Tel</th>
+                            <th>Area de atuação</th>
+                            <th>#</th>
+                            </thead>
+                            <tbody>
+                            {% for contact in contacts %}
+
+                                <tr>
+                                    <td>{{ contact.name }}</td>
+                                    <td>{{ contact.email }}</td>
+                                    <td>{{ contact.phone }}</td>
+                                    <td>{{ contact.acting }}</td>
+                                    <td><a href='/contact/delete?id={$contact->id}' title=''><i class= 'glyphicon glyphicon-trash'></i></a></td>
+                                </tr>
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% andblock %}

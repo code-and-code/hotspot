@@ -1,0 +1,36 @@
+{% extends view('app') %}
+
+{% block content %}
+
+	<div class="service" id="works">
+		<div class="container">
+
+			<div class="col-md-5 ser-head">
+				<div class="col-md-12">
+					<h5>Escritorio Virtual</h5>
+
+					<div class="col-md-12 ser-head" style="text-align: left">
+						<ul>
+
+							{% for info in contents['cf'].Information() %}
+								<li><i class='glyphicon glyphicon-certificate'></i> {{ info.content|raw }} </li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="service-head">
+				<div class="col-md-7 ser-head">
+					<h5>{{ contents['cf'].name|raw }}</h5>
+					<p style="text-align: justify">
+						{{ contents['cf'].content|raw }}
+					</p>
+				</div>
+
+			<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

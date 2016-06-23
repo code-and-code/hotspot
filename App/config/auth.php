@@ -2,13 +2,11 @@
 
 return [
         'auth' => [
-                    'class'          =>'App\Models\User',
-                    'viewLogin'      =>'login',
-                    'viewRegister'   => 'register',
-                    'required'       => ['email','password'],
-                    'redirect'       => '/admin',
-                    'notauthorized'  => '/auth'
-                   ],
-
-
+        'class'          =>'App\Models\User',
+        'viewLogin'      => 'admin.auth.login',
+        'viewRegister'   => 'admin.auth.register',
+        'required'       => ['email','password'],
+        'redirect'       => '/admin',
+        'notauthorized'  => '/auth'
+    ],
 ];

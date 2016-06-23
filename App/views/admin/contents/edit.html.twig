@@ -1,0 +1,84 @@
+{% extends view('admin.admin') %}
+
+{% block content %}
+    <script src="../../../../assets/admin/ckeditor/ckeditor.js"></script>
+    <script src="../../../../assets/admin/ckeditor/sample.js"></script>
+
+
+
+        <div id="success" style="display: none">
+            <p style="text-align: center;padding: 3px" class="alert-success"><strong>Salvo com sucesso!</strong></p>
+        </div>
+
+
+        <main>
+
+            <input type="hidden" value="{{ content.id }}" id="id">
+            <div class="adjoined-top">
+                <div class="grid-container">
+                    <div class="content grid-width-100">
+                        <h1>Editar</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="adjoined-bottom">
+                <div class="grid-container">
+                    <div class="grid-width-100">
+                        <div id="editor">
+                            {{ content.content }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            Total Caracteres: <span id="total"></span> <br/>
+
+        </main>
+
+    <br/><br/>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-2" style="margin-left: 0px">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Informações do Conteudo:
+                    </div>
+                    <div class="panel-body">
+
+                        <table class="table table-hover">
+                            <thead>
+                            <th>Titulo</th>
+                            <th>Texto</th>
+                            <th>#</th>
+                            </thead>
+                            <tbody>
+
+                            {% for info in content.Information() %}
+
+                                <tr>
+                                    <td>{{ info.title }}</td>
+                                    <td>{{ limit(info.content,0,40)|raw }}</td>
+                                    <td>
+                                        <a href='/information/edit?id={{ info.id }}' title=''><i class= 'glyphicon glyphicon-edit'></i></a>
+                                    </td>
+                                </tr>
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <script>
+        initSample();
+        var editor = CKEDITOR.instances.editor;
+        editor.on( 'change', function( evt ) {
+            //console.log( 'Total bytes: ' + evt.editor.getData().length );
+            $("#total").html(evt.editor.getData().length )
+        });
+
+
+    </script>
+{% endblock %}

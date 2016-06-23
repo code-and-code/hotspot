@@ -1,0 +1,86 @@
+{% extends view('admin.admin') %}
+
+{% block content %}
+    <script src="../../../../assets/admin/ckeditor_edit_info/ckeditor.js"></script>
+    <script src="../../../../assets/admin/ckeditor_edit_info/sample.js"></script>
+
+    <div id="success" style="display: none">
+        <p style="text-align: center;padding: 3px" class="alert-success"><strong>Salvo com sucesso!</strong></p>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+
+            <form action="/information/update?id={{ info.id }}" method="post" class="form-horizontal" role="form" id="form">
+
+                <div class="form-group">
+                    <label class="control-label col-sm-1" for="title">Titulo:</label>
+                    <div class="col-sm-11">
+                        <input type="title" name="title" class="form-control" id="title" value="{{ info.title }}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-1" for="title">Conteudo:</label>
+                    <div class="col-sm-11">
+
+                        <div class="adjoined-bottom">
+                            <div class="grid-container">
+                                <div class="grid-width-100">
+                                    <div id="editor">
+                                         {{ info.content|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-1 col-sm-10">
+                        <button type="submit" class="btn btn-default">Salvar</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function()
+        {
+            initSample();
+            var editor = CKEDITOR.instances.editor;
+            //$("#success").hide();
+
+            $('#form').submit(function(event)
+            {
+                event.preventDefault();
+
+                var formData = {
+                    'title'  :  $('#title').val(),
+                    'content'  : editor.getData()
+                };
+
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: 'POST',
+                    data: formData,
+                    success: function() {
+                        $("#success").show();
+                    },
+                    fail: function() {
+                        alert('Erro na Alteração!!');
+                    }
+                });
+            });
+        })
+    </script>
+
+{% endblock %}

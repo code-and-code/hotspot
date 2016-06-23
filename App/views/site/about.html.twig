@@ -1,0 +1,55 @@
+{% extends view('app') %}
+
+{% block content %}
+<div class="clearfix"></div>
+<div class="service">
+    <div class="container">
+        <div class="service-head">
+
+            {% if contents['about'] %}
+                <h1> {{ contents['about'].name }} </h1><br/>
+
+                <br/>{{ contents['about'].content|raw }}<br/>
+            {% endif %}
+
+            <div class="col-md-12 ser-head" style="text-align: left;padding: 20px">
+
+            {% if contents['beneficios'] %}
+
+                <h3> {{ contents['beneficios'].content|raw }} </h3><br/>
+
+                <ul>
+
+                {% for info in contents['beneficios'].Information() %}
+
+                        <li><i class='glyphicon glyphicon-pushpin'></i>{{ info.content }}</li>
+
+                {% endfor %}
+
+                </ul>
+
+            {% endif %}
+
+            </div>
+
+            {% if contents['mvv'] %}
+                <div class='row'>
+                {% for key, info in contents['mvv'].Information() %}
+
+                    <div class='col-md-4'>
+                        <div  class='franquia-destaque'>
+                            <h3 class='title-destaque _{{key}}'>{{ info.title }}</h3>
+                            <p class='ser-head'>{{ info.content|raw }}</p>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            {% endif %}
+
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
