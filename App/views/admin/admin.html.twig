@@ -68,9 +68,6 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-
-
-
                 {% if guest() == true %}
 
                     {{ include(view('admin.auth._infologin')) }}
@@ -89,7 +86,7 @@
 <div class="container">
 
     {% block content %}{% endblock %}
-
+    <a href="www.mypage.com" onclick="javascript:history.go(-1)" type="submit" class="btn btn-success"> Voltar </a>
 </div>
 
 <!-- /container -->
