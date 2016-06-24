@@ -13,6 +13,9 @@ return [
             'layout' =>  ['folder'     => 'App/views/',
                            'tag'       => ['{','}'],
                            'extension' => '.html.twig'
-                        ]
+                        ],
+
+            'file '  => ['folder' => 'public']
+
         ];
 

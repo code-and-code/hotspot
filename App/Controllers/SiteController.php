@@ -25,7 +25,6 @@ class SiteController extends Controller
         }else{
             echo $html;
         }
-
     }
 
     public function about()

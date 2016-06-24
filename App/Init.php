@@ -33,7 +33,8 @@ class Init extends Bootstrap
         $ar['contact.index']           = ['route' => '/contact',                            'controller' => 'ContentController',    'action' => 'index'                         ];
         $ar['contact.delete']          = ['route' => '/contact/delete',                     'controller' => 'ContentController',    'action' => 'delete'                        ];
 
-        $ar['photo.create']            = ['route' => '/photo/create',                       'controller' => 'PhotoController',      'auth' =>false,'action' => 'create'         ];
+        $ar['photo.create']            = ['route' => '/admin/photo/create',                       'controller' => 'PhotoController',      'auth' =>false,'action' => 'create'         ];
+        $ar['photo.store']             = ['route' => '/admin/photo/store','method'=>'POST',       'controller' => 'PhotoController',      'auth' =>false,'action' => 'store'          ];
 
 
         $ar['auth.index']     = ['route' => '/auth',                                        'controller' => 'AuthController',       'action' => 'getLogin'                      ];
