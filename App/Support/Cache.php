@@ -1,5 +1,5 @@
 <?php
-namespace App\Support\Cache;
+namespace App\Support;
 use Desarrolla2\Cache\Cache as DesarrollaCache;
 use Desarrolla2\Cache\Adapter\File;
 class Cache

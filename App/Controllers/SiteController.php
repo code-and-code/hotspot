@@ -2,7 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\Page;
-use App\Support\Cache\Cache;
+use App\Support\Cache;
 
 
 class SiteController extends Controller

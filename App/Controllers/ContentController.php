@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Content;
-use App\Support\Cache\Cache;
+use App\Support\Cache;
 
 class ContentController extends Controller
 {

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "81661c73b48c342dbc98af56847c1003",
-    "content-hash": "3aae9324823a8fbad278db46efa82978",
+    "hash": "f4ff33f85c18495cd627bf2e5ab83fd5",
+    "content-hash": "093ff17d6f1e9853a07dcfa38d609dd4",
     "packages": [
         {
             "name": "codeandcode/micro-fwk",
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/code-and-code/micro-fwk.git",
-                "reference": "47e6ba0512a4e7b2d9a1cceda12c80c1b28964b4"
+                "reference": "b2888e4e2a9e09813e939c6e73b4108258e14885"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/code-and-code/micro-fwk/zipball/47e6ba0512a4e7b2d9a1cceda12c80c1b28964b4",
-                "reference": "47e6ba0512a4e7b2d9a1cceda12c80c1b28964b4",
+                "url": "https://api.github.com/repos/code-and-code/micro-fwk/zipball/b2888e4e2a9e09813e939c6e73b4108258e14885",
+                "reference": "b2888e4e2a9e09813e939c6e73b4108258e14885",
                 "shasum": ""
             },
             "require": {
@@ -42,7 +42,54 @@
                 "projecto inical",
                 "start"
             ],
-            "time": "2016-06-21 20:09:34"
+            "time": "2016-06-24 12:40:12"
+        },
+        {
+            "name": "codeguy/upload",
+            "version": "1.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeguy/Upload.git",
+                "reference": "6a9e5e1fb58d65346d0e557db2d46fb25efd3e37"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codeguy/Upload/zipball/6a9e5e1fb58d65346d0e557db2d46fb25efd3e37",
+                "reference": "6a9e5e1fb58d65346d0e557db2d46fb25efd3e37",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Upload": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Lockhart",
+                    "email": "info@joshlockhart.com",
+                    "homepage": "http://www.joshlockhart.com/"
+                }
+            ],
+            "description": "Handle file uploads with extensible validation and storage strategies",
+            "homepage": "http://github.com/codeguy/Upload",
+            "keywords": [
+                "file",
+                "upload",
+                "validation"
+            ],
+            "time": "2013-07-07 17:01:41"
         },
         {
             "name": "desarrolla2/cache",
@@ -105,12 +152,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "68620b32e416163e3f152c694b064ed0ec311c7c"
+                "reference": "cdccdbbdf35f38a70eb6931667a76fc68012a999"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/68620b32e416163e3f152c694b064ed0ec311c7c",
-                "reference": "68620b32e416163e3f152c694b064ed0ec311c7c",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/cdccdbbdf35f38a70eb6931667a76fc68012a999",
+                "reference": "cdccdbbdf35f38a70eb6931667a76fc68012a999",
                 "shasum": ""
             },
             "require": {
@@ -158,7 +205,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-06-21 07:05:03"
+            "time": "2016-06-24 05:05:43"
         }
     ],
     "packages-dev": [],

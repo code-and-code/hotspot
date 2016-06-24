@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Information;
-use App\Support\Cache\Cache;
+use App\Support\Cache;
 
 class InformationController extends Controller
 {
