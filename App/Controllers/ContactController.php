@@ -9,7 +9,7 @@ class ContactController extends  Controller
     public function index()
     {
         $contact = new Contact();
-        $this->setLayout(get_config('layout')['assets'])->render('assets.contacts', ['contacts' => $contact->all()]);
+        echo $this->render('assets.contacts', ['contacts' => $contact->all()]);
     }
 
     public function delete()

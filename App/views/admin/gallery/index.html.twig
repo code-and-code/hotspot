@@ -1,0 +1,34 @@
+{% extends view('admin.admin') %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Galeria <a href="/admin/gallery/create" title="Nova Galeria" ><i class="pull-right glyphicon glyphicon-plus"></i></a>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-hover">
+                <thead>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>#</th>
+                </thead>
+                <tbody>
+                {% for gallery in galleries %}
+                    <tr>
+
+                        <td>{{ gallery.id }}</td>
+                        <td>{{ gallery.name }}</td>
+                        <td>
+                            <a href='/admin/gallery/edit?id={{ gallery.id }}' title=''><i class= 'glyphicon glyphicon-edit'></i></a>
+                            <a href='/admin/gallery/delete?id={{ gallery.id }}' title=''><i class= 'glyphicon glyphicon-trash'></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

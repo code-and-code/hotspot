@@ -37,6 +37,12 @@ class Init extends Bootstrap
         $ar['admin.information.edit']      = ['route' => '/admin/information/edit',                   'controller' => 'InformationController',    'auth' =>true,'action' => 'edit'   ];
         $ar['admin.information.update']    = ['route' => '/admin/information/update','method'=>'POST','controller' => 'InformationController',    'auth' =>true,'action' => 'update' ];
 
+        $ar['admin.gallery.index']         = ['route' => '/admin/gallery',                             'controller' => 'GalleryController',      'auth' =>true,'action' => 'index'         ];
+        $ar['admin.gallery.create']        = ['route' => '/admin/gallery/create',                       'controller' => 'GalleryController',      'auth' =>true,'action' => 'create'        ];
+        $ar['admin.gallery.store']        = ['route' => '/admin/gallery/store',   'method'=>'POST',     'controller' => 'GalleryController',      'auth' =>true,'action' => 'store'           ];
+        $ar['admin.gallery.edit']          = ['route' => '/admin/gallery/edit',                         'controller' => 'GalleryController',      'auth' =>true,'action' => 'edit'          ];
+        $ar['admin.gallery.update']        = ['route' => '/admin/gallery/update', 'method'=>'POST',     'controller' => 'GalleryController',      'auth' =>true,'action' => 'update'        ];
+        $ar['admin.gallery.delete']        = ['route' => '/admin/gallery/delete',                       'controller' => 'GalleryController',      'auth' =>true,'action' => 'delete'        ];
 
         $ar['admin.photo.create']            = ['route' => '/admin/photo/create',                       'controller' => 'PhotoController',      'auth' =>true,'action' => 'create'         ];
         $ar['admin.photo.store']             = ['route' => '/admin/photo/store','method'=>'POST',       'controller' => 'PhotoController',      'auth' =>true,'action' => 'store'          ];
