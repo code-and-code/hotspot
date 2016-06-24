@@ -10,7 +10,7 @@ return [
                            'password' =>  ''
                           ],
 
-            'layout' =>  ['folder'     => 'App/views/',
+            'layout' =>  ['folder'     => '../App/views/',
                            'tag'       => ['{','}'],
                            'extension' => '.html.twig'
                         ],

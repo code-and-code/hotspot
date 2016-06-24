@@ -64,7 +64,7 @@ class SiteController extends Controller
 
     public function images()
     {
-        $this->render('site.images');
+        echo $this->render('site.images');
     }
 
 }

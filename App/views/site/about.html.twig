@@ -18,11 +18,11 @@
 
                 <h3> {{ contents['beneficios'].content|raw }} </h3><br/>
 
-                <ul>
+                <ul class="list_content">
 
                 {% for info in contents['beneficios'].Information() %}
 
-                        <li><i class='glyphicon glyphicon-pushpin'></i>{{ info.content }}</li>
+                        <li><i class='glyphicon glyphicon-pushpin'></i>{{ info.content|raw }}</li>
 
                 {% endfor %}
 

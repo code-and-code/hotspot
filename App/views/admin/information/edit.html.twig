@@ -15,7 +15,7 @@
         </div>
         <div class="panel-body">
 
-            <form action="/information/update?id={{ info.id }}" method="post" class="form-horizontal" role="form" id="form">
+            <form action="/admin/information/update?id={{ info.id }}" method="post" class="form-horizontal" role="form" id="form">
 
                 <div class="form-group">
                     <label class="control-label col-sm-1" for="title">Titulo:</label>
@@ -57,11 +57,11 @@
         {
             initSample();
             var editor = CKEDITOR.instances.editor;
-            //$("#success").hide();
 
             $('#form').submit(function(event)
             {
                 event.preventDefault();
+                $("#success").hide();
 
                 var formData = {
                     'title'  :  $('#title').val(),

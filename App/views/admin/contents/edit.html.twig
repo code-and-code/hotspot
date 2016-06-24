@@ -15,7 +15,7 @@
         </div>
         <div class="panel-body">
 
-            <form action="/information/update?id={{ content.id }}" method="post" class="form-horizontal" role="form" id="form">
+            <form action="/admin/content/update?id={{ content.id }}" method="post" class="form-horizontal" role="form" id="form">
 
                 <div class="form-group">
                     <label class="control-label col-sm-1" for="title">Titulo:</label>
@@ -52,37 +52,6 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function()
-        {
-            initSample();
-            var editor = CKEDITOR.instances.editor;
-            //$("#success").hide();
-
-            $('#form').submit(function(event)
-            {
-                event.preventDefault();
-
-                var formData = {
-                    'title'  :  $('#title').val(),
-                    'content'  : editor.getData()
-                };
-
-                $.ajax({
-                    url: $(this).attr('action'),
-                    type: 'POST',
-                    data: formData,
-                    success: function() {
-                        $("#success").show();
-                    },
-                    fail: function() {
-                        alert('Erro na Alteração!!');
-                    }
-                });
-            });
-        })
-    </script>
-
     <br/><br/>
         <div class="row">
             <div class="col-md-12 col-md-offset-2" style="margin-left: 0px">
@@ -106,7 +75,7 @@
                                     <td>{{ info.title }}</td>
                                     <td>{{ limit(info.content,0,40)|raw }}</td>
                                     <td>
-                                        <a href='/information/edit?id={{ info.id }}' title=''><i class= 'glyphicon glyphicon-edit'></i></a>
+                                        <a href='/admin/information/edit?id={{ info.id }}' title=''><i class= 'glyphicon glyphicon-edit'></i></a>
                                     </td>
                                 </tr>
 
@@ -127,6 +96,26 @@
             $("#total").html(evt.editor.getData().length )
         });
 
+        $('#form').submit(function(event)
+        {
+            event.preventDefault();
 
+            var formData = {
+                'title'  :  $('#title').val(),
+                'content'  : editor.getData()
+            };
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: formData,
+                success: function() {
+                    $("#success").show();
+                },
+                fail: function() {
+                    alert('Erro na Alteração!!');
+                }
+            });
+        });
     </script>
 {% endblock %}

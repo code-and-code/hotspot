@@ -26,7 +26,6 @@ class InformationController extends Controller
         {
             $id = $_GET['id'];
             $information = $this->information->find($id)->update($_REQUEST);
-
             Cache::delete($information->Content()->Page()->cache);
             echo json_encode($information->Content()->flag, 200);
         }catch (\Exception $e)
