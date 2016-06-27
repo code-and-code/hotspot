@@ -70,13 +70,12 @@ CREATE TABLE IF NOT EXISTS `galleries` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.galleries: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.galleries: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `galleries` DISABLE KEYS */;
 INSERT INTO `galleries` (`id`, `name`, `created_at`, `updated_at`) VALUES
-	(5, 'Adriano ', '2016-06-24 19:08:08', NULL),
-	(6, '963852', '2016-06-24 19:24:57', '2016-06-24 19:30:23');
+	(32, 'uma galeria', '2016-06-27 20:29:25', NULL);
 /*!40000 ALTER TABLE `galleries` ENABLE KEYS */;
 
 
@@ -98,39 +97,39 @@ CREATE TABLE IF NOT EXISTS `information` (
 -- Copiando dados para a tabela hotspot.information: ~33 rows (aproximadamente)
 /*!40000 ALTER TABLE `information` DISABLE KEYS */;
 INSERT INTO `information` (`id`, `title`, `content`, `icon`, `content_id`, `created_at`, `updated_at`) VALUES
-	(1, 'Missão', '<p>Lorem ipsum pretium torquent magna dui eleifend nisl, non euismod varius congue pretium pellentesque, porttitor primis convallis vel scelerisque sit.</p>', 'Missão', 14, '2016-06-17 11:31:33', '2016-06-23 19:14:51'),
-	(2, 'Visão', 'Ser uma conceituada e respeitada empresa de Coworking em âmbito Nacional e internacional.', 'Visão', 14, '2016-06-17 11:31:31', NULL),
-	(3, 'Valores', 'Trabalhar com ética, seriedade, produtividade, relacionamento, e apropriado investimento.', 'Valores', 14, '2016-06-16 12:06:08', NULL),
-	(12, 'Hotspot Coworking', '<p>Espa&ccedil;o compartilhando com outros profissionais.</p><p>Modalidade em que o cliente contrata uma esta&ccedil;&atilde;o de trabalho e utiliza o coworking compartilhando com outros profissionais ambiente de trabalho. Dentro da mesma estrutura, profissionais de diversos ramos de atividade trabalham individualmente. Servi&ccedil;os de telefonia, recep&ccedil;&atilde;o, caf&eacute;, &aacute;gua, limpeza e manuten&ccedil;&atilde;o est&atilde;o inclu&iacute;dos na mensalidade. Outros podem ser solicitados sob demanda como motoboy e correios.</p><p>Vantagens:</p><ul><li>Servi&ccedil;os de telefonia</li><li>Internet</li><li>Recep&ccedil;&atilde;o</li><li>Caf&eacute;</li><li>&Aacute;gua.</li><li>Limpeza e manuten&ccedil;&atilde;o</li><li>Material para escrit&oacute;rio</li><li>Ambiente climatizado</li></ul>', 'leaf', 7, '2016-06-17 11:31:34', '2016-06-24 14:56:12'),
+	(1, 'Missão', '<p>Lorem ipsum pretium torquent magna dui eleifend nisl, non euismod varius congue pretium pellentesque, porttitor primis convallis vel scelerisque sit.</p>', '', 14, '2016-06-17 11:31:33', '2016-06-23 19:14:51'),
+	(2, 'Visão', 'Ser uma conceituada e respeitada empresa de Coworking em âmbito Nacional e internacional.', '', 14, '2016-06-17 11:31:31', NULL),
+	(3, 'Valores', 'Trabalhar com ética, seriedade, produtividade, relacionamento, e apropriado investimento.', '', 14, '2016-06-16 12:06:08', NULL),
+	(12, 'Hotspot Coworking', '<p>Espa&ccedil;o compartilhando com outros profissionais.</p><p>Modalidade em que o cliente contrata uma esta&ccedil;&atilde;o de trabalho e utiliza o coworking compartilhando com outros profissionais ambiente de trabalho. Dentro da mesma estrutura, profissionais de diversos ramos de atividade trabalham individualmente. Servi&ccedil;os de telefonia, recep&ccedil;&atilde;o, caf&eacute;, &aacute;gua, limpeza e manuten&ccedil;&atilde;o est&atilde;o inclu&iacute;dos na mensalidade. Outros podem ser solicitados sob demanda como motoboy e correios.</p><p>Vantagens:</p><ul><li>Servi&ccedil;os de telefonia</li><li>Internet</li><li>Recep&ccedil;&atilde;o</li><li>Caf&eacute;</li><li>&Aacute;gua.</li><li>Limpeza e manuten&ccedil;&atilde;o</li><li>Material para escrit&oacute;rio</li><li>Ambiente climatizado</li></ul>', 'envelope', 7, '2016-06-17 11:31:34', '2016-06-27 14:59:51'),
 	(15, 'Sala para Reuniões', '<p>Estrutura completa para sua reuni&atilde;o.</p><p>As salas s&atilde;o alugadas por hora, per&iacute;odo, di&aacute;rio e mensal, possuem servi&ccedil;os de copa com caf&eacute; e &aacute;gua inclusos. Nossas salas s&atilde;o equipadas:</p><p>Vantagens:</p><ul><li>Suporte de v&iacute;deo;</li><li>&Aacute;udio confer&ecirc;ncia;</li><li>TV Flipchart para trabalhos did&aacute;ticos;</li><li>Telefone;</li><li>Internet;</li><li>Ambiente climatizado;</li><li>Recep&ccedil;&atilde;o;</li><li>Caf&eacute;;</li><li>&Aacute;gua;</li><li>Limpeza e manuten&ccedil;&atilde;o;</li></ul><p><strong>&nbsp;</strong></p><p>Coffe Break podem ser servidos conforme solicita&ccedil;&atilde;o do cliente, servi&ccedil;o terceirizado disponibilizado separadamente</p>', 'blackboard', 7, '2016-06-17 11:31:36', '2016-06-21 18:09:02'),
 	(18, 'Escritório Fiscal', '<p>Endere&ccedil;o fiscal para atender seus clientes.</p><p>O Escrit&oacute;rio Virtual proporciona a sua empresa uma imagem coorporativa de prest&iacute;gio sempre nos endere&ccedil;os mais nobres da cidade.</p><p>Al&eacute;m de reduzir custos operacionais. Permite que a empresa se concentre em sua atividade principal:</p><ul><li>Recepcionista;</li><li>Atendimento ao cliente;</li><li>Um telefone fixo exclusivo que &eacute; atendido com o nome da empresa do cliente (personalizado);</li><li>Endere&ccedil;o comercial;</li><li>Gerenciamento das correspond&ecirc;ncias;</li><li>Endere&ccedil;o fiscal;</li><li>Central de correspond&ecirc;ncia;</li></ul>', 'globe', 7, '2016-06-17 11:54:51', '2016-06-21 18:17:07'),
 	(20, 'Sala Privativa', '<p>Sala reservada para equipe ou at&eacute; 3 pessoas.</p><p>Nossa sala Privativa possui ambiente mais reservado, para uma empresa ou compartilhada com at&eacute; 3 pessoas. Banheiro exclusivo- Sala rica em arm&aacute;rios e gaveteiros.</p><ul><li>Sala Reservada;</li><li>Banheiro;</li><li>Arm&aacute;rio Grande;</li><li>Ambiente climatizado;</li><li>Internet;</li><li>Mesa com cadeira;</li><li>Servi&ccedil;os de telefonia;</li><li>Recep&ccedil;&atilde;o;</li><li>Caf&eacute;;</li><li>&Aacute;gua;</li><li>Material para escrit&oacute;rio;</li></ul><p>Outros podem ser solicitados conforme necessidade, como motoboy e correios (servi&ccedil;os a parte).</p>', 'lock', 7, '2016-06-17 11:55:27', '2016-06-21 18:11:23'),
 	(22, 'Escritório Comercial', '<p>Endere&ccedil;o comercial para atender seus clientes.</p><p>O endere&ccedil;o comercial ser&aacute; utilizado pelo contratante para ter um endere&ccedil;o em local nobre que receba suas correspond&ecirc;ncias, que poder&aacute; ser utilizado em seu material de marketing, em cart&otilde;es de visita, panfletos, site etc.. Incluindo os servi&ccedil;os:</p><ul><li>Recepcionista;</li><li>Atendimento telef&ocirc;nico;</li><li>Endere&ccedil;o comercial;</li><li>Gerenciamento das correspond&ecirc;ncias;</li><li>Envio de recado.</li></ul>', 'usd', 7, '2016-06-17 11:57:35', '2016-06-21 18:18:48'),
 	(23, 'Sala de treinamento', '<p>Sala estruturada para realizar seu treinamento, palestra ou curso.</p><p>Formato audit&oacute;rio, possui capacidade para 15 pessoas. As salas s&atilde;o alugadas por per&iacute;odo e dia, possuem servi&ccedil;os de copa com caf&eacute; e &aacute;gua inclusos. Nossas salas s&atilde;o equipadas com:</p><ul><li>Suporte de v&iacute;deo e &aacute;udio confer&ecirc;ncia</li><li>TV;</li><li>Flipchart para trabalhos did&aacute;ticos,</li><li>Internet;</li><li>Ar condicionado.</li><li>Jardim de inverno para deixar o ambiente agrad&aacute;vel</li></ul><p>Coffe Break podem ser servidos conforme solicita&ccedil;&atilde;o do cliente, servi&ccedil;o (terceirizado) disponibilizado separadamente.</p>', 'cog', 7, '2016-06-17 11:57:36', '2016-06-21 18:15:06'),
-	(24, 'Lista Vantagens 1...', '<p>teste teste teste</p>', '', 9, '2016-06-17 12:10:56', '2016-06-24 16:05:04'),
-	(25, 'Lista Vantagens 2', '<p>asdfas</p>', '', 9, '2016-06-17 12:10:57', '2016-06-24 16:14:07'),
-	(27, 'Lista Vantagens 3', '<p>sdf</p>', '', 9, NULL, '2016-06-24 16:14:12'),
-	(29, 'Lista Vantagens 4', '<p>sfg</p>', '', 9, NULL, '2016-06-24 16:14:17'),
-	(31, 'Lista Vantagens 5', '<p>testew</p>', '', 9, NULL, '2016-06-24 16:14:24'),
-	(33, 'Lista Vantagens 6', '<p>asdfa</p>', '', 9, NULL, '2016-06-24 16:14:29'),
-	(34, 'Missão', '<p>Oferecer, agrad&aacute;vel ambiente, excelente estrutura, maior custo benef&iacute;cio e suporte t&eacute;cnico necess&aacute;rio para o desenvolvimento do trabalho.</p>', NULL, 1, NULL, '2016-06-23 19:08:27'),
+	(24, 'Lista Vantagens 1...', '<p>teste teste teste</p>', 'edit', 9, '2016-06-17 12:10:56', '2016-06-27 16:16:23'),
+	(25, 'Lista Vantagens 2', '<p>asdfas</p>', 'edit', 9, '2016-06-17 12:10:57', '2016-06-24 16:14:07'),
+	(27, 'Lista Vantagens 3', '<p>sdf</p>', 'edit', 9, NULL, '2016-06-24 16:14:12'),
+	(29, 'Lista Vantagens 4', '<p>sfg</p>', 'edit', 9, NULL, '2016-06-24 16:14:17'),
+	(31, 'Lista Vantagens 5', '<p>testew</p>', 'edit', 9, NULL, '2016-06-24 16:14:24'),
+	(33, 'Lista Vantagens 6', '<p>asdfa</p>', 'edit', 9, NULL, '2016-06-24 16:14:29'),
+	(34, 'Missão', '<p>Oferecer, agrad&aacute;vel ambiente, excelente estrutura, maior custo benef&iacute;cio e suporte t&eacute;cnico necess&aacute;rio para o desenvolvimento do trabalho.</p>', 'asterisk', 1, NULL, '2016-06-27 15:01:47'),
 	(35, 'Visão', '<p>Ser uma conceituada e respeitada empresa de Coworking em &acirc;mbito Nacional e internacional.</p>', NULL, 1, NULL, '2016-06-23 19:07:44'),
 	(36, 'Valores', '<p>Trabalhar com &eacute;tica, seriedade, produtividade, relacionamento, e apropriado investimento.</p>', NULL, 1, NULL, '2016-06-23 19:08:08'),
-	(39, 'Lista Beneficios 1', '<p>Menor custo operacional. teste li</p>', 'list', 12, NULL, '2016-06-24 16:07:00'),
-	(41, 'Lista Beneficios 2', 'Ambiente empresarial moderno.', 'list', 12, NULL, NULL),
-	(43, 'Lista Beneficios 3', 'Investimento inicial zero.', 'list', 12, NULL, NULL),
-	(45, 'Lista Beneficios 4', 'Agilidade nas atividades operacionais de um escritório.', 'list', 12, NULL, NULL),
-	(47, 'Lista Beneficios 5', 'Foco na atividade fim do seu negócio.', 'list', 12, NULL, NULL),
-	(48, 'Lista Beneficios 6', 'Networking profissional.', 'list', 12, NULL, NULL),
-	(50, 'Lista Beneficios 7', 'Networking pessoal.', 'list', 12, NULL, NULL),
-	(52, 'Lista Beneficios 8', 'Grupo de empresas que poderá lhe auxiliar.', 'list', 12, NULL, NULL),
-	(58, 'Lista Busca 1', 'Profissionais que querem ampliar seu networking.', NULL, 6, NULL, NULL),
-	(59, 'Lista Busca 2', 'Sair de seu home office.', NULL, 6, NULL, NULL),
-	(60, 'Lista Busca 3', 'Diminuir as despesas com escritórios.', NULL, 6, NULL, NULL),
-	(62, 'Lista Busca 4', 'Startups.', NULL, 6, NULL, NULL),
-	(63, 'Lista Busca 5', 'Expandir seus negócios.', NULL, 6, NULL, NULL),
-	(64, 'Lista Busca 6', 'Ter rápido retorno financeiro.', NULL, 6, NULL, NULL),
-	(65, 'Lista Busca 7', 'Evitar erros comuns.', NULL, 6, NULL, NULL);
+	(39, 'Lista Beneficios 1', '<p>Menor custo operacional. teste li</p>', 'pushpin', 12, NULL, '2016-06-27 16:17:46'),
+	(41, 'Lista Beneficios 2', '<p>Ambiente empresarial moderno.</p>', 'pushpin', 12, NULL, '2016-06-27 16:19:04'),
+	(43, 'Lista Beneficios 3', 'Investimento inicial zero.', 'pushpin', 12, NULL, NULL),
+	(45, 'Lista Beneficios 4', 'Agilidade nas atividades operacionais de um escritório.', 'pushpin', 12, NULL, NULL),
+	(47, 'Lista Beneficios 5', 'Foco na atividade fim do seu negócio.', 'pushpin', 12, NULL, NULL),
+	(48, 'Lista Beneficios 6', 'Networking profissional.', 'pushpin', 12, NULL, NULL),
+	(50, 'Lista Beneficios 7', 'Networking pessoal.', 'pushpin', 12, NULL, NULL),
+	(52, 'Lista Beneficios 8', 'Grupo de empresas que poderá lhe auxiliar.', 'pushpin', 12, NULL, NULL),
+	(58, 'Lista Busca 1', '<p>Profissionais que querem ampliar seu networking.</p>', 'asterisk', 6, NULL, '2016-06-27 16:21:36'),
+	(59, 'Lista Busca 2', 'Sair de seu home office.', 'asterisk', 6, NULL, NULL),
+	(60, 'Lista Busca 3', 'Diminuir as despesas com escritórios.', 'asterisk', 6, NULL, NULL),
+	(62, 'Lista Busca 4', 'Startups.', 'asterisk', 6, NULL, NULL),
+	(63, 'Lista Busca 5', 'Expandir seus negócios.', 'asterisk', 6, NULL, NULL),
+	(64, 'Lista Busca 6', 'Ter rápido retorno financeiro.', 'asterisk', 6, NULL, NULL),
+	(65, 'Lista Busca 7', 'Evitar erros comuns.', 'asterisk', 6, NULL, NULL);
 /*!40000 ALTER TABLE `information` ENABLE KEYS */;
 
 
@@ -158,20 +157,25 @@ INSERT INTO `pages` (`id`, `name`, `cache`, `created_at`, `updated_at`) VALUES
 -- Copiando estrutura para tabela hotspot.photos
 DROP TABLE IF EXISTS `photos`;
 CREATE TABLE IF NOT EXISTS `photos` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
-  `text` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `gallery_id` int(11) NOT NULL,
+  `src` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `gallery_id` (`gallery_id`),
   CONSTRAINT `gallery_id` FOREIGN KEY (`gallery_id`) REFERENCES `galleries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela hotspot.photos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `photos` DISABLE KEYS */;
+INSERT INTO `photos` (`id`, `title`, `description`, `created_at`, `updated_at`, `gallery_id`, `src`) VALUES
+	(16, 'ola mundo', 'teste', '2016-06-27 20:33:00', '0000-00-00 00:00:00', 32, 'images/computer-962971.jpg'),
+	(17, 'ola mundo', 'teste', '2016-06-27 20:33:58', '0000-00-00 00:00:00', 32, 'images/computer-962971.jpg'),
+	(18, 'ola mundo', 'teste', '2016-06-27 20:34:45', '0000-00-00 00:00:00', 32, 'images/computer-962971.jpg'),
+	(19, 'ola mundo', 'teste', '2016-06-27 20:35:46', '0000-00-00 00:00:00', 32, 'images/computer-962971.jpg');
 /*!40000 ALTER TABLE `photos` ENABLE KEYS */;
 
 
