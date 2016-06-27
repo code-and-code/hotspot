@@ -1,6 +1,101 @@
 {% extends view('admin.admin') %}
 
 {% block content %}
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700,800);
+        *, *:after, *:before {
+            box-sizing: border-box;
+        }
+
+        .center {
+            padding: 10px;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4c4c4c;
+            font-weight: 600;
+            border-bottom: 1px solid #ccc;
+        }
+
+        h2, h4 {
+            font-weight: 400;
+            color: #4d4d4d;
+        }
+
+        .card {
+            display: inline-block;
+            margin: 10px;
+            background: #fff;
+            padding: 10px;
+            min-width: 20px;
+            box-shadow: 0 3px 5px #ddd;
+            color: #555;
+        }
+
+        .card_i {
+            display: inline-block;
+            margin: 10px;
+            background: #fff;
+            padding: 10px;
+            min-width: 20px;
+            box-shadow: 0 3px 5px #ddd;
+            color: #59b744;
+        }
+        .card_i .box {
+            width: 50px;
+            height: 50px;
+            margin: auto;
+            background: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 5px #ccc inset;
+        }
+        .card_i .box .fill {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            background: #f1f1f1;
+            opacity: .7;
+            box-shadow: 0 0 5px #ccc;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
+        }
+
+        .card .box {
+            width: 50px;
+            height: 50px;
+            margin: auto;
+            background: #ddd;
+            cursor: pointer;
+            box-shadow: 0 0 5px #ccc inset;
+        }
+        .card .box .fill {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            background: #cecece;
+            opacity: .7;
+            box-shadow: 0 0 5px #ccc;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
+        }
+
+        .card p {
+            margin: 25px 0 0;
+        }
+        .translate:hover .fill {
+            -webkit-transform: translate(10px, 10px);
+            transform: translate(10px, 10px);
+        }
+        .glyphicon {
+            margin-bottom: 10px;
+            font-size: 30px;
+            padding: 10px;
+        }
+    </style>
+
     <script src="../../../../assets/admin/ckeditor_edit_info/ckeditor.js"></script>
     <script src="../../../../assets/admin/ckeditor_edit_info/sample.js"></script>
 
@@ -41,9 +136,35 @@
                     </div>
                 </div>
 
+                {% if info.icon is not empty %}
+
+                <div class="form-group">
+                    <label class="control-label col-sm-1" for="title">Icones :
+                        <input type="hidden" name="icon" id="set_icon" value="{{ info.icon }}">
+                    <div class="card_i">
+                        <div class="box translate" id="icon_select">
+                            <div class="fill glyphicon glyphicon-{{ info.icon }} hi-icon"></div>
+                        </div>
+                    </div>
+
+                    </label>
+                    <div class="col-sm-11 center">
+                        {% set icons = ['asterisk','plus','tree-deciduous', 'minus', 'cloud', 'envelope', 'search', 'heart', 'star', 'user', 'film', 'ok', 'remove', 'cog', 'flag', 'tags', 'edit', 'paperclip', 'pushpin', 'usd'] %}
+                        {% for icon in icons %}
+                        <div class="card">
+                                <div class="box translate">
+                                <div class="fill glyphicon glyphicon-{{ icon }} hi-icon getIcon" data-name="{{ icon }}"></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                     </div>
+                </div>
+
+                {% endif %}
+
                 <div class="form-group">
                     <div class="col-sm-offset-1 col-sm-10">
-                        <button type="submit" class="btn btn-default">Salvar</button>
+                        <button type="submit" class="pull-left  btn btn-default">Salvar</button>
                     </div>
                 </div>
 
@@ -58,14 +179,23 @@
             initSample();
             var editor = CKEDITOR.instances.editor;
 
+            $(".getIcon").click(function(){
+
+                $('#set_icon').val($(this).data('name'));
+                var old = $(this).clone();
+                $("#icon_select").html(old);
+            });
+
+
             $('#form').submit(function(event)
             {
                 event.preventDefault();
                 $("#success").hide();
 
                 var formData = {
-                    'title'  :  $('#title').val(),
-                    'content'  : editor.getData()
+                    'title'    :  $('#title').val(),
+                    'content'  :  editor.getData(),
+                    'icon'     :  $('#set_icon').val()
                 };
 
                 $.ajax({

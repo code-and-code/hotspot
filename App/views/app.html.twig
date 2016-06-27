@@ -115,7 +115,7 @@
                     {% if content.flag == 'list' %}
                         {% for info in content.information() %}
                          <li>
-                            <i class='glyphicon glyphicon-edit'></i>{{ info.content|raw }}
+                            <i class='glyphicon glyphicon-{{ info.icon }}'></i>{{ info.content|raw }}
                          </li>
                         {% endfor %}
                     {% endif %}
@@ -260,36 +260,40 @@
     <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 </div>
 
-<!-- for bootstrap working -->
-<script src="../../assets/site/js/bootstrap.min.js"></script>
-<!-- //for bootstrap working -->
+
+{% block scripts %}
+
+    <!-- for bootstrap working -->
+    <script src="../../assets/site/js/bootstrap.min.js"></script>
+    <!-- //for bootstrap working -->
+    <script src="../../assets/site/js/responsiveslides.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            //layout app
+            $("#slider2").responsiveSlides({
+                auto: true,
+                pager: true,
+                speed: 300,
+                namespace: "callbacks",
+            });
+            $().UItoTop({ easingType: 'easeOutQuart' });
+            //end layout app
+
+            //list the icon "glyphicon-ok" in modal
+            $("#modal").find("li").prepend("<i class='glyphicon glyphicon-ok'> </i>");
+
+            //remove tag "p" class "li" (Ckedit)
+            $( ".list_content li" ).each(function( index ) {
+                var text = $(this).find("p").text();
+                $(this).find("p").remove();
+                $(this).append(text);
+            });
+        });
+    </script>
+{% endblock %}
+
 </body>
 </html>
-
-<script src="../../assets/site/js/responsiveslides.min.js"></script>
-
-<script type="text/javascript">
-
-    $(document).ready(function() {
-
-        //layout app
-        $("#slider2").responsiveSlides({
-            auto: true,
-            pager: true,
-            speed: 300,
-            namespace: "callbacks",
-        });
-        $().UItoTop({ easingType: 'easeOutQuart' });
-        //end layout app
-
-        //list the icon "glyphicon-ok" in modal
-        $("#modal").find("li").prepend("<i class='glyphicon glyphicon-ok'> </i>");
-
-        //remove tag "p" class "li" (Ckedit)
-        $( ".list_content li" ).each(function( index ) {
-            var text = $(this).find("p").text();
-            $(this).find("p").remove();
-            $(this).append(text);
-        });
-    });
-</script>

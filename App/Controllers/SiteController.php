@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Gallery;
 use App\Models\Page;
 use App\Support\Cache;
 use Cac\Support\FlashMessages;
@@ -65,7 +66,18 @@ class SiteController extends Controller
 
     public function images()
     {
-        echo $this->render('site.images');
+        $html = $this->initCache('images');
+        if(!$html)
+        {
+            $gallery = new Gallery();
+            $galleries = $gallery->all();
+            $html = $this->render('site.images', ['galleries'=> $galleries]);
+            Cache::set('images', $html);
+            echo $html;
+        }else{
+            echo $html;
+        }
+
     }
 
 }

@@ -22,7 +22,7 @@
 
                 {% for info in contents['beneficios'].Information() %}
 
-                        <li><i class='glyphicon glyphicon-pushpin'></i>{{ info.content|raw }}</li>
+                        <li><i class='glyphicon glyphicon-{{ info.icon }}'></i>{{ info.content|raw }}</li>
 
                 {% endfor %}
 

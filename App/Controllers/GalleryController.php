@@ -3,16 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Gallery;
-
-use Illuminate\Http\Request;
-use Illuminate\Validation\Validator;
-use Illuminate\Container\Container;
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\Translation\FileLoader;
-use Illuminate\Translation\Translator;
-use Illuminate\Validation\Factory;
-
-
+use App\Support\Cache;
 
 class GalleryController extends Controller
 {
@@ -23,10 +14,8 @@ class GalleryController extends Controller
         $this->gallery = new Gallery();
     }
 
-    public function index($id)
+    public function index()
     {
-        var_dump($id);
-
         echo $this->render('admin.gallery.index', ['galleries' => $this->gallery->all()]);
     }
 
@@ -35,26 +24,28 @@ class GalleryController extends Controller
         echo $this->render('admin.gallery.create');
     }
 
+    private function limit()
+    {
+        if(count($this->gallery->all()) > 5)
+        {
+            throw new \Exception('Error: Você atingiu numero Maximo(5) de Galerias!');
+        }
+    }
+
     public function store()
     {
-
-        $loader = new FileLoader(new Filesystem, 'lang');
-        $translator = new Translator($loader, 'en');
-        $validation = new Factory($translator, new Container);
-
-        $rules = ['email' => 'required|email'];
-        $errors = null;
-
-        $validator = $validation->make($_REQUEST, $rules);
-        if ($validator->fails()) {
-            $errors = $validator->errors();
-
-            print_r($errors);
+        try
+        {
+            $this->limit();
+            $gallery = $_REQUEST;
+            $this->gallery->create($gallery);
+            Cache::delete('images');
+            header('Location: /admin/gallery/create');
         }
+        catch (\Exception $e){
 
-        //$gallery = $_REQUEST;
-        //$this->gallery->create($gallery);
-        //header('Location: /admin/gallery/create');
+            echo $e->getMessage();
+        }
     }
 
     public function edit()
@@ -68,13 +59,15 @@ class GalleryController extends Controller
     {
         $id = $_GET['id'];
         $this->gallery->find($id)->update($_REQUEST);
-        $this->redirectTo('info','Gravado','/admin/gallery');
+        Cache::delete('images');
+        header('Location: /admin/gallery');
     }
 
     public function delete()
     {
         $id = $_GET['id'];
         $this->gallery->find($id)->delete();
+        Cache::delete('images');
         header('Location: /admin/gallery');
     }
 }
