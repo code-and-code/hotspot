@@ -4,6 +4,16 @@ namespace App\Controllers;
 
 use App\Models\Gallery;
 
+use Illuminate\Http\Request;
+use Illuminate\Validation\Validator;
+use Illuminate\Container\Container;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Translation\FileLoader;
+use Illuminate\Translation\Translator;
+use Illuminate\Validation\Factory;
+
+
+
 class GalleryController extends Controller
 {
     private $gallery;
@@ -13,8 +23,10 @@ class GalleryController extends Controller
         $this->gallery = new Gallery();
     }
 
-    public function index()
+    public function index($id)
     {
+        var_dump($id);
+
         echo $this->render('admin.gallery.index', ['galleries' => $this->gallery->all()]);
     }
 
@@ -25,9 +37,24 @@ class GalleryController extends Controller
 
     public function store()
     {
-        $gallery = $_REQUEST;
-        $this->gallery->create($gallery);
-        header('Location: /admin/gallery/create');
+
+        $loader = new FileLoader(new Filesystem, 'lang');
+        $translator = new Translator($loader, 'en');
+        $validation = new Factory($translator, new Container);
+
+        $rules = ['email' => 'required|email'];
+        $errors = null;
+
+        $validator = $validation->make($_REQUEST, $rules);
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+
+            print_r($errors);
+        }
+
+        //$gallery = $_REQUEST;
+        //$this->gallery->create($gallery);
+        //header('Location: /admin/gallery/create');
     }
 
     public function edit()
@@ -41,7 +68,7 @@ class GalleryController extends Controller
     {
         $id = $_GET['id'];
         $this->gallery->find($id)->update($_REQUEST);
-        header('Location: /admin/gallery/edit');
+        $this->redirectTo('info','Gravado','/admin/gallery');
     }
 
     public function delete()

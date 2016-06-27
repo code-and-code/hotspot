@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Models\Page;
 use App\Support\Cache;
+use Cac\Support\FlashMessages;
 
 
 class SiteController extends Controller
