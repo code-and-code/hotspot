@@ -23,22 +23,59 @@ class PhotoController extends Action
 
     public function store(array $photo)
     {
-        $this->photo->create($photo);
+        try {
+            $this->photo->create($photo);
+            echo "Photo Criada";
+
+        }catch (\Exception $e)
+        {
+            echo json_encode(['errors' => $e->getMessage()], 404);
+        }
     }
 
     public function upload()
     {
-
          try {
-            $file  = new File('file',$this->src);
-            $file->mimeType(['image/png','image/jpg', 'image/jpeg'])->maxSize('50K')->upload();
+            $file       = new File('file',$this->src);
+            $nameFile   = md5(date('H:m:s:'));
+            $file->setName($nameFile)->mimeType(['image/png','image/jpeg', 'image/jpg'])->maxSize('3M')->upload();
             $photo = $_REQUEST;
             $photo['src'] = $this->src.'/'.$file->getData()['name'];
             $this->store($photo);
+
         }
         catch (\Exception $e)
         {
-            echo json_encode(['errors' => $e],404);
+            echo json_encode(['errors' => $e->getMessage()],404);
+        }
+    }
+
+    public function edit()
+    {
+        $id = $_GET['id'];
+        $photo = $this->photo->find($id);
+        echo $this->render('admin.photo.edit', ['photo' => $photo]);
+    }
+
+    public function update()
+    {
+        $id = $_POST['id'];
+        $photo = $this->photo->find($id)->update($_REQUEST);
+        header("Location: /admin/gallery/edit?id=".$photo->Gallery()->id);
+    }
+
+    public function delete()
+    {
+        $id = $_GET['id'];
+        $path = __DIR__."/../../public/";
+        $file = $this->photo->find($id);
+        if(file_exists($path.$file->src))
+        {
+            unlink($path.$file->src);
+            $file->delete();
+            header("Location: /admin/gallery/edit?id=".$file->Gallery()->id);
+        }else{
+            echo "file nao existe";
         }
     }
 

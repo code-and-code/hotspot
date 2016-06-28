@@ -49,14 +49,13 @@ class File
 
     public function upload()
     {
-
-        try {
-
-            return $this->file->upload();
-
-        } catch (\Exception $e) {
-
-            return $this->file->getErrors();
+        if($this->file->upload())
+        {
+            return $this;
+        }
+        else
+        {
+           throw new \Exception ($this->file->getErrors());
         }
     }
 
