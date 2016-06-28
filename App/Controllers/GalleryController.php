@@ -16,6 +16,7 @@ class GalleryController extends Controller
 
     public function index()
     {
+
         echo $this->render('admin.gallery.index', ['galleries' => $this->gallery->all()]);
     }
 

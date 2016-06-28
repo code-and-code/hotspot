@@ -6,137 +6,36 @@
 		<div class="container">
 
 			<ul class="simplefilter">
+
 				{% for key, gallery in galleries %}
-					<li data-filter="{{ key }}">{{ gallery.name }}</li>
+
+					<li data-filter="{{ gallery.id }}">{{ gallery.name }}</li>
+
 				{% endfor %}
 			</ul>
 
-			<div class="filtr-container">
-				<div class="  filtr-item gallery-t" data-category="1, 5" data-sort="Busy streets">
-					<a href="images/ga.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-						<figure>
-							<img src="../../../assets/site/images/ga.jpg" class="img-responsive" alt=" " />	<figcaption>
-							<h3>Titulo</h3>
-							<p>
-								Texto Previo.
-							</p>
-						</figcaption>
-						</figure>
-					</a>
-				</div>
+			{% for key, gallery in galleries %}
+				{% for photo in gallery.Photos() %}
 
-				<div class=" filtr-item" data-category="2, 5" data-sort="Luminous night">
-					<a href="images/ga1.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
+				<div class="filtr-container">
+					<div class="filtr-item gallery-t" data-category={{ photo.gallery_id }}>
+						<a href="images/ga.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
+							<figure>
+								<img src="../../../{{ photo.src }}" class="img-responsive" alt=" " />	<figcaption>
+									<h3>{{ photo.title }}</h3>
+									<p>
 
-						<figure>
-							<img src="../../../assets/site/images/ga1.jpg" class="img-responsive" alt=" " />	<figcaption>
-							<h3>Titulo</h3>
-							<p>
-								Texto Previo.
-							</p>
-						</figcaption>
-						</figure>
-					</a>
+										{{ photo.description }}
+									</p>
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+				{% endfor %}
+			{% endfor %}
 
-				</div>
-				<div class=" filtr-item" data-category="1, 4" data-sort="City wonders">
-					<a href="images/ga2.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
 
-						<figure>
-							<img src="../../../assets/site/images/ga2.jpg" class="img-responsive" alt=" " />	<figcaption>
-							<h3>Titulo</h3>
-							<p>
-								Texto Previo.
-							</p>
-						</figcaption>
-						</figure>
-					</a>
 
-				</div>
-				<div class="  filtr-item" data-category="3" data-sort="In production">
-					<a href="images/ga3.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-
-						<figure>
-							<img src="../../../assets/site/images/ga3.jpg" class="img-responsive" alt=" " />	<figcaption>
-							<h3>Titulo</h3>
-							<p>
-								Texto Previo.
-							</p>
-						</figcaption>
-						</figure>
-					</a>
-
-				</div>
-				<div class=" filtr-item" data-category="3, 4" data-sort="Industrial site">
-					<a href="images/ga4.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-
-						<figure>
-							<img src="../../../assets/site/images/ga4.jpg" class="img-responsive" alt=" " />	<figcaption>
-							<h3>Titulo</h3>
-							<p>
-								Texto Previo.
-							</p>
-						</figcaption>
-						</figure>
-					</a>
-
-				</div>
-				<div class=" filtr-item" data-category="2, 4" data-sort="Peaceful lake">
-					<a href="images/ga5.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-
-						<figure>
-							<img src="../../../assets/site/images/ga5.jpg" class="img-responsive" alt=" " />	<figcaption>
-							<h3>Titulo</h3>
-							<p>
-								Texto Previo.
-							</p>
-						</figcaption>
-						</figure>
-					</a>
-
-				</div>
-				<div class="  filtr-item" data-category="1, 5" data-sort="City lights">
-					<a href="images/ga6.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-
-						<figure>
-							<img src="../../../assets/site/images/ga6.jpg" class="img-responsive" alt=" " />	<figcaption>
-							<h3>Titulo</h3>
-							<p>
-								Texto Previo.
-							</p>
-						</figcaption>
-						</figure>
-					</a>
-
-				</div>
-				<div class=" filtr-item" data-category="2, 4" data-sort="Dreamhouse">
-					<a href="images/ga7.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-
-						<figure>
-							<img src="../../../assets/site/images/ga7.jpg" class="img-responsive" alt=" " />	<figcaption>
-							<h3>Titulo</h3>
-							<p>
-								Texto Previo.
-							</p>
-						</figcaption>
-						</figure>
-					</a>
-
-				</div>
-				<div class=" filtr-item" data-category="2, 4" data-sort="Dreamhouse">
-					<a href="images/ga8.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-
-						<figure>
-							<img src="../../../assets/site/images/ga8.jpg" class="img-responsive" alt=" " />	<figcaption>
-							<h3>Titulo</h3>
-							<p>
-								Texto Previo.
-							</p>
-						</figcaption>
-						</figure>
-					</a>
-
-				</div>
 
 				<div class="clearfix"> </div>
 			</div>
