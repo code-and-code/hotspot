@@ -25,17 +25,23 @@ class PhotoController extends Action
     {
         try {
             $this->photo->create($photo);
-            echo "Photo Criada";
+
+            header('Content-type: application/json');
+            http_response_code(200);
+            echo json_encode('Enviado com Sucesso!!');
 
         }catch (\Exception $e)
         {
-            echo json_encode(['errors' => $e->getMessage()], 404);
+            header('Content-type: application/json');
+            http_response_code(404);
+            echo json_encode($e->getMessage());
         }
     }
 
     public function upload()
     {
          try {
+
             $file       = new File('file',$this->src);
             $nameFile   = md5(date('H:m:s:'));
             $file->setName($nameFile)->mimeType(['image/png','image/jpeg', 'image/jpg'])->maxSize('3M')->upload();
@@ -46,7 +52,9 @@ class PhotoController extends Action
         }
         catch (\Exception $e)
         {
-            echo json_encode(['errors' => $e->getMessage()],404);
+            header('Content-type: application/json');
+            http_response_code(404);
+            echo json_encode(['errors' => $e->getMessage()]);
         }
     }
 

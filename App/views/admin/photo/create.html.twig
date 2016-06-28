@@ -3,97 +3,110 @@
 
 {% block content %}
 
-    <link rel="stylesheet" href="../../../../assets/admin/upload/css/jquery.fileupload.css">
-
             <div class="panel panel-default">
                 <div class="panel-heading"></a> Nova Foto</div>
                 <div class="panel-body">
 
-                    <form method="post" action="" class="form-horizontal" id="from_upload">
+                    <form method="post" action="/admin/photo/upload" class="form-horizontal" id="upload" enctype="multipart/form-data">
                         <input type="hidden" name="gallery_id"  id="gallery_id" value="{{ id }}"/>
 
-                        <div class="form-group command_show">
+                        <div class="form-group">
                             <label class="col-sm-2 control-label">Titulo</label>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" name="title" id="title" />
                             </div>
                         </div>
-                        <div class="form-group command_show">
+                        <div class="form-group">
                             <label class="col-sm-2 control-label">Descrição</label>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" name="description" id="description"/>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Image</label>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control" name="file" id="file"/>
+                            </div>
+                        </div>
                         <div class="form-group command_show">
                             <label class="col-sm-2 control-label">Requisitos</label>
                             <div class="col-sm-6">
-                                <p>Arquivo Suportados: .PNG .JPG</p>
-                                <p>Tamanhos Maxi: 3M</p>
+                                <p>Formatos: PNG,JPEG, JPG</p>
+                                <p>Tamanhos Maximo: 1M</p>
+                                <div id="image_preview"><img id="previewing" src="" /></div>
                             </div>
                         </div>
-
-
-                    <div style="margin-bottom: 50px">
-                        <span class="btn btn-success fileinput-button">
-                            <i class="glyphicon glyphicon-plus"></i>
-                            <span>Arquivos</span>
-                            <input id="fileupload" type="file" name="file"  multiple>
-                        </span>
-                    </div>
-
-                    <!-- The global progress bar -->
-                    <div id="progress" class="progress">
-                        <div class="progress-bar progress-bar-success"></div>
-                    </div>
-                    <!-- The container for the uploaded files -->
-                    <div id="files" class="files"></div>
-                    <br/>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary" id="upload"><i class="fa fa-btn fa-check"></i>Salvar</button>
+                                <button type="submit" class="btn btn-default"><i class="fa fa-btn fa-check"></i>Salvar</button>
                             </div>
                         </div>
                     </form>
 
                 </div>
             </div>
-
-    <script src="../../../../assets/admin/upload/js/jquery.ui.widget.js"></script>
-    <script src="../../../../assets/admin/upload/js/jquery.fileupload.js"></script>
-
     <script>
 
-        $(function () {
-            'use strict';
+        $(document).ready(function (e) {
 
-            var url = '/admin/photo/upload';
+            $("#upload").on('submit',(function(e) {
 
-            $('#fileupload').fileupload({
-                url: url,
-                dataType: 'json',
-                autoUpload: false,
-                add : function(e, data){
-                    $("#upload").click(function(){
-                        data.formData = $('#from_upload').serializeArray();
-                        data.submit();
-                    });
-                },
+                e.preventDefault();
 
-                done: function (e, data) {
 
-                    console.log(data.result);
-                    $('<p/>').text(data.result).appendTo('#files');
-                },
-
-                progressall: function (e, data) {
-                    var progress = parseInt(data.loaded / data.total * 100, 10);
-                    $('#progress .progress-bar').css(
-                            'width',
-                            progress + '%'
-                    );
+                if($("#title").val() == "" || $("#description").val() == "" )
+                {
+                    alert('Titule/Descrição são obrigatórios!')
+                    return false;
                 }
-            }).prop('disabled', !$.support.fileInput)
-                    .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+                $.ajax({
+                url: this.action,               // Url to which the request is send
+                type: "POST",                   // Type of request to be send, called as method
+                data: new FormData(this),       // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                contentType: false,             // The content type used when sending data to the server.
+                cache: false,                   // To unable request pages to be cached
+                processData:false})            // To send DOMDocument or non processed data file it is set to false
+                .success(function(data)
+                {
+                    alert(data.responseText);
+                    location.reload();
+                })
+                .fail(function(data)
+                {
+                    alert(data.responseText);
+                });
+            }));
+
+            // Function to preview image after validation
+            $(function() {
+                $("#file").change(function() {
+                    $("#message").empty(); // To remove the previous error message
+                    var file = this.files[0];
+                    var imagefile = file.type;
+                    var match= ["image/jpeg","image/png","image/jpg"];
+                    if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2])))
+                    {
+                        $('#previewing').attr('src','noimage.png');
+                        $("#message").html("<p id='error'>Please Select A valid Image File</p>"+"<h4>Note</h4>"+"<span id='error_message'>Only jpeg, jpg and png Images type allowed</span>");
+                        return false;
+                    }
+                    else
+                    {
+                        var reader = new FileReader();
+                        reader.onload = imageIsLoaded;
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+            });
+            function imageIsLoaded(e) {
+                $("#file").css("color","green");
+                $('#image_preview').css("display", "block");
+                $('#previewing').attr('src', e.target.result);
+                $('#previewing').attr('width', '150px');
+                $('#previewing').attr('height', '150px');
+            };
         });
+
     </script>
 {% endblock %}

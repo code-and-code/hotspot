@@ -29,7 +29,7 @@ class GalleryController extends Controller
     {
         if(count($this->gallery->all()) > 5)
         {
-            throw new \Exception('Error: Você atingiu numero Maximo(5) de Galerias!');
+            throw new \Exception('Error: Vocï¿½ atingiu numero Maximo(5) de Galerias!');
         }
     }
 
@@ -70,5 +70,15 @@ class GalleryController extends Controller
         $this->gallery->find($id)->delete();
         Cache::delete('images');
         header('Location: /admin/gallery');
+    }
+
+    public function clearGallery(Gallery $gallery)
+    {
+        
+        foreach ($gallery->Photos() as $photo)
+        {
+
+        }
+
     }
 }
