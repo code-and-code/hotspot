@@ -54,9 +54,9 @@
                 e.preventDefault();
 
 
-                if($("#title").val() == "" || $("#description").val() == "" )
+                if($("#title").val() == "")
                 {
-                    alert('Titule/Descrição são obrigatórios!')
+                    alert('Titulo é obrigatório!');
                     return false;
                 }
 
@@ -69,8 +69,8 @@
                 processData:false})            // To send DOMDocument or non processed data file it is set to false
                 .success(function(data)
                 {
-                    alert(data.responseText);
-                    location.reload();
+                    //alert(data.responseText);
+                    window.location.href="/admin/gallery/edit?id="+$("#gallery_id");
                 })
                 .fail(function(data)
                 {

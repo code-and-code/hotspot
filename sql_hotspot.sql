@@ -16,7 +16,6 @@ USE `hotspot`;
 
 
 -- Copiando estrutura para tabela hotspot.contacts
-DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE IF NOT EXISTS `contacts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -34,7 +33,6 @@ INSERT INTO `contacts` (`id`, `name`, `phone`, `email`, `acting`) VALUES
 
 
 -- Copiando estrutura para tabela hotspot.content
-DROP TABLE IF EXISTS `content`;
 CREATE TABLE IF NOT EXISTS `content` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -48,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `content` (
   CONSTRAINT `page_id` FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.content: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.content: ~8 rows (aproximadamente)
 /*!40000 ALTER TABLE `content` DISABLE KEYS */;
 INSERT INTO `content` (`id`, `name`, `content`, `flag`, `page_id`, `created_at`, `updated_at`) VALUES
 	(1, 'Banner', '', 'banner', 1, NULL, NULL),
@@ -63,7 +61,6 @@ INSERT INTO `content` (`id`, `name`, `content`, `flag`, `page_id`, `created_at`,
 
 
 -- Copiando estrutura para tabela hotspot.galleries
-DROP TABLE IF EXISTS `galleries`;
 CREATE TABLE IF NOT EXISTS `galleries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -72,17 +69,16 @@ CREATE TABLE IF NOT EXISTS `galleries` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.galleries: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.galleries: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `galleries` DISABLE KEYS */;
 INSERT INTO `galleries` (`id`, `name`, `created_at`, `updated_at`) VALUES
-	(36, 'Sala de Reunião', '2016-06-28 17:46:36', '2016-06-29 18:13:33'),
+	(36, 'Sala de Reunião', '2016-06-28 17:46:36', '2016-06-29 18:45:14'),
 	(37, 'Sala de Treinamento', '2016-06-29 18:14:41', NULL),
 	(38, 'Sala Privativa', '2016-06-29 18:15:03', NULL);
 /*!40000 ALTER TABLE `galleries` ENABLE KEYS */;
 
 
 -- Copiando estrutura para tabela hotspot.information
-DROP TABLE IF EXISTS `information`;
 CREATE TABLE IF NOT EXISTS `information` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -96,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `information` (
   CONSTRAINT `content_id` FOREIGN KEY (`content_id`) REFERENCES `content` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.information: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.information: ~33 rows (aproximadamente)
 /*!40000 ALTER TABLE `information` DISABLE KEYS */;
 INSERT INTO `information` (`id`, `title`, `content`, `icon`, `content_id`, `created_at`, `updated_at`) VALUES
 	(1, 'Coworking', 'Agradável ambiente de trabalho com salas equipadas, suporte técnico e uma equipe altamente qualificada.', NULL, 1, '2016-06-29 11:12:52', NULL),
@@ -136,7 +132,6 @@ INSERT INTO `information` (`id`, `title`, `content`, `icon`, `content_id`, `crea
 
 
 -- Copiando estrutura para tabela hotspot.pages
-DROP TABLE IF EXISTS `pages`;
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
@@ -156,7 +151,6 @@ INSERT INTO `pages` (`id`, `name`, `cache`, `created_at`, `updated_at`) VALUES
 
 
 -- Copiando estrutura para tabela hotspot.photos
-DROP TABLE IF EXISTS `photos`;
 CREATE TABLE IF NOT EXISTS `photos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -168,15 +162,24 @@ CREATE TABLE IF NOT EXISTS `photos` (
   PRIMARY KEY (`id`),
   KEY `gallery_id` (`gallery_id`),
   CONSTRAINT `gallery_id` FOREIGN KEY (`gallery_id`) REFERENCES `galleries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.photos: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.photos: ~9 rows (aproximadamente)
 /*!40000 ALTER TABLE `photos` DISABLE KEYS */;
+INSERT INTO `photos` (`id`, `title`, `description`, `created_at`, `updated_at`, `gallery_id`, `src`) VALUES
+	(1, 'Ambiente refrigerado.', '', '2016-06-29 18:44:31', '0000-00-00 00:00:00', 36, 'images/b6493a3356062c12ba58ba69b337490f.png'),
+	(2, 'Mesa para reuniões.', '', '2016-06-29 18:45:58', '0000-00-00 00:00:00', 36, 'images/e4dc77ce72260b52e9a03d87abd983e2.png'),
+	(3, 'Video conferencia', '', '2016-06-29 18:48:47', '0000-00-00 00:00:00', 36, 'images/5a2353822a0b4017145e592c2d763581.png'),
+	(4, 'Espaço para apresentacoes', '', '2016-06-29 18:50:11', '0000-00-00 00:00:00', 37, 'images/6cce1a0eb4223b742a887088b87a4577.png'),
+	(6, 'Iluminaço natural', '', '2016-06-29 18:53:45', '0000-00-00 00:00:00', 37, 'images/0b75142f6afa3435771c8d93fe9de3b3.png'),
+	(7, 'Ventilacao natural e jardim', '', '2016-06-29 18:54:18', '0000-00-00 00:00:00', 37, 'images/30f2dd8d2bf8b86949bd6937160d999e.png'),
+	(8, 'Cadeiras confortáveis', '', '2016-06-29 18:55:50', '0000-00-00 00:00:00', 38, 'images/b9a2cdbe47393996ae5da7f4a9a17317.png'),
+	(9, 'Iluminação', '', '2016-06-29 18:58:38', '0000-00-00 00:00:00', 38, 'images/e14c2b9e789e033c17c5ee61dbe04ec3.png'),
+	(10, 'Mesas com gavetas', '', '2016-06-29 19:00:20', '0000-00-00 00:00:00', 38, 'images/536801f999a73a1cc86b269de07f8c80.png');
 /*!40000 ALTER TABLE `photos` ENABLE KEYS */;
 
 
 -- Copiando estrutura para tabela hotspot.users
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,

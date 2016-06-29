@@ -24,8 +24,7 @@ class PhotoController extends Action
     public function store(array $photo)
     {
         try {
-            $this->photo->create($photo);
-
+            $photo = $this->photo->create($photo);
             header('Content-type: application/json');
             http_response_code(200);
             echo json_encode('Enviado com Sucesso!!');
