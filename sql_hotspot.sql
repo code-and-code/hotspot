@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `galleries` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.galleries: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.galleries: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `galleries` DISABLE KEYS */;
 INSERT INTO `galleries` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(36, 'Sala de Reunião', '2016-06-28 17:46:36', '2016-06-29 18:45:14'),
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela hotspot.pages: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.pages: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
 INSERT INTO `pages` (`id`, `name`, `cache`, `created_at`, `updated_at`) VALUES
 	(1, 'inicio', 'index', '2016-06-13 16:54:02', NULL),
@@ -166,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
   CONSTRAINT `gallery_id` FOREIGN KEY (`gallery_id`) REFERENCES `galleries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.photos: ~9 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.photos: ~12 rows (aproximadamente)
 /*!40000 ALTER TABLE `photos` DISABLE KEYS */;
 INSERT INTO `photos` (`id`, `title`, `description`, `created_at`, `updated_at`, `gallery_id`, `src`) VALUES
 	(1, 'Ambiente refrigerado.', '', '2016-06-29 18:44:31', '0000-00-00 00:00:00', 36, 'images/b6493a3356062c12ba58ba69b337490f.png'),
