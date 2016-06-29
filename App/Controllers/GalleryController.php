@@ -38,8 +38,7 @@ class GalleryController extends Controller
         try
         {
             $this->limit();
-            $gallery = $_REQUEST;
-            $this->gallery->create($gallery);
+            $this->gallery->create($_REQUEST);
             Cache::delete('images');
             header('Location: /admin/gallery/create');
         }

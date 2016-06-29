@@ -72,7 +72,7 @@
                             {% for info in content.Information() %}
 
                                 <tr>
-                                    <td>{{ info.title }}</td>
+                                    <td>{{ info.title|raw }}</td>
                                     <td>{{ limit(info.content,0,40)|raw }}</td>
                                     <td>
                                         <a href='/admin/information/edit?id={{ info.id }}' title=''><i class= 'glyphicon glyphicon-edit'></i></a>
