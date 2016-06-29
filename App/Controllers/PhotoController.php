@@ -13,7 +13,7 @@ class PhotoController extends Action
     public function __construct()
     {
           $this->photo = new Photo();
-          $this->src   = 'images';
+          $this->src   = config('app.file.folder');
     }
 
     public function create()
@@ -75,11 +75,10 @@ class PhotoController extends Action
     public function delete()
     {
         $id = $_GET['id'];
-        $path = __DIR__."/../../public/";
         $file = $this->photo->find($id);
-        if(file_exists($path.$file->src))
+        if(file_exists($file->src))
         {
-            unlink($path.$file->src);
+            unlink($file->src);
             $file->delete();
             header("Location: /admin/gallery/edit?id=".$file->Gallery()->id);
         }else{

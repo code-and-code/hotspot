@@ -11,8 +11,8 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Copiando estrutura do banco de dados para hotspot
-CREATE DATABASE IF NOT EXISTS `hotspot` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `hotspot`;
+CREATE DATABASE IF NOT EXISTS `hotspot_site` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `hotspot_site`;
 
 
 -- Copiando estrutura para tabela hotspot.contacts
@@ -33,6 +33,68 @@ INSERT INTO `contacts` (`id`, `name`, `phone`, `email`, `acting`) VALUES
 /*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 
 
+-- Copiando estrutura para tabela hotspot.galleries
+DROP TABLE IF EXISTS `galleries`;
+CREATE TABLE IF NOT EXISTS `galleries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+
+-- Copiando dados para a tabela hotspot.galleries: ~1 rows (aproximadamente)
+/*!40000 ALTER TABLE `galleries` DISABLE KEYS */;
+INSERT INTO `galleries` (`id`, `name`, `created_at`, `updated_at`) VALUES
+	(32, 'uma galeria', '2016-06-27 20:29:25', NULL);
+/*!40000 ALTER TABLE `galleries` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela hotspot.photos
+DROP TABLE IF EXISTS `photos`;
+CREATE TABLE IF NOT EXISTS `photos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `gallery_id` int(11) NOT NULL,
+  `src` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `gallery_id` (`gallery_id`),
+  CONSTRAINT `gallery_id` FOREIGN KEY (`gallery_id`) REFERENCES `galleries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+-- Copiando dados para a tabela hotspot.photos: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `photos` DISABLE KEYS */;
+INSERT INTO `photos` (`id`, `title`, `description`, `created_at`, `updated_at`, `gallery_id`, `src`) VALUES
+  (16, 'ola mundo', 'teste', '2016-06-27 20:33:00', '0000-00-00 00:00:00', 32, 'images/computer-962971.jpg'),
+  (17, 'ola mundo', 'teste', '2016-06-27 20:33:58', '0000-00-00 00:00:00', 32, 'images/computer-962971.jpg'),
+  (18, 'ola mundo', 'teste', '2016-06-27 20:34:45', '0000-00-00 00:00:00', 32, 'images/computer-962971.jpg'),
+  (19, 'ola mundo', 'teste', '2016-06-27 20:35:46', '0000-00-00 00:00:00', 32, 'images/computer-962971.jpg');
+/*!40000 ALTER TABLE `photos` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela hotspot.pages
+DROP TABLE IF EXISTS `pages`;
+CREATE TABLE IF NOT EXISTS `pages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `cache` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- Copiando dados para a tabela hotspot.pages: ~4 rows (aproximadamente)
+/*!40000 ALTER TABLE `pages` DISABLE KEYS */;
+INSERT INTO `pages` (`id`, `name`, `cache`, `created_at`, `updated_at`) VALUES
+  (1, 'inicio', 'index', '2016-06-13 16:54:02', NULL),
+  (2, 'hotspot_coworking', 'about', '2016-06-13 16:53:59', NULL),
+  (3, 'como_funciona', 'works', '2016-06-13 16:54:01', NULL),
+  (4, 'imagens', 'images', '2016-06-13 16:54:02', NULL);
+/*!40000 ALTER TABLE `pages` ENABLE KEYS */;
+
+
 -- Copiando estrutura para tabela hotspot.content
 DROP TABLE IF EXISTS `content`;
 CREATE TABLE IF NOT EXISTS `content` (
@@ -51,32 +113,15 @@ CREATE TABLE IF NOT EXISTS `content` (
 -- Copiando dados para a tabela hotspot.content: ~8 rows (aproximadamente)
 /*!40000 ALTER TABLE `content` DISABLE KEYS */;
 INSERT INTO `content` (`id`, `name`, `content`, `flag`, `page_id`, `created_at`, `updated_at`) VALUES
-	(1, 'Banner', '<p>asdasd</p>', 'banner', 1, '2016-06-13 16:44:14', '2016-06-24 15:14:17'),
-	(2, 'A Hotpost', '<p>A <strong>Hotspot </strong>foi desenvolvida para atuar no mercado de Coworking. Trabalha de forma inovadora, s&eacute;ria e comprometida. Sua localiza&ccedil;&atilde;o &eacute; privilegiada em Curitiba.</p><p>Possui agrad&aacute;vel ambiente de trabalho com salas equipadas, suporte t&eacute;cnico e uma equipe altamente qualificada.</p><p>&nbsp;</p><p>Daremos todo suporte que voc&ecirc; precisa para colocar em pr&aacute;tica seu projeto de trabalho e fazer com que seu sonho seja realidade. A Hotspot &eacute; formada por uma equipe de profissionais que ir&aacute; agregar valor aos servi&ccedil;os que iremos lhe oferecer. J&aacute; atuamos em diversos seguimentos, tais como, &aacute;rea jur&iacute;dica, tecnol&oacute;gica, cont&aacute;bil e comercial, que automaticamente sua empresa ser&aacute; inserida.</p><p>&nbsp;</p><p>Oferecemos um espa&ccedil;o de trabalho inovador, para profissionais inteligentes que tem interesse de reinventar sua forma de trabalho.</p><p>&nbsp;</p><p>O profissional que escolhe atuar em um ambiente de coworking, poder&aacute; focar sua energia e seu tempo no que &eacute; realmente importante para alavancar e potencializar sua atividade dentro do mercado, colocando diante de suas m&atilde;os a possibilidade de um retorno extraordin&aacute;rio.</p>', 'about', 2, '2016-06-13 16:44:24', '2016-06-23 19:11:50'),
-	(6, 'Como Funciona', '<p>\r\n						Coworking é a união de um grupo de profissionais inovadores e talentosos, que trabalham independente uma das outras, dividindo o mesmo espaço e mesmo endereço.\r\n						São pessoas que compartilham seus valores e conhecimento, criam sinergia entre elas que aumenta a motivação e consequentemente seus resultados.\r\n					</p>\r\n					<p>\r\n						O coworking oferece mais que uma mesa de trabalho, nele você encontra internet, telefone, sala de treinamento,\r\n						sala de reunião totalmente equipada, impressora multifuncional, ampla copa, armários, gavetas, banheiros.\r\n						Tem tudo que você precisa para desenvolver suas atividades.\r\n					</p>\r\n\r\n					<p>\r\n						Além disso, junto com coworking tem também a atividade de escritório fiscal e comercial,<br/> <strong>O QUE SÃO?</strong> <br/><br/>\r\n						São duas atividades que utiliza o endereço do coworking para ser de sua empresa.\r\n						Você escolhe o local para receber correspondências, atender clientes e telefone. A diferença é que o escritório fiscal você utilizará o nosso endereço, como o endereço fiscal de sua empresa.\r\n					</p>', 'cf', 3, '2016-06-13 16:44:31', '2016-06-15 17:11:56'),
-	(7, 'Servicos', '', 'services', 1, '2016-06-15 10:59:37', NULL),
-	(9, 'Vantagens', '', 'list', 1, NULL, NULL),
-	(12, 'Hotspot Coworking', '<p>Beneficios</p>', 'beneficios', 2, NULL, '2016-06-24 15:06:32'),
-	(14, 'Info Impresa', '', 'mvv', 2, NULL, NULL),
-	(15, 'Todos', '', '', 4, NULL, NULL);
+  (1, 'Banner', '<p>asdasd</p>', 'banner', 1, '2016-06-13 16:44:14', '2016-06-24 15:14:17'),
+  (2, 'A Hotpost', '<p>A <strong>Hotspot </strong>foi desenvolvida para atuar no mercado de Coworking. Trabalha de forma inovadora, s&eacute;ria e comprometida. Sua localiza&ccedil;&atilde;o &eacute; privilegiada em Curitiba.</p><p>Possui agrad&aacute;vel ambiente de trabalho com salas equipadas, suporte t&eacute;cnico e uma equipe altamente qualificada.</p><p>&nbsp;</p><p>Daremos todo suporte que voc&ecirc; precisa para colocar em pr&aacute;tica seu projeto de trabalho e fazer com que seu sonho seja realidade. A Hotspot &eacute; formada por uma equipe de profissionais que ir&aacute; agregar valor aos servi&ccedil;os que iremos lhe oferecer. J&aacute; atuamos em diversos seguimentos, tais como, &aacute;rea jur&iacute;dica, tecnol&oacute;gica, cont&aacute;bil e comercial, que automaticamente sua empresa ser&aacute; inserida.</p><p>&nbsp;</p><p>Oferecemos um espa&ccedil;o de trabalho inovador, para profissionais inteligentes que tem interesse de reinventar sua forma de trabalho.</p><p>&nbsp;</p><p>O profissional que escolhe atuar em um ambiente de coworking, poder&aacute; focar sua energia e seu tempo no que &eacute; realmente importante para alavancar e potencializar sua atividade dentro do mercado, colocando diante de suas m&atilde;os a possibilidade de um retorno extraordin&aacute;rio.</p>', 'about', 2, '2016-06-13 16:44:24', '2016-06-23 19:11:50'),
+  (6, 'Como Funciona', '<p>\r\n						Coworking é a união de um grupo de profissionais inovadores e talentosos, que trabalham independente uma das outras, dividindo o mesmo espaço e mesmo endereço.\r\n						São pessoas que compartilham seus valores e conhecimento, criam sinergia entre elas que aumenta a motivação e consequentemente seus resultados.\r\n					</p>\r\n					<p>\r\n						O coworking oferece mais que uma mesa de trabalho, nele você encontra internet, telefone, sala de treinamento,\r\n						sala de reunião totalmente equipada, impressora multifuncional, ampla copa, armários, gavetas, banheiros.\r\n						Tem tudo que você precisa para desenvolver suas atividades.\r\n					</p>\r\n\r\n					<p>\r\n						Além disso, junto com coworking tem também a atividade de escritório fiscal e comercial,<br/> <strong>O QUE SÃO?</strong> <br/><br/>\r\n						São duas atividades que utiliza o endereço do coworking para ser de sua empresa.\r\n						Você escolhe o local para receber correspondências, atender clientes e telefone. A diferença é que o escritório fiscal você utilizará o nosso endereço, como o endereço fiscal de sua empresa.\r\n					</p>', 'cf', 3, '2016-06-13 16:44:31', '2016-06-15 17:11:56'),
+  (7, 'Servicos', '', 'services', 1, '2016-06-15 10:59:37', NULL),
+  (9, 'Vantagens', '', 'list', 1, NULL, NULL),
+  (12, 'Hotspot Coworking', '<p>Beneficios</p>', 'beneficios', 2, NULL, '2016-06-24 15:06:32'),
+  (14, 'Info Impresa', '', 'mvv', 2, NULL, NULL),
+  (15, 'Todos', '', '', 4, NULL, NULL);
 /*!40000 ALTER TABLE `content` ENABLE KEYS */;
-
-
--- Copiando estrutura para tabela hotspot.galleries
-DROP TABLE IF EXISTS `galleries`;
-CREATE TABLE IF NOT EXISTS `galleries` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
-
--- Copiando dados para a tabela hotspot.galleries: ~1 rows (aproximadamente)
-/*!40000 ALTER TABLE `galleries` DISABLE KEYS */;
-INSERT INTO `galleries` (`id`, `name`, `created_at`, `updated_at`) VALUES
-	(32, 'uma galeria', '2016-06-27 20:29:25', NULL);
-/*!40000 ALTER TABLE `galleries` ENABLE KEYS */;
 
 
 -- Copiando estrutura para tabela hotspot.information
@@ -132,51 +177,6 @@ INSERT INTO `information` (`id`, `title`, `content`, `icon`, `content_id`, `crea
 	(65, 'Lista Busca 7', 'Evitar erros comuns.', 'asterisk', 6, NULL, NULL);
 /*!40000 ALTER TABLE `information` ENABLE KEYS */;
 
-
--- Copiando estrutura para tabela hotspot.pages
-DROP TABLE IF EXISTS `pages`;
-CREATE TABLE IF NOT EXISTS `pages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `cache` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
--- Copiando dados para a tabela hotspot.pages: ~4 rows (aproximadamente)
-/*!40000 ALTER TABLE `pages` DISABLE KEYS */;
-INSERT INTO `pages` (`id`, `name`, `cache`, `created_at`, `updated_at`) VALUES
-	(1, 'inicio', 'index', '2016-06-13 16:54:02', NULL),
-	(2, 'hotspot_coworking', 'about', '2016-06-13 16:53:59', NULL),
-	(3, 'como_funciona', 'works', '2016-06-13 16:54:01', NULL),
-	(4, 'imagens', 'images', '2016-06-13 16:54:02', NULL);
-/*!40000 ALTER TABLE `pages` ENABLE KEYS */;
-
-
--- Copiando estrutura para tabela hotspot.photos
-DROP TABLE IF EXISTS `photos`;
-CREATE TABLE IF NOT EXISTS `photos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `gallery_id` int(11) NOT NULL,
-  `src` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `gallery_id` (`gallery_id`),
-  CONSTRAINT `gallery_id` FOREIGN KEY (`gallery_id`) REFERENCES `galleries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
-
--- Copiando dados para a tabela hotspot.photos: ~0 rows (aproximadamente)
-/*!40000 ALTER TABLE `photos` DISABLE KEYS */;
-INSERT INTO `photos` (`id`, `title`, `description`, `created_at`, `updated_at`, `gallery_id`, `src`) VALUES
-	(16, 'ola mundo', 'teste', '2016-06-27 20:33:00', '0000-00-00 00:00:00', 32, 'images/computer-962971.jpg'),
-	(17, 'ola mundo', 'teste', '2016-06-27 20:33:58', '0000-00-00 00:00:00', 32, 'images/computer-962971.jpg'),
-	(18, 'ola mundo', 'teste', '2016-06-27 20:34:45', '0000-00-00 00:00:00', 32, 'images/computer-962971.jpg'),
-	(19, 'ola mundo', 'teste', '2016-06-27 20:35:46', '0000-00-00 00:00:00', 32, 'images/computer-962971.jpg');
-/*!40000 ALTER TABLE `photos` ENABLE KEYS */;
 
 
 -- Copiando estrutura para tabela hotspot.users

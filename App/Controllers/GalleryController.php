@@ -66,19 +66,27 @@ class GalleryController extends Controller
 
     public function delete()
     {
-        $id = $_GET['id'];
-        $this->gallery->find($id)->delete();
-        Cache::delete('images');
-        header('Location: /admin/gallery');
+        try {
+
+            $gallery = $this->gallery->find($_GET['id']);
+            if($this->clearGallery($gallery))
+            {
+                Cache::delete('images');
+                header('Location: /admin/gallery');
+            }
+        }catch (\Exception $e)
+        {
+
+        }
     }
 
     public function clearGallery(Gallery $gallery)
     {
-        
         foreach ($gallery->Photos() as $photo)
         {
-
+            unlink($photo->src);
         }
-
+        $gallery->delete();
+        return true;
     }
 }

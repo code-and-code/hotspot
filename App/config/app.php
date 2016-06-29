@@ -1,7 +1,7 @@
 <?php
 
 return [
-           'public'    => true,
+           'public'    => false,
            'timezone' => 'UTC',
 
            'database' => [ 'host'     => '127.0.0.1',
@@ -10,12 +10,21 @@ return [
                            'password' =>  ''
                           ],
 
-            'layout' =>  ['folder'     => '../App/views/',
+            'layout' =>  [ 'folder'     => '../App/views/',
                            'tag'       => ['{','}'],
-                           'extension' => '.html.twig'
+                           'extension' => '.html.twig',
+                           'cache'     => '../../../storage/compilation_cache'
                         ],
 
-            'file '  => ['folder' => 'public']
+            'file'  => [
+                            'folder' => 'images'
+                        ],
+
+            'cache'  => [ 'active' => true,
+                          'folder' => '../../../storage/cache',
+
+                        ]
+
 
         ];
 

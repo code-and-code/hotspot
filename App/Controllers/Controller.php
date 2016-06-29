@@ -18,15 +18,20 @@ class Controller extends Action
 
     protected function initCache($name)
     {
-        $cache = Cache::get($name);
-        if(Cache::has($name))
+        if(config('app.cache.active'))
         {
-            return $cache;
+            $cache = Cache::get($name);
+            if(Cache::has($name))
+            {
+                return $cache;
+            }
+            else
+            {
+                $this->setAppVar();
+                return false;
+            }
         }
-        else
-        {
-            $this->setAppVar();
-            return false;
-        }
+        $this->setAppVar();
+        return false;
     }
 }
