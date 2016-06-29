@@ -9,22 +9,25 @@
 
 				{% for key, gallery in galleries %}
 
-					<li data-filter="{{ gallery.id }}">{{ gallery.name }}</li>
+					{% if(key==0) %}
+						<li data-filter="{{ gallery.id }}" class="active">{{ gallery.name }}</li>
+					{% else %}
+						<li data-filter="{{ gallery.id }}" class="">{{ gallery.name }}</li>
+					{% endif %}
 
 				{% endfor %}
 			</ul>
 
+			<div class="filtr-container">
+
 			{% for key, gallery in galleries %}
 				{% for photo in gallery.Photos() %}
-
-				<div class="filtr-container">
-					<div class="filtr-item gallery-t" data-category={{ photo.gallery_id }}>
-						<a href="images/ga.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
+					<div class="filtr-item gallery-t" data-category="{{ photo.gallery_id }}"  data-sort="{{ gallery.name }}">
+						<a href="../../../{{ photo.src }}" rel="title" class="b-link-stripe b-animate-go  thickbox">
 							<figure>
 								<img src="../../../{{ photo.src }}" class="img-responsive" alt=" " />	<figcaption>
 									<h3>{{ photo.title }}</h3>
 									<p>
-
 										{{ photo.description }}
 									</p>
 								</figcaption>
@@ -34,11 +37,8 @@
 				{% endfor %}
 			{% endfor %}
 
-
-
-
-				<div class="clearfix"> </div>
-			</div>
+					<div class="clearfix"> </div>
+				</div>
 		</div>
 	</div>
 
@@ -47,11 +47,11 @@
 {% block scripts %}
 	{{ parent() }}
 	<script src="../../../assets/site/js/jquery.filterizr.js"></script>
-	<script src="../../../assets/sitejs/controls.js"></script>
-	<!--<script src="js/jquery.chocolat.js"></script>
-	<link href="css/owl.carousel.css" rel="stylesheet">
-	<script src="js/owl.carousel.js"></script>
-	<link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8">-->
+	<script src="../../../assets/site/js/controls.js"></script>
+	<script src="../../../assets/site/js/jquery.chocolat.js"></script>
+	<link href="../../../assets/site/css/owl.carousel.css" rel="stylesheet">
+	<script src="../../../assets/site/js/owl.carousel.js"></script>
+	<link rel="stylesheet" href="../../../assets/site/css/chocolat.css" type="text/css" media="screen" charset="utf-8">
 
 	<!-- Kick off Filterizr -->
 	<script type="text/javascript">
@@ -59,13 +59,14 @@
 			$('.filtr-container').filterizr();
 			$('.filtr-item a').Chocolat();
 			$("#owl-demo2").owlCarousel({
-				items : 1,
+				items : 0,
 				lazyLoad : false,
 				autoPlay : true,
 				navigation : false,
 				navigationText :  false,
 				pagination : true
 			});
+			$(".simplefilter").find(".active").trigger("click");
 		});
 	</script>
 

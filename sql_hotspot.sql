@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.contacts: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.contacts: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
 INSERT INTO `contacts` (`id`, `name`, `phone`, `email`, `acting`) VALUES
 	(4, 'Angelo Biscola', '41 363636363', 'angelo.biscola@codeandcode.com.br', NULL);
@@ -74,7 +74,8 @@ CREATE TABLE IF NOT EXISTS `galleries` (
 INSERT INTO `galleries` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(36, 'Sala de Reunião', '2016-06-28 17:46:36', '2016-06-29 18:45:14'),
 	(37, 'Sala de Treinamento', '2016-06-29 18:14:41', NULL),
-	(38, 'Sala Privativa', '2016-06-29 18:15:03', NULL);
+	(38, 'Sala Privativa', '2016-06-29 18:15:03', NULL),
+	(39, 'Escritório Compartilhado', '2016-06-29 19:41:34', NULL);
 /*!40000 ALTER TABLE `galleries` ENABLE KEYS */;
 
 
@@ -141,12 +142,13 @@ CREATE TABLE IF NOT EXISTS `pages` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela hotspot.pages: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.pages: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
 INSERT INTO `pages` (`id`, `name`, `cache`, `created_at`, `updated_at`) VALUES
 	(1, 'inicio', 'index', '2016-06-13 16:54:02', NULL),
 	(2, 'hotspot_coworking', 'about', '2016-06-13 16:53:59', NULL),
-	(3, 'como_funciona', 'works', '2016-06-13 16:54:01', NULL);
+	(3, 'como_funciona', 'works', '2016-06-13 16:54:01', NULL),
+	(4, 'imagens', 'images', '2016-06-29 17:00:19', NULL);
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 
 
@@ -175,7 +177,10 @@ INSERT INTO `photos` (`id`, `title`, `description`, `created_at`, `updated_at`, 
 	(7, 'Ventilacao natural e jardim', '', '2016-06-29 18:54:18', '0000-00-00 00:00:00', 37, 'images/30f2dd8d2bf8b86949bd6937160d999e.png'),
 	(8, 'Cadeiras confortáveis', '', '2016-06-29 18:55:50', '0000-00-00 00:00:00', 38, 'images/b9a2cdbe47393996ae5da7f4a9a17317.png'),
 	(9, 'Iluminação', '', '2016-06-29 18:58:38', '0000-00-00 00:00:00', 38, 'images/e14c2b9e789e033c17c5ee61dbe04ec3.png'),
-	(10, 'Mesas com gavetas', '', '2016-06-29 19:00:20', '0000-00-00 00:00:00', 38, 'images/536801f999a73a1cc86b269de07f8c80.png');
+	(10, 'Mesas com gavetas', '', '2016-06-29 19:00:20', '0000-00-00 00:00:00', 38, 'images/536801f999a73a1cc86b269de07f8c80.png'),
+	(11, 'Divisórias', '', '2016-06-29 19:42:53', '0000-00-00 00:00:00', 39, 'images/79070ee601b1d2ff19cf4fa33d16d71a.png'),
+	(12, 'Ambiente Iluminado', '', '2016-06-29 19:43:15', '0000-00-00 00:00:00', 39, 'images/62a3de32e8549e54c41db387ada991f1.png'),
+	(13, 'Individual', '', '2016-06-29 19:43:45', '0000-00-00 00:00:00', 39, 'images/bbc8b5aeab1f54e00d9eb70621690fd4.png');
 /*!40000 ALTER TABLE `photos` ENABLE KEYS */;
 
 
@@ -190,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.users: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.users: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `email`, `name`, `password`, `created_at`, `updated_at`) VALUES
 	(1, 'suporte@codeandcode.com.br', 'suporte', 'admin', '2016-06-13 16:56:59', NULL);
