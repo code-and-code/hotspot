@@ -51,12 +51,12 @@
             <div class="collapse navbar-collapse nav-wil links" id="bs-example-navbar-collapse-1" >
                 <div class="fill" >
                     <ul class="nav navbar-nav " id="nav">
-                        <li ><a href="/"        data-hover="Home">HOME</a> </li>
+                        <li ><a href="/"                    data-hover="Home">HOME</a> </li>
                         <li ><a href="/hotspot_coworking"   data-hover="Sobre">HOTSPOT COWORKING</a> </li>
-                        <li><a href="/como_funciona" data-hover="Como Funciona">COMO FUNCIONA</a></li>
-                        <li><a href="/imagens"  data-hover="Salas">IMAGENS</a> </li>
-                        <li><a href="#services" class="scroll" data-hover="Serviços">SERVIÇOS</a></li>
-                        <li><a href="#contact"  class="scroll" data-hover="Contact">CONTATO</a></li>
+                        <li><a href="/como_funciona"        data-hover="Como Funciona">COMO FUNCIONA</a></li>
+                        <li><a href="/imagens"              data-hover="Salas">IMAGENS</a> </li>
+                        <li><a href="#services"             class="scroll" data-hover="Serviços">SERVIÇOS</a></li>
+                        <li><a href="#contact"              class="scroll" data-hover="Contact">CONTATO</a></li>
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -148,7 +148,7 @@
                                     <div class='modal-content'>
                                         <div class='modal-header' style='background-color: #263b67;text-align: center;'>
                                             <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-                                            <h4 class='modal-title' id='myModalLabel' style='color: #fff'>{{ info.title }}</h4>
+                                            <h4 class='modal-title' id='myModalLabel' style='color: #fff'>{{ info.title|raw }}</h4>
                                         </div>
 
                                         <div class='modal-body ser-head' style='text-align: left'>
@@ -188,48 +188,46 @@
                 <p> Qual sala você deseja? </p>
             </div>
             <div class="top-contact">
-                <form action="#" method="post">
+                <form action="/email" method="post" id="mailForm">
                     <div class="col-md-6 grid-contact">
                         <div class="your-top">
                             <i class="glyphicon glyphicon-user"> </i>
-                            <input type="text" placeholder="Nome" name="name"  required >
+                            <input type="text" placeholder="Nome" name="name"  > <!-- Requirido -->
                             <div class="clearfix"> </div>
                         </div>
                         <div class="your-top">
                             <i class="glyphicon glyphicon-envelope"> </i>
-                            <input type="text" placeholder="E-mail" name="email" required>
+                            <input type="text" placeholder="E-mail" name="email" > <!-- Requirido -->
                             <div class="clearfix"> </div>
                         </div>
                         <div class="your-top">
                             <i class="glyphicon glyphicon-phone"> </i>
-                            <input type="text" placeholder="Telefone" name="phone"  required>
+                            <input type="text" placeholder="Telefone" name="phone"  >  <!-- Requirido -->
                             <div class="clearfix"> </div>
                         </div>
                         <div class="your-top">
-
-                            <select class="col-md-12">
-                                <option style="color: #cecece">Área de atuação</option>
-                                <option value="">Administrativa</option>
-                                <option value=""> Advocacia</option>
-                                <option value="">Arquitetura</option>
-                                <option value="">Coaching</option>
-                                <option value="">Comercial</option>
-                                <option value="">Contábil</option>
-                                <option value="">Corretor</option>
-                                <option value="">Design</option>
-                                <option value="">Educação</option>
-                                <option value="">Engenharia</option>
-                                <option value="">Saúde</option>
-                                <option value="">Tecnologia</option>
-                                <option value="">Outros</option>
+                            <select class="col-md-12" name="acting" form="mailForm">
+                                <option style="color: #cecece" value=""> Área de atuação     </option>
+                                <option value="Administrativa"> Administrativa      </option>
+                                <option value="Advocacia">      Advocacia           </option>
+                                <option value="Arquitetura">    Arquitetura         </option>
+                                <option value="Coaching">       Coaching            </option>
+                                <option value="Comercial">      Comercial           </option>
+                                <option value="Contábil">       Contábil            </option>
+                                <option value="Corretor">       Corretor            </option>
+                                <option value="Design">         Design              </option>
+                                <option value="Educação">       Educação            </option>
+                                <option value="Engenharia">     Engenharia          </option>
+                                <option value="Saúde">          Saúde               </option>
+                                <option value="Tecnologia">     Tecnologia          </option>
+                                <option value="Outros">         Outros              </option>
                             </select>
-                            <!--<input type="text" placeholder="Area de Atuação" name="area_atuacao">-->
                             <div class="clearfix"> </div>
                         </div>
 
                     </div>
                     <div class="col-md-6 grid-contact-in">
-                        <textarea  placeholder=" Messagem" name="menssage"></textarea>
+                        <textarea  placeholder=" Menssagem" name="message"></textarea> <!-- Requirido -->
                         <input type="submit" value="Enviar">
                     </div>
                     <div class="clearfix"> </div>
@@ -237,9 +235,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal -->
-    
 
     <!--footer-->
     <div class="copy">

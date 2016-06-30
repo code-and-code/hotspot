@@ -1,4 +1,4 @@
-{% extends view('admin') %}
+{% extends view('admin.admin') %}
 
 {% block content %}
 <div class="panel panel-default">
@@ -12,7 +12,8 @@
             <th>Nome</th>
             <th>E-mail</th>
             <th>Tel</th>
-            <th>Area de atua��o</th>
+            <th>Area de atuação</th>
+            <th>Mensagem</th>
             <th>#</th>
             </thead>
             <tbody>
@@ -22,8 +23,15 @@
                     <td>{{ contact.name }}</td>
                     <td>{{ contact.email }}</td>
                     <td>{{ contact.phone }}</td>
-                    <td>{{ contact.acting }}</td>
-                    <td><a href='/contact/delete?id={$contact->id}' title=''><i class= 'glyphicon glyphicon-trash'></i></a></td>
+
+                    {% if contact.acting == "" %}
+                        <td class="danger">Não Registrado</td>
+                    {% else %}
+                        <td>{{ contact.acting }}</td>
+                    {% endif %}
+
+                    <td>{{ limit(contact.message) }}<a href="/admin/contact/show?id={{ contact.id }}"><i class= 'pull-right glyphicon glyphicon-eye-open'></i></a></td>
+                    <td><a href='/admin/contact/delete?id={{ contact.id }}' title=''><i class= 'glyphicon glyphicon-trash'></i></a></td>
                 </tr>
 
             {% endfor %}
@@ -31,4 +39,7 @@
         </table>
     </div>
 </div>
-{% andblock %}
+
+    <a href="/admin" class="btn btn-success"> Voltar </a>
+
+{% endblock %}

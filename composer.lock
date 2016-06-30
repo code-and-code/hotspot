@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f4ff33f85c18495cd627bf2e5ab83fd5",
-    "content-hash": "093ff17d6f1e9853a07dcfa38d609dd4",
+    "hash": "73d020c22254671a416f8decd3af8e70",
+    "content-hash": "2ce908c0d182f0ca086a4e206905a362",
     "packages": [
         {
             "name": "codeandcode/micro-fwk",
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/code-and-code/micro-fwk.git",
-                "reference": "e2be71dff204fa0df7d5cd1614a4f54d9e4ddbd4"
+                "reference": "fa4727ecc03fa6ec92b6dadebb91617b0fbcffef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/code-and-code/micro-fwk/zipball/e2be71dff204fa0df7d5cd1614a4f54d9e4ddbd4",
-                "reference": "e2be71dff204fa0df7d5cd1614a4f54d9e4ddbd4",
+                "url": "https://api.github.com/repos/code-and-code/micro-fwk/zipball/fa4727ecc03fa6ec92b6dadebb91617b0fbcffef",
+                "reference": "fa4727ecc03fa6ec92b6dadebb91617b0fbcffef",
                 "shasum": ""
             },
             "require": {
@@ -42,7 +42,7 @@
                 "projecto inical",
                 "start"
             ],
-            "time": "2016-06-24 13:15:15"
+            "time": "2016-06-30 16:50:23"
         },
         {
             "name": "codeguy/upload",
@@ -145,6 +145,66 @@
                 "redis"
             ],
             "time": "2015-11-26 12:29:49"
+        },
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "v5.2.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPMailer/PHPMailer.git",
+                "reference": "1d85f9ef3ecfc42bbc4f3c70d5e37ca9a65f629a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/1d85f9ef3ecfc42bbc4f3c70d5e37ca9a65f629a",
+                "reference": "1d85f9ef3ecfc42bbc4f3c70d5e37ca9a65f629a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "*",
+                "phpunit/phpunit": "4.7.*"
+            },
+            "suggest": {
+                "league/oauth2-google": "Needed for Google XOAUTH2 authentication"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "class.phpmailer.php",
+                    "class.phpmaileroauth.php",
+                    "class.phpmaileroauthgoogle.php",
+                    "class.smtp.php",
+                    "class.pop3.php",
+                    "extras/EasyPeasyICS.php",
+                    "extras/ntlm_sasl_client.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
+                },
+                {
+                    "name": "Marcus Bointon",
+                    "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Andy Prevost",
+                    "email": "codeworxtech@users.sourceforge.net"
+                },
+                {
+                    "name": "Brent R. Matzelle"
+                }
+            ],
+            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+            "time": "2016-06-06 09:09:37"
         },
         {
             "name": "twig/twig",

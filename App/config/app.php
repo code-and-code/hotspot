@@ -13,18 +13,15 @@ return [
             'layout' =>  [ 'folder'     => '../App/views/',
                            'tag'       => ['{','}'],
                            'extension' => '.html.twig',
-                           'cache'     => '../../../storage/compilation_cache'
+                           'cache'     => 'storage/compilation_cache'
                         ],
 
             'file'  => [
                             'folder' => 'images'
                         ],
 
-            'cache'  => [ 'active' => true,
-                          'folder' => '../../../storage/cache',
+            'cache'  => [ 'active' => false,
+                          'folder' => 'storage/cache',
 
                         ]
-
-
-        ];
-
+];

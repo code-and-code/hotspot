@@ -1,22 +1,77 @@
 <?php
-
 namespace App\Controllers;
 
 use App\Models\Contact;
+use App\Support\Mail;
 
-class ContactController extends  Controller
+class ContactController extends Controller
 {
+    private $contact;
+    private $from;
+
+    public function __construct()
+    {
+        $this->contact = new Contact();
+        $this->from    = ['contato@codeandcode.com.br' => 'Code'];
+    }
+
     public function index()
     {
-        $contact = new Contact();
-        echo $this->render('assets.contacts', ['contacts' => $contact->all()]);
+        $contacts = $this->contact->all();
+        echo $this->render('admin.contacts.index', ['contacts' => $contacts]);
+    }
+
+    public function store()
+    {
+        try{
+
+            $contact = $this->contact->create($_REQUEST);
+
+            if($this->send($contact))
+            {
+                echo json_encode(['msg' => 'Email enviado com sucesso'],200);
+            }
+            header("Location: /");
+
+        }catch (\Exception $e)
+        {
+            throw new \Exception($e);
+        }
+    }
+
+    public function send($contact)
+    {
+        $message = $this->render('site.email.email');
+        $answer  = $this->render('site.email.answer', ['contact' => $contact]);
+        try {
+            $mail = new Mail($this->from, $answer, 'Novo Contato');
+
+            if($mail){
+
+                new Mail([$contact->email => $contact->name], $message, 'Hotspot');
+
+            }
+        }
+        catch (\Exception $e)
+        {
+            echo $e;
+        }
+    }
+
+    public function show()
+    {
+        try{
+            $contact = $this->contact->find($_GET['id']);
+            echo $this->render('admin.contacts.message', ['contact' => $contact]);
+        }catch (\Exception $e)
+        {
+            throw new \Exception($e);
+        }
     }
 
     public function delete()
     {
-        $id = $_GET['id'];
-        $contact = new Contact();
-        $contact->find($id)->delete();
-        $this->render($this->index());
+        $this->contact->find($_GET['id'])->delete();
+        header("Location: /admin/contact");
     }
 }

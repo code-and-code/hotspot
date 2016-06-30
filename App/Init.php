@@ -11,7 +11,8 @@ class Init extends Bootstrap
         $ar['site.index']               = ['route' => '/',                                              'controller' => 'SiteController',       'action' => 'index'                         ];
         $ar['site.about']               = ['route' => '/hotspot_coworking',                             'controller' => 'SiteController',       'action' => 'about'                         ];
         $ar['site.works']               = ['route' => '/como_funciona',                                 'controller' => 'SiteController',       'action' => 'works'                         ];
-        $ar['site.images']              = ['route' => '/imagens',                                       'controller' => 'SiteController',       'action' => 'images'                        ];
+        $ar['site.images']              = ['route' => '/imagens',                                       'controller' => 'SiteController',       'action' => 'images'         ];
+        $ar['site.email']               = ['route' => '/email',                                         'controller' => 'ContactController',    'action' => 'store'          ];
 
 
         $ar['auth.index']               = ['route' => '/auth',                                          'controller' => 'AuthController',       'action' => 'getLogin'                      ];
@@ -21,17 +22,13 @@ class Init extends Bootstrap
         $ar['admin']                    = ['route' => '/admin',                                         'controller' => 'AdminController',      'auth' =>true, 'action' => 'index'         ];
         $ar['admin.page']               = ['route' => '/admin/pages',                                   'controller' => 'AdminController',      'auth' =>true, 'action' => 'page'          ];
 
-
         $ar['admin.cache']              = ['route' => '/admin/cache',                                   'controller' => 'CacheController',      'auth' =>true, 'action' => 'index'            ];
         $ar['admin.cache.show']         = ['route' => '/admin/cache/show',                              'controller' => 'CacheController',      'auth' =>true, 'action' => 'show'             ];
         $ar['admin.cache.delete']       = ['route' => '/admin/cache/delete',                            'controller' => 'CacheController',      'auth' =>true, 'action' => 'delete'           ];
 
-
         $ar['admin.content.index']      = ['route' => '/admin/content/index',                           'controller' => 'ContentController',    'auth' =>true, 'action' => 'index'         ];
         $ar['admin.content.edit']       = ['route' => '/admin/content/edit',                            'controller' => 'ContentController',    'auth' =>true, 'action' => 'edit'          ];
         $ar['admin.content.update']     = ['route' => '/admin/content/update', 'method'=>'POST',        'controller' => 'ContentController',    'auth' =>true, 'action' => 'update'        ];
-
-
 
         $ar['admin.information.index']     = ['route' => '/admin/information',                          'controller' => 'InformationController',    'auth' =>true,'action' => 'index'  ];
         $ar['admin.information.edit']      = ['route' => '/admin/information/edit',                     'controller' => 'InformationController',    'auth' =>true,'action' => 'edit'   ];
@@ -44,11 +41,15 @@ class Init extends Bootstrap
         $ar['admin.gallery.update']        = ['route' => '/admin/gallery/update', 'method'=>'POST',     'controller' => 'GalleryController',      'auth' =>true,'action' => 'update'        ];
         $ar['admin.gallery.delete']        = ['route' => '/admin/gallery/delete',                       'controller' => 'GalleryController',      'auth' =>true,'action' => 'delete'        ];
 
-        $ar['admin.photo.create']          = ['route' => '/admin/photo/create',                        'controller' => 'PhotoController',      'auth' =>true,'action' => 'create'         ];
-        $ar['admin.photo.edit']            = ['route' => '/admin/photo/edit',                            'controller' => 'PhotoController',     'auth' =>true,'action' => 'edit'         ];
-        $ar['admin.photo.update']          = ['route' => '/admin/photo/update','method'=>'POST',       'controller' => 'PhotoController',      'auth' =>true,'action' => 'update'         ];
-        $ar['admin.photo.upload']          = ['route' => '/admin/photo/upload','method'=>'POST',       'controller' => 'PhotoController',      'auth' =>true,'action' => 'upload'          ];
-        $ar['admin.photo.delete']          = ['route' => '/admin/photo/delete',                        'controller' => 'PhotoController',      'auth' =>true,'action' => 'delete'          ];
+        $ar['admin.photo.create']          = ['route' => '/admin/photo/create',                         'controller' => 'PhotoController',      'auth' =>true,'action' => 'create'           ];
+        $ar['admin.photo.edit']            = ['route' => '/admin/photo/edit',                           'controller' => 'PhotoController',     'auth' =>true,'action' => 'edit'                 ];
+        $ar['admin.photo.update']          = ['route' => '/admin/photo/update','method'=>'POST',        'controller' => 'PhotoController',      'auth' =>true,'action' => 'update'           ];
+        $ar['admin.photo.upload']          = ['route' => '/admin/photo/upload','method'=>'POST',        'controller' => 'PhotoController',      'auth' =>true,'action' => 'upload'           ];
+        $ar['admin.photo.delete']          = ['route' => '/admin/photo/delete',                         'controller' => 'PhotoController',      'auth' =>true,'action' => 'delete'           ];
+
+        $ar['admin.contact']               = ['route' => '/admin/contact',                              'controller' => 'ContactController',      'auth' =>true,'action' => 'index'          ];
+        $ar['admin.contact.show']          = ['route' => '/admin/contact/show',                         'controller' => 'ContactController',      'auth' =>true,'action' => 'show'           ];
+        $ar['admin.contact.delete']        = ['route' => '/admin/contact/delete',                       'controller' => 'ContactController',      'auth' =>true,'action' => 'delete'         ];
 
         $this->setRoutes($ar);
     }
