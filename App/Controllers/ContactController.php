@@ -12,7 +12,7 @@ class ContactController extends Controller
     public function __construct()
     {
         $this->contact = new Contact();
-        $this->from    = ['contato@codeandcode.com.br' => 'Code'];
+        $this->from    = ['contato@hotspotcwk.com.br' => 'Hotspot'];
     }
 
     public function index()
@@ -31,8 +31,6 @@ class ContactController extends Controller
             {
                 echo json_encode(['msg' => 'Email enviado com sucesso'],200);
             }
-            header("Location: /");
-
         }catch (\Exception $e)
         {
             throw new \Exception($e);
@@ -47,9 +45,7 @@ class ContactController extends Controller
             $mail = new Mail($this->from, $answer, 'Novo Contato');
 
             if($mail){
-
                 new Mail([$contact->email => $contact->name], $message, 'Hotspot');
-
             }
         }
         catch (\Exception $e)
