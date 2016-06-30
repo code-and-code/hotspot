@@ -22,13 +22,14 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   `phone` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `acting` varchar(255) DEFAULT NULL,
+  `message` longtext,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.contacts: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.contacts: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
-INSERT INTO `contacts` (`id`, `name`, `phone`, `email`, `acting`) VALUES
-	(4, 'Angelo Biscola', '41 363636363', 'angelo.biscola@codeandcode.com.br', NULL);
 /*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 
 
@@ -67,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `galleries` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela hotspot.galleries: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `galleries` DISABLE KEYS */;
@@ -99,7 +100,7 @@ INSERT INTO `information` (`id`, `title`, `content`, `icon`, `content_id`, `crea
 	(1, 'Coworking', 'Agradável ambiente de trabalho com salas equipadas, suporte técnico e uma equipe altamente qualificada.', NULL, 1, '2016-06-29 11:12:52', NULL),
 	(2, 'Hotspot', '<p>A Hotspot &eacute; mais que um espa&ccedil;o de trabalho compartilhado, a Hotspost &eacute; o caminho mais curto para o sucesso.</p>', NULL, 1, '2016-06-29 11:12:54', '2016-06-29 13:25:07'),
 	(3, 'Cup coffee', 'Disponibilizamos excelente copa, equipada com geladeira, micro-ondas, mesa, tv e sofá, para que possa fazer sua pausa de trabalho, tomar seu café e fazer suas refeições.', NULL, 1, '2016-06-29 11:12:55', NULL),
-	(4, 'Escritório Compartilhado', '<p>Modalidade em que o cliente contrata uma esta&ccedil;&atilde;o de trabalho e utiliza o coworking compartilhando com outros profissionais ambiente de trabalho. Dentro da mesma estrutura, profissionais de diversos ramos de atividade trabalham individualmente. Servi&ccedil;os de telefonia, recep&ccedil;&atilde;o, caf&eacute;, &aacute;gua, limpeza e manuten&ccedil;&atilde;o est&atilde;o inclu&iacute;dos na mensalidade. Outros podem ser solicitados sob demanda como motoboy e correios.</p><p><br />Vantagens:</p><ul><li>Servi&ccedil;os de telefonia</li><li>Internet</li><li>Recep&ccedil;&atilde;o</li><li>Caf&eacute;</li><li>&Aacute;gua.</li><li>Limpeza e manuten&ccedil;&atilde;o</li><li>Material para escrit&oacute;rio</li><li>Ambiente climatizado</li></ul>', 'leaf', 2, '2016-06-29 11:12:50', '2016-06-29 18:30:24'),
+	(4, 'Escritório Compartilhado', '<p>Modalidade em que o cliente contrata uma esta&ccedil;&atilde;o de trabalho e utiliza o coworking compartilhando com outros profissionais ambiente de trabalho. Dentro da mesma estrutura, profissionais de diversos ramos de atividade trabalham individualmente. Servi&ccedil;os de telefonia, recep&ccedil;&atilde;o, caf&eacute;, &aacute;gua, limpeza e manuten&ccedil;&atilde;o est&atilde;o inclu&iacute;dos na mensalidade. Outros podem ser solicitados sob demanda como motoboy e correios.</p><p><br />Vantagens:</p><ul><li>Servi&ccedil;os de telefonia</li><li>Internet</li><li>Recep&ccedil;&atilde;o</li><li>Caf&eacute;</li><li>&Aacute;gua.</li><li>Limpeza e manuten&ccedil;&atilde;o</li><li>Material para escrit&oacute;rio</li><li>Ambiente climatizado</li></ul>', 'leaf', 2, '2016-06-29 11:12:50', '2016-06-30 13:04:01'),
 	(5, 'Sala para Reuniões', '<p>Estrutura completa para sua reuni&atilde;o.</p><p>As salas s&atilde;o alugadas por hora, per&iacute;odo, di&aacute;rio e mensal, possuem servi&ccedil;os de copa com caf&eacute; e &aacute;gua inclusos. Nossas salas s&atilde;o equipadas:</p><p>Vantagens:</p><ul><li>Suporte de v&iacute;deo;</li><li>&Aacute;udio confer&ecirc;ncia;</li><li>TV Flipchart para trabalhos did&aacute;ticos;</li><li>Telefone;</li><li>Internet;</li><li>Ambiente climatizado;</li><li>Recep&ccedil;&atilde;o;</li><li>Caf&eacute;;</li><li>&Aacute;gua;</li><li>Limpeza e manuten&ccedil;&atilde;o;</li></ul><p><strong>&nbsp;</strong></p><p>Coffe Break podem ser servidos conforme solicita&ccedil;&atilde;o do cliente, servi&ccedil;o terceirizado disponibilizado separadamente</p>', 'blackboard', 2, NULL, '2016-06-29 18:25:49'),
 	(6, 'Escritório Fiscal', '<p>Endere&ccedil;o fiscal para atender seus clientes.</p><p>O Escrit&oacute;rio Virtual proporciona a sua empresa uma imagem coorporativa de prest&iacute;gio sempre nos endere&ccedil;os mais nobres da cidade.</p><p>Al&eacute;m de reduzir custos operacionais. Permite que a empresa se concentre em sua atividade principal:</p><ul><li>Recepcionista;</li><li>Atendimento ao cliente;</li><li>Um telefone fixo exclusivo que &eacute; atendido com o nome da empresa do cliente;</li><li>Endere&ccedil;o comercial;</li><li>Gerenciamento das correspond&ecirc;ncias;</li><li>Endere&ccedil;o fiscal;</li><li>Central de correspond&ecirc;ncia;</li></ul>', 'globe', 2, NULL, '2016-06-29 18:24:09'),
 	(7, 'Sala Privativa', '<p>Sala reservada para equipe ou at&eacute; 3 pessoas.</p><p>Nossa sala Privativa possui ambiente mais reservado, para uma empresa ou compartilhada com at&eacute; 3 pessoas. Banheiro exclusivo- Sala rica em arm&aacute;rios e gaveteiros.</p><ul><li>Sala Reservada;</li><li>Banheiro;</li><li>Arm&aacute;rio Grande;</li><li>Ambiente climatizado;</li><li>Internet;</li><li>Mesa com cadeira;</li><li>Servi&ccedil;os de telefonia;</li><li>Recep&ccedil;&atilde;o;</li><li>Caf&eacute;;</li><li>&Aacute;gua;</li><li>Material para escrit&oacute;rio;</li></ul><p>Outros podem ser solicitados conforme necessidade, como motoboy e correios (servi&ccedil;os a parte).</p>', 'lock', 2, NULL, '2016-06-29 17:12:27'),
@@ -140,9 +141,9 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela hotspot.pages: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.pages: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
 INSERT INTO `pages` (`id`, `name`, `cache`, `created_at`, `updated_at`) VALUES
 	(1, 'inicio', 'index', '2016-06-13 16:54:02', NULL),
@@ -164,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
   PRIMARY KEY (`id`),
   KEY `gallery_id` (`gallery_id`),
   CONSTRAINT `gallery_id` FOREIGN KEY (`gallery_id`) REFERENCES `galleries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela hotspot.photos: ~12 rows (aproximadamente)
 /*!40000 ALTER TABLE `photos` DISABLE KEYS */;
@@ -195,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.users: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.users: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `email`, `name`, `password`, `created_at`, `updated_at`) VALUES
 	(1, 'suporte@codeandcode.com.br', 'suporte', 'admin', '2016-06-13 16:56:59', NULL);
