@@ -23,12 +23,13 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   `email` varchar(255) NOT NULL,
   `acting` varchar(255) DEFAULT NULL,
   `message` longtext,
+  `status` int(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.contacts: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.contacts: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 
@@ -53,8 +54,8 @@ INSERT INTO `content` (`id`, `name`, `content`, `flag`, `page_id`, `created_at`,
 	(1, 'Banner', '', 'banner', 1, NULL, NULL),
 	(2, 'Serviços', '', 'services', 1, NULL, NULL),
 	(3, 'Vantagens', 'Vantagens Hotspot:', 'list', 1, NULL, NULL),
-	(4, 'A Hotspot', '<p>A Hotspot foi desenvolvida para atuar no mercado de Coworking. Trabalha de forma inovadora, s&eacute;ria e comprometida. Sua localiza&ccedil;&atilde;o &eacute; privilegiada em Curitiba.</p><p>Possui agrad&aacute;vel ambiente de trabalho com salas equipadas, suporte t&eacute;cnico e uma equipe altamente qualificada.</p><p>&nbsp;</p><p>Daremos todo suporte que voc&ecirc; precisa para colocar em pr&aacute;tica seu projeto de trabalho e fazer com que seu sonho seja realidade. A Hotspot &eacute; formada por uma equipe de profissionais que ir&aacute; agregar valor aos servi&ccedil;os que iremos lhe oferecer. J&aacute; atuamos em diversos seguimentos, tais como, &aacute;rea jur&iacute;dica, tecnol&oacute;gica, cont&aacute;bil e comercial, que automaticamente sua empresa ser&aacute; inserida.</p><p>&nbsp;</p><p>Oferecemos um espa&ccedil;o de trabalho inovador, para profissionais inteligentes que tem interesse de reinventar sua forma de trabalho.</p><p>&nbsp;</p><p>O profissional que escolhe atuar em um ambiente de coworking, poder&aacute; focar sua energia e seu tempo no que &eacute; realmente importante para alavancar e potencializar sua atividade dentro do mercado, colocando diante de suas m&atilde;os a possibilidade de um retorno extraordin&aacute;rio.</p>', 'about', 2, NULL, '2016-06-29 17:19:12'),
-	(5, 'Info Empresa', '', 'mvv', 2, NULL, NULL),
+	(4, 'A Hotspot', '<p>A Hotspot foi desenvolvida para atuar no mercado de Coworking. Trabalha de forma inovadora, s&eacute;ria e comprometida. Sua localiza&ccedil;&atilde;o &eacute; privilegiada em Curitiba.</p><p>Possui agrad&aacute;vel ambiente de trabalho com salas equipadas, suporte t&eacute;cnico e uma equipe altamente qualificada.</p><p>&nbsp;</p><p>Daremos todo suporte que voc&ecirc; precisa para colocar em pr&aacute;tica seu projeto de trabalho e fazer com que seu sonho seja realidade. A Hotspot &eacute; formada por uma equipe de profissionais que ir&aacute; agregar valor aos servi&ccedil;os que iremos lhe oferecer. J&aacute; atuamos em diversos seguimentos, tais como, &aacute;rea jur&iacute;dica, tecnol&oacute;gica, cont&aacute;bil e comercial, que automaticamente sua empresa ser&aacute; inserida.</p><p>&nbsp;</p><p>Oferecemos um espa&ccedil;o de trabalho inovador, para profissionais inteligentes que tem interesse de reinventar sua forma de trabalho.</p><p>&nbsp;</p><p>O profissional que escolhe atuar em um ambiente de coworking, poder&aacute; focar sua energia e seu tempo no que &eacute; realmente importante para alavancar e potencializar sua atividade dentro do mercado, colocando diante de suas m&atilde;os a possibilidade de um retorno extraordin&aacute;rio.</p>', 'about', 2, NULL, '2016-07-01 13:27:07'),
+	(5, 'Info Empresa', '', 'mvv', 2, NULL, '2016-07-01 13:21:29'),
 	(6, 'Como Funciona', '<p>Coworking &eacute; a uni&atilde;o de um grupo de profissionais inovadores e talentosos, que trabalham independente uma das outras, dividindo o mesmo espa&ccedil;o e mesmo endere&ccedil;o. S&atilde;o pessoas que compartilham seus valores e conhecimento, criam sinergia entre elas que aumenta a motiva&ccedil;&atilde;o e consequentemente seus resultados.</p><p>O coworking oferece mais que uma mesa de trabalho, nele voc&ecirc; encontra internet, telefone, sala de treinamento, sala de reuni&atilde;o totalmente equipada, impressora multifuncional, ampla copa, arm&aacute;rios, gavetas, banheiros. Tem tudo que voc&ecirc; precisa para desenvolver suas atividades.</p><p>Al&eacute;m disso, junto com coworking tem tamb&eacute;m a atividade de escrit&oacute;rio fiscal e comercial,<br /><strong>O QUE S&Atilde;O?</strong><br /><br />S&atilde;o duas atividades que utiliza o endere&ccedil;o do coworking para ser de sua empresa. Voc&ecirc; escolhe o local para receber correspond&ecirc;ncias, atender clientes e telefone. A diferen&ccedil;a &eacute; que o escrit&oacute;rio fiscal voc&ecirc; utilizar&aacute; o nosso endere&ccedil;o, como o endere&ccedil;o fiscal de sua empresa.</p>', 'cf', 3, NULL, '2016-06-29 17:55:23'),
 	(11, 'Beneficios', 'Beneficios', 'beneficios', 2, NULL, '2016-06-29 17:29:15'),
 	(12, 'Escritorio Virtual', '', 'ev', 3, NULL, NULL);
@@ -172,9 +173,9 @@ CREATE TABLE IF NOT EXISTS `photos` (
 INSERT INTO `photos` (`id`, `title`, `description`, `created_at`, `updated_at`, `gallery_id`, `src`) VALUES
 	(1, 'Ambiente refrigerado.', '', '2016-06-29 18:44:31', '0000-00-00 00:00:00', 36, 'images/b6493a3356062c12ba58ba69b337490f.png'),
 	(2, 'Mesa para reuniões.', '', '2016-06-29 18:45:58', '0000-00-00 00:00:00', 36, 'images/e4dc77ce72260b52e9a03d87abd983e2.png'),
-	(3, 'Video conferencia', '', '2016-06-29 18:48:47', '0000-00-00 00:00:00', 36, 'images/5a2353822a0b4017145e592c2d763581.png'),
-	(4, 'Espaço para apresentacoes', '', '2016-06-29 18:50:11', '0000-00-00 00:00:00', 37, 'images/6cce1a0eb4223b742a887088b87a4577.png'),
-	(6, 'Iluminaço natural', '', '2016-06-29 18:53:45', '0000-00-00 00:00:00', 37, 'images/0b75142f6afa3435771c8d93fe9de3b3.png'),
+	(3, 'Video conferência', '', '2016-07-01 15:30:37', '2016-07-01 18:30:37', 36, 'images/5a2353822a0b4017145e592c2d763581.png'),
+	(4, 'Espaço para apresentações', '', '2016-07-01 15:30:09', '2016-07-01 18:30:09', 37, 'images/6cce1a0eb4223b742a887088b87a4577.png'),
+	(6, 'Iluminação natural', '', '2016-07-01 15:29:51', '2016-07-01 18:29:51', 37, 'images/0b75142f6afa3435771c8d93fe9de3b3.png'),
 	(7, 'Ventilacao natural e jardim', '', '2016-06-29 18:54:18', '0000-00-00 00:00:00', 37, 'images/30f2dd8d2bf8b86949bd6937160d999e.png'),
 	(8, 'Cadeiras confortáveis', '', '2016-06-29 18:55:50', '0000-00-00 00:00:00', 38, 'images/b9a2cdbe47393996ae5da7f4a9a17317.png'),
 	(9, 'Iluminação', '', '2016-06-29 18:58:38', '0000-00-00 00:00:00', 38, 'images/e14c2b9e789e033c17c5ee61dbe04ec3.png'),
