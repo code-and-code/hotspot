@@ -24,33 +24,25 @@ class ContactController extends Controller
     public function store()
     {
         try{
-
             $contact = $this->contact->create($_REQUEST);
-
-            if($this->send($contact))
-            {
-                echo json_encode(['msg' => 'Email enviado com sucesso'],200);
-            }
+            $this->send($contact);
+            $contact->update(['status' => true]);
+            echo json_encode(['msg' => 'Email enviado com sucesso']);
         }catch (\Exception $e)
         {
-            throw new \Exception($e);
+            echo json_encode(['Error' => $e->getMessage()]);
         }
     }
 
     public function send($contact)
     {
-        $message = $this->render('site.email.email');
         $answer  = $this->render('site.email.answer', ['contact' => $contact]);
-        try {
-            $mail = new Mail($this->from, $answer, 'Novo Contato');
-
-            if($mail){
-                new Mail([$contact->email => $contact->name], $message, 'Hotspot');
-            }
-        }
-        catch (\Exception $e)
-        {
-            echo $e;
+        $mail = new Mail($this->from, $answer, 'Novo Contato');
+        if($mail){
+            $message = $this->render('site.email.email');
+            new Mail([$contact->email => $contact->name], $message, 'Hotspot');
+        }else{
+            throw new \Exception('Falha ao enviar o E-mail');
         }
     }
 

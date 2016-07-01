@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-1" for="title">Titulo:</label>
                     <div class="col-sm-11">
-                        <input type="title" name="title" class="form-control" id="title" value="{{ content.name }}">
+                        <input type="title" name="name" class="form-control" id="name" value="{{ content.name }}">
                     </div>
                 </div>
 
@@ -75,7 +75,7 @@
                                     <td>{{ info.title|raw }}</td>
                                     <td>{{ limit(info.content,0,40)|raw }}</td>
                                     <td>
-                                        <a href='/admin/information/edit?id={{ info.id }}' title=''><i class= 'glyphicon glyphicon-edit'></i></a>
+                                        <a href='/admin/information/edit?id={{ info.id }}' title='Editar'><i class= 'glyphicon glyphicon-edit'></i></a>
                                     </td>
                                 </tr>
 
@@ -102,7 +102,7 @@
             event.preventDefault();
 
             var formData = {
-                'title'  :  $('#title').val(),
+                'name'  :  $('#name').val(),
                 'content'  : editor.getData()
             };
 

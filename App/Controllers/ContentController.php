@@ -24,14 +24,16 @@ class ContentController extends Controller
     public function edit()
     {
         $id = $_GET['id'];
-        echo $this->render('admin.contents.edit', ['content' => $this->content->find($id)]);
+        $content =  $this->content->find($id);
+        echo $this->render('admin.contents.edit', ['content' => $content]);
     }
 
     public function update()
     {
         try{
-            $array = $_REQUEST;
-            $content = $this->content->find($array['id'])->update(['content' => $array['content']]);
+            $id = $_GET['id'];
+            $content = $this->content->find($id)->update($_REQUEST);
+            var_dump($content);
             Cache::delete($content->Page()->cache);
             echo json_encode('success', 200);
         }catch (\Exception $e)

@@ -3,6 +3,9 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+
+@media screen {
+
 html,body{
 	background:#fff;
 	font-size: 100%;	
@@ -20,7 +23,7 @@ body a{
 	margin: 0;
 }
 h1,h2,h3,h4,h5,h6,label,p{
-	margin:0;	
+	margin:0;
 }
 h1,h2,h3,h4,h5,h6{
 	font-family: 'Noto Sans', sans-serif;
@@ -107,9 +110,9 @@ h3.title-destaque {
 }
 
 .navbar-brand {
-   height: auto; 
-    padding: 0; 
-    font-size: 18px; 
+   height: auto;
+    padding: 0;
+    font-size: 18px;
     line-height: 20px;
 }
 .fill {
@@ -121,7 +124,7 @@ h3.title-destaque {
 	width:65%;
 }
 div#bs-example-navbar-collapse-1 {
-    padding: 0;
+    /*padding: 0;*/
 }
 ul.nav.navbar-nav li a {
     font-size: 1em;
@@ -205,7 +208,7 @@ ul li a:hover {
 	height: 75px;
 	float: right;
 	overflow: hidden;
-/*-- w3layouts --*/ 
+/*-- w3layouts --*/
 	-webkit-transition: width 0.3s;
 	-moz-transition: width 0.3s;
 	transition: width 0.3s;
@@ -251,22 +254,7 @@ ul li a:hover {
 	text-align: center;
 	cursor: pointer;
 }
-.sb-search-submit {
-	background: #02C7DA url('../images/search.png') no-repeat 0px 1px;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE 8 */
-    filter: alpha(opacity=0); /* IE 5-7 */
-/*-- agileits --*/ 
-	color: transparent;
-	border: none;
-	outline: none;
-	z-index: -1;
-	-webkit-appearance: none;
-}
-.sb-icon-search {
-	color: #FFF;
-	background: #02C7DA url('../images/search.png') no-repeat 19px 20px;
-	z-index: 90;
-}
+
 /* Open state */
 .sb-search.sb-search-open,.no-js .sb-search {
 	width:34%;
@@ -276,7 +264,7 @@ ul li a:hover {
 }
 /*--banner--*/
 .banner{
-	background: url(../images/banner6.jpg) no-repeat center;
+	background: url(../images/banner_jpg.jpg) no-repeat center;
 	width: 100%;
 	height: 700px;
 	text-align: center;
@@ -412,7 +400,7 @@ ul.callbacks_tabs.callbacks1_tabs {
     width: 20%;
     position: relative;
 }
-.ser-t b{	
+.ser-t b{
 	width: 100%;
     height: 2px;
     display: block;
@@ -473,8 +461,8 @@ ul.callbacks_tabs.callbacks1_tabs {
 	height: 100%;
 	border-radius: 50%;
 	content: '';
-	-webkit-box-sizing: content-box; 
-	-moz-box-sizing: content-box; 
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
 	box-sizing: content-box;
 }
 
@@ -493,7 +481,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 	box-shadow: 0 0 0 4px #263b67;
 	-webkit-transition: background 0.2s, color 0.2s;
 	-moz-transition: background 0.2s, color 0.2s;
-	transition: background 0.2s, color 0.2s;	
+	transition: background 0.2s, color 0.2s;
 }
 
 .hi-icon-effect-7 .hi-icon:hover {
@@ -656,7 +644,7 @@ ul.callbacks_tabs.callbacks1_tabs {
     font-size: 1em;
     color: #999;
     float: left;
-    border-left: 1px solid #ADADAD;  
+    border-left: 1px solid #ADADAD;
 }
 .grid-contact-in textarea{
   border:1px solid #ADADAD;
@@ -874,7 +862,7 @@ figcaption a:hover {
     margin: 0 3px;
 }
 .captn2 a:hover {
-    transform: rotateY(360deg);	
+    transform: rotateY(360deg);
 	border-radius:100px;
 }
 .captn2 li{
@@ -922,13 +910,13 @@ figcaption a:hover {
     -ms-transition: 0.5s all;
 }
 .btm-right:hover .captn2 li a.icon1{
-	background:url(../images/img-sprite.png) no-repeat -3px -48px;	
+	background:url(../images/img-sprite.png) no-repeat -3px -48px;
 }
 .btm-right:hover .captn2 li a.icon2{
-	background:url(../images/img-sprite.png) no-repeat -80px -48px;	
+	background:url(../images/img-sprite.png) no-repeat -80px -48px;
 }
 .btm-right:hover .captn2 li a.icon3{
-	background:url(../images/img-sprite.png) no-repeat -150px -48px;	
+	background:url(../images/img-sprite.png) no-repeat -150px -48px;
 }
 .btm-right:hover .captn2 a {
     border-radius:100px;
@@ -1494,5 +1482,6 @@ figcaption h3 {
 .navbar-toggle {
     margin-top: 12px;
     margin-right: 10px;
+}
 }
 }

@@ -5,7 +5,7 @@
     <link href="../../assets/site/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- Custom Theme files -->
     <script src="../../assets/site/js/jquery.min.js"></script>
-    <!--theme-style-->
+
     <link href="../../assets/site/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="icon" href="../../../assets/site/images/miniLogo.png">
     <!--//theme-style-->
@@ -29,7 +29,162 @@
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
 
+    <style>
+        @media screen and (max-width: 1680px) and (min-width: 1367px) {
+            .banner{
+                background: url(../../../assets/site/images/banner_jpg.jpg) no-repeat left;
+                width: 100%;
+                height: 700px;
+                text-align: center;
+                padding-top: 11.5em;
+                background-size: cover;
+            }
+            .fix{
+                width: 50%;
+                height: 209px;
+            }
+        }
 
+        @media screen and (max-width: 1366px) and (min-width: 1025px) {
+            .banner{
+                background: url(../../../assets/site/images/banner_1336.jpg) no-repeat left;
+                width: 100%;
+                height: 600px;
+                text-align: center;
+                padding-top: 10em;
+                background-size: cover;
+            }
+            .fix{
+                width: 50%;
+                height: 209px;
+            }
+        }
+
+        @media screen and (max-width: 1024px) and (min-width: 769px) {
+            .banner{
+                background: url(../../../assets/site/images/banner_1336.jpg) no-repeat left;
+                width: 100%;
+                height: 700px;
+                text-align: center;
+                padding-top: 11.5em;
+                background-size: cover;
+            }
+            .fix{
+                width: 47%;
+                height: 209px;
+                margin-bottom: 80px;
+            }
+            .ser-grid:nth-child(1){
+                border-bottom:0px dashed #ffffff;
+            }
+            .ser-grid:nth-child(3){
+                border-bottom:0px dashed #ffffff;
+            }
+            .ser-grid:nth-child(2){
+                border-left: 0px dashed #ffffff;
+                border-bottom:0px dashed #ffffff;
+            }
+            .ser-grid:nth-child(4){
+                border-left: 0px dashed #ffffff;
+                border-bottom:0px dashed #ffffff;
+            }
+            .ser-grid:nth-child(6){
+                border-left: 0px dashed #ffffff;
+            }
+        }
+
+        @media screen and (max-width: 768px) and (min-width: 641px)  {
+
+            .navbar-toggle .icon-bar {
+                display: block;
+                background-color: #dcba32;
+                width: 22px;
+                height: 2px;
+                border-radius: 1px;
+            }
+
+            .col-md-5{
+                position: relative;
+                min-height: 1px;
+                /* padding-right: 15px; */
+                /* padding-left: 15px; */
+                text-align: justify;
+                margin-bottom: 100px;
+            }
+            .col-md-12{
+                position: static;
+                min-height: 1px;
+                padding-right: 15px;
+                padding-left: 15px;
+                width: 100%;
+            }
+            .banner {
+                width: 100%;
+                height: 300px;
+                padding-top: 2em;
+            }
+
+            .fix{
+                width: 100%;
+                height: 209px;
+            }
+
+            .img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+                display: inline-block;
+                max-width: 100%;
+                height: auto;
+            }
+            .parceiros{
+                display: none;
+            }
+            .fill {
+                float: none;
+                text-align: center;
+
+            }
+        }
+
+        @media screen and (max-width: 640px) {
+            .banner{
+                background: url(../../../assets/site/images/banner_logo.png) no-repeat center;
+                width: 100%;
+                padding-top: 10px;
+
+            }
+            .slider{
+                display: none;
+            }
+            .parceiros{
+                display: none;
+            }
+            .col-md-5{
+                position: relative;
+                min-height: 1px;
+                /* padding-right: 15px; */
+                /* padding-left: 15px; */
+                text-align: justify;
+                margin-bottom: 100px;
+            }
+            .col-md-12{
+                position: static;
+                min-height: 1px;
+                padding-right: 15px;
+                padding-left: 15px;
+                width: 100%;
+            }
+
+            .fix{
+                width: 100%;
+                height: 209px;
+            }
+
+            .img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+                display: inline-block;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    </style>
 
 </head>
 
@@ -143,11 +298,11 @@
 
                             <p>{{ limit(info.content)|raw }}<a href='' type='button' data-toggle='modal' data-target='#{{ info.id }}'> Leia mais...</a></p>
 
-                            <div class='modal fade' id='{{ info.id }}' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>
+                            <div class='modal fade' id='{{ info.id }}' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' style="padding: 2em">
                                 <div class='modal-dialog' role='document'>
                                     <div class='modal-content'>
                                         <div class='modal-header' style='background-color: #263b67;text-align: center;'>
-                                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                            <button type='button' class='close' data-dismiss='modal' aria-label='Close' style="color: #fff;"><span aria-hidden='true'>&times;</span></button>
                                             <h4 class='modal-title' id='myModalLabel' style='color: #fff'>{{ info.title|raw }}</h4>
                                         </div>
 
@@ -157,7 +312,7 @@
 
                                         </div>
                                         <div class='modal-footer' style='background-color: #263b67;'>
-                                            <i class='glyphicon glyphicon-picture' style='color: #59b744'></i>
+                                            <a href="/imagens"><i class='glyphicon glyphicon-picture' style='color: #59b744'></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -238,7 +393,7 @@
 
     <!--footer-->
     <div class="copy">
-        <div style="border-bottom: 1px solid;padding-bottom: 40px">
+        <div class="parceiros" style="border-bottom: 1px solid;padding-bottom: 40px">
             <h2 style="color: #484848;margin-bottom: 20px">PARCEIROS</h2>
             <img src="../../assets/site/images/Ajuda.png" class="img-rodape">
             <img src="../../assets/site/images/Participa.png" class="img-rodape">
