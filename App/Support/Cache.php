@@ -14,8 +14,7 @@ class Cache
         }
         else {
 
-            $dir = config('app.cache.folder');
-            $adapter = new File($dir);
+            $adapter     = new File(config('app.cache.folder'));
             self::$cache = new DesarrollaCache($adapter);
             return true;
         }
