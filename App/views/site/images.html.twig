@@ -29,7 +29,7 @@
 
 			{% for key, gallery in galleries %}
 				{% for photo in gallery.Photos() %}
-					<div class="filtr-item gallery-t" data-category="{{ photo.gallery_id }}"  data-sort="{{ gallery.name }}">
+					<div class="filtr-item" data-category="{{ photo.gallery_id }}"  data-sort="{{ gallery.name }}">
 						<a href="../../../{{ photo.src }}" rel="title" class="b-link-stripe b-animate-go  thickbox">
 							<figure>
 								<img src="../../../{{ photo.src }}" class="img-responsive" alt=" " />	<figcaption>
