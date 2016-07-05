@@ -4,8 +4,9 @@ namespace App\Controllers;
 
 use App\Models\Information;
 use App\Support\Cache;
+use Cac\Controller\Action;
 
-class InformationController extends Controller
+class InformationController extends Action
 {
     private $information;
 
@@ -22,15 +23,20 @@ class InformationController extends Controller
 
     public function update()
     {
+        header('Content-type: application/json');
+
         try
         {
             $id = $_GET['id'];
-            $information = $this->information->find($id)->update($_REQUEST);
-            Cache::delete($information->Content()->Page()->cache);
-            echo json_encode($information->Content()->flag, 200);
-        }catch (\Exception $e)
+            $this->information->find($id)->update($_REQUEST);
+            Cache::set('publish',date('d-m-Y H:m:s'));
+            http_response_code(200);
+            echo json_encode('success');
+        }
+        catch (\Exception $e)
         {
-            echo json_encode(['error' => $e], 404);
+            http_response_code(404);
+            echo json_encode(['error' => $e]);
         }
     }
 }

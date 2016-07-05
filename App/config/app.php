@@ -20,7 +20,7 @@ return [
                             'folder' => 'images'
                         ],
 
-            'cache'  => [ 'active' => false,
+            'cache'  => [ 'active' => true,
                           'folder' => 'storage/cache',
 
                         ]

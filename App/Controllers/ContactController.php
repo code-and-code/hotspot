@@ -3,8 +3,9 @@ namespace App\Controllers;
 
 use App\Models\Contact;
 use App\Support\Mail;
+use Cac\Controller\Action;
 
-class ContactController extends Controller
+class ContactController extends Action
 {
     private $contact;
     private $from;

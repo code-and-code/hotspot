@@ -1,0 +1,31 @@
+{% extends view('admin.admin') %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Publicar
+    </div>
+    <div class="panel-body">
+
+        {% if publish %}
+            <table class="table table-hover">
+                <thead>
+                <th>Data Alteração</th>
+                <th>#</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ publish }}</td>
+                        <td><a href='/admin/page/publish' title=''><i class= 'glyphicon glyphicon-check'></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+         {% else %}
+             Não ha novas alterações.
+        {% endif %}
+    </div>
+</div>
+
+    <a href="/admin" class="btn btn-success"> Voltar </a>
+
+{% endblock %}

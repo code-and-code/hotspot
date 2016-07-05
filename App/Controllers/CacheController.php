@@ -3,8 +3,9 @@ namespace App\Controllers;
 
 use App\Models\Page;
 use App\Support\Cache;
+use Cac\Controller\Action;
 
-class CacheController extends Controller
+class CacheController extends Action
 {
     public function index()
     {

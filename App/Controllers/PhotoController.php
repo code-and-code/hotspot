@@ -24,7 +24,8 @@ class PhotoController extends Action
     public function store(array $photo)
     {
         try {
-            $photo = $this->photo->create($photo);
+
+            $this->photo->create($photo);
             header('Content-type: application/json');
             http_response_code(200);
             echo json_encode('Enviado com Sucesso!!');
@@ -41,11 +42,12 @@ class PhotoController extends Action
     {
          try {
 
-            $file       = new File('file',$this->src);
+            $file       = new File($_FILES['file'],$this->src);
             $nameFile   = md5(date('H:m:s:'));
-            $file->setName($nameFile)->mimeType(['image/png','image/jpeg', 'image/jpg'])->maxSize('3M')->upload();
-            $photo = $_REQUEST;
-            $photo['src'] = $this->src.'/'.$file->getData()['name'];
+            $file->setName($nameFile)->mimeType(['image/png','image/jpeg', 'image/jpg'])->maxSize('3MB')->upload();
+
+            $photo        = $_REQUEST;
+            $photo['src'] = $this->src.'/'.$file->getData()->name;
             $this->store($photo);
 
         }
@@ -53,7 +55,7 @@ class PhotoController extends Action
         {
             header('Content-type: application/json');
             http_response_code(404);
-            echo json_encode(['errors' => $e->getMessage()]);
+            echo json_encode(['errors' => $file->getErrors()]);
         }
     }
 

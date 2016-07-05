@@ -4,8 +4,9 @@ namespace App\Controllers;
 
 use App\Models\Gallery;
 use App\Support\Cache;
+use Cac\Controller\Action;
 
-class GalleryController extends Controller
+class GalleryController extends Action
 {
     private $gallery;
 

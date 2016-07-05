@@ -20,13 +20,11 @@ class Init extends Bootstrap
         $ar['auth.logout']              = ['route' => '/auth/logout',                                   'controller' => 'AuthController',       'action' => 'logout'                        ];
 
         $ar['admin']                    = ['route' => '/admin',                                         'controller' => 'AdminController',      'auth' =>false, 'action' => 'index'         ];
-        $ar['admin.page.index']         = ['route' => '/admin/pages',                                   'controller' => 'PageController',       'auth' =>false, 'action' => 'index'          ];
-        $ar['admin.page.publish']       = ['route' => '/admin/page/publish',                            'controller' => 'PageController',       'auth' =>false, 'action' => 'publish'          ];
+        $ar['admin.page.index']         = ['route' => '/admin/pages',                                   'controller' => 'PageController',       'auth' =>false, 'action' => 'index'         ];
+        $ar['admin.page.show']          = ['route' => '/admin/pages/show-publish',                      'controller' => 'PageController',       'auth' =>false, 'action' => 'showPublish'   ];
+        $ar['admin.page.publish']       = ['route' => '/admin/page/publish',                            'controller' => 'PageController',       'auth' =>false, 'action' => 'publish'       ];
 
-        $ar['admin.cache']              = ['route' => '/admin/cache',                                   'controller' => 'CacheController',      'auth' =>false, 'action' => 'index'            ];
-        $ar['admin.cache.show']         = ['route' => '/admin/cache/show',                              'controller' => 'CacheController',      'auth' =>false, 'action' => 'show'             ];
-        $ar['admin.cache.delete']       = ['route' => '/admin/cache/delete',                            'controller' => 'CacheController',      'auth' =>false, 'action' => 'delete'           ];
-
+       
         $ar['admin.content.index']      = ['route' => '/admin/content/index',                           'controller' => 'ContentController',    'auth' =>false, 'action' => 'index'         ];
         $ar['admin.content.edit']       = ['route' => '/admin/content/edit',                            'controller' => 'ContentController',    'auth' =>false, 'action' => 'edit'          ];
         $ar['admin.content.update']     = ['route' => '/admin/content/update', 'method'=>'POST',        'controller' => 'ContentController',    'auth' =>false, 'action' => 'update'        ];

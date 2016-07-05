@@ -4,8 +4,9 @@ namespace App\Controllers;
 
 use App\Models\Content;
 use App\Support\Cache;
+use Cac\Controller\Action;
 
-class ContentController extends Controller
+class ContentController extends Action
 {
     private $content;
 
@@ -30,15 +31,18 @@ class ContentController extends Controller
 
     public function update()
     {
+        header('Content-type: application/json');
         try{
             $id = $_GET['id'];
-            $content = $this->content->find($id)->update($_REQUEST);
-            var_dump($content);
-            Cache::delete($content->Page()->cache);
-            echo json_encode('success', 200);
+            $this->content->find($id)->update($_REQUEST);
+            Cache::set('publish',date('d-m-Y H:m:s'));
+            http_response_code(200);
+            echo json_encode('success');
+
         }catch (\Exception $e)
         {
-            echo json_encode(['error' => $e], 404);
+            http_response_code(404);
+            echo json_encode(['error' => $e]);
         }
     }
 
