@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Support\Cache;
 use App\Support\File;
 use App\Models\Photo;
 use Cac\Controller\Action;
@@ -28,6 +29,7 @@ class PhotoController extends Action
             $this->photo->create($photo);
             header('Content-type: application/json');
             http_response_code(200);
+            Cache::set('publish',date('d-m-Y H:m:s'));
             echo json_encode('Enviado com Sucesso!!');
 
         }catch (\Exception $e)
@@ -70,6 +72,7 @@ class PhotoController extends Action
     {
         $id = $_POST['id'];
         $photo = $this->photo->find($id)->update($_REQUEST);
+        Cache::set('publish',date('d-m-Y H:m:s'));
         header("Location: /admin/gallery/edit?id=".$photo->Gallery()->id);
     }
 
