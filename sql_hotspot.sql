@@ -62,7 +62,7 @@ INSERT INTO `content` (`id`, `name`, `content`, `flag`, `page_id`, `created_at`,
 	(11, 'Beneficios', 'Beneficios', 'beneficios', 2, NULL, '2016-06-29 17:29:15'),
 	(12, 'Escritorio Virtual', '', 'ev', 3, NULL, NULL),
 	(13, 'Coworking', '', 'cwb', 3, NULL, NULL),
-	(16, 'Galeria', '', 'gll', 2, NULL, '2016-07-05 15:02:54');
+	(16, 'Galeria', '', 'gll', 1, NULL, '2016-07-05 15:02:54');
 /*!40000 ALTER TABLE `content` ENABLE KEYS */;
 
 
@@ -205,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.users: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.users: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `email`, `name`, `password`, `created_at`, `updated_at`) VALUES
 	(1, 'suporte@codeandcode.com.br', 'suporte', 'admin', '2016-06-13 16:56:59', NULL);
