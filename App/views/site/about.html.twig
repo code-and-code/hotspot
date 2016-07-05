@@ -1,36 +1,50 @@
-{% extends view('app') %}
-
-{% block content %}
 <div class="clearfix"></div>
 <div class="service">
+
+    <div class="topFaixa"><img src="/assets/site/images/top_faixa.png" class="img-responsive"></div>
+        <div style="background: url('/assets/site/images/bot_faixa.png') no-repeat;width: 100%;">
+            <div class="container">
+                <div class="service-head" id="about">
+
+                    {% if contents['about'] %}
+
+                        <div class="ser-top ga-top" >
+                            <h3 style="color: #263b67" >{{ contents['about'].name }}</h3>
+                            <div class="ser-t">
+                                <b></b>
+                                <b class="line"></b>
+                            </div>
+                        </div>
+
+                        <br/>{{ contents['about'].content|raw }}<br/>
+                    {% endif %}
+
+                    <div class="col-md-12 ser-head" style="text-align: left;padding: 20px">
+
+                    {% if contents['beneficios'] %}
+
+                        <h3> {{ contents['beneficios'].content|raw }} </h3><br/>
+
+                        <ul class="list_content">
+
+                        {% for info in contents['beneficios'].Information() %}
+
+                                <li><i class='glyphicon glyphicon-{{ info.icon }}'></i>{{ info.content|raw }}</li>
+
+                        {% endfor %}
+
+                        </ul>
+
+                    {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="service-head">
-
-            {% if contents['about'] %}
-                <h1> {{ contents['about'].name }} </h1><br/>
-
-                <br/>{{ contents['about'].content|raw }}<br/>
-            {% endif %}
-
-            <div class="col-md-12 ser-head" style="text-align: left;padding: 20px">
-
-            {% if contents['beneficios'] %}
-
-                <h3> {{ contents['beneficios'].content|raw }} </h3><br/>
-
-                <ul class="list_content">
-
-                {% for info in contents['beneficios'].Information() %}
-
-                        <li><i class='glyphicon glyphicon-{{ info.icon }}'></i>{{ info.content|raw }}</li>
-
-                {% endfor %}
-
-                </ul>
-
-            {% endif %}
-
-            </div>
 
             {% if contents['mvv'] %}
                 <div class='row'>
@@ -51,5 +65,6 @@
 
         </div>
     </div>
+    </div>
 </div>
-{% endblock %}
+

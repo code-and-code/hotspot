@@ -16,6 +16,7 @@ USE `hotspot`;
 
 
 -- Copiando estrutura para tabela hotspot.contacts
+DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE IF NOT EXISTS `contacts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -29,12 +30,13 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.contacts: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.contacts: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 
 
 -- Copiando estrutura para tabela hotspot.content
+DROP TABLE IF EXISTS `content`;
 CREATE TABLE IF NOT EXISTS `content` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -46,9 +48,9 @@ CREATE TABLE IF NOT EXISTS `content` (
   PRIMARY KEY (`id`),
   KEY `page_id` (`page_id`),
   CONSTRAINT `page_id` FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela hotspot.content: ~8 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.content: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `content` DISABLE KEYS */;
 INSERT INTO `content` (`id`, `name`, `content`, `flag`, `page_id`, `created_at`, `updated_at`) VALUES
 	(1, 'Banner', '', 'banner', 1, NULL, NULL),
@@ -58,11 +60,14 @@ INSERT INTO `content` (`id`, `name`, `content`, `flag`, `page_id`, `created_at`,
 	(5, 'Info Empresa', '', 'mvv', 2, NULL, '2016-07-01 13:21:29'),
 	(6, 'Como Funciona', '<p>Coworking &eacute; a uni&atilde;o de um grupo de profissionais inovadores e talentosos, que trabalham independente uma das outras, dividindo o mesmo espa&ccedil;o e mesmo endere&ccedil;o. S&atilde;o pessoas que compartilham seus valores e conhecimento, criam sinergia entre elas que aumenta a motiva&ccedil;&atilde;o e consequentemente seus resultados.</p><p>O coworking oferece mais que uma mesa de trabalho, nele voc&ecirc; encontra internet, telefone, sala de treinamento, sala de reuni&atilde;o totalmente equipada, impressora multifuncional, ampla copa, arm&aacute;rios, gavetas, banheiros. Tem tudo que voc&ecirc; precisa para desenvolver suas atividades.</p><p>Al&eacute;m disso, junto com coworking tem tamb&eacute;m a atividade de escrit&oacute;rio fiscal e comercial,<br /><strong>O QUE S&Atilde;O?</strong><br /><br />S&atilde;o duas atividades que utiliza o endere&ccedil;o do coworking para ser de sua empresa. Voc&ecirc; escolhe o local para receber correspond&ecirc;ncias, atender clientes e telefone. A diferen&ccedil;a &eacute; que o escrit&oacute;rio fiscal voc&ecirc; utilizar&aacute; o nosso endere&ccedil;o, como o endere&ccedil;o fiscal de sua empresa.</p>', 'cf', 3, NULL, '2016-06-29 17:55:23'),
 	(11, 'Beneficios', 'Beneficios', 'beneficios', 2, NULL, '2016-06-29 17:29:15'),
-	(12, 'Escritorio Virtual', '', 'ev', 3, NULL, NULL);
+	(12, 'Escritorio Virtual', '', 'ev', 3, NULL, NULL),
+	(13, 'Coworking', '', 'cwb', 3, NULL, NULL),
+	(16, 'Galeria', '', 'gll', 2, NULL, '2016-07-05 15:02:54');
 /*!40000 ALTER TABLE `content` ENABLE KEYS */;
 
 
 -- Copiando estrutura para tabela hotspot.galleries
+DROP TABLE IF EXISTS `galleries`;
 CREATE TABLE IF NOT EXISTS `galleries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -82,6 +87,7 @@ INSERT INTO `galleries` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 
 -- Copiando estrutura para tabela hotspot.information
+DROP TABLE IF EXISTS `information`;
 CREATE TABLE IF NOT EXISTS `information` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -101,8 +107,8 @@ INSERT INTO `information` (`id`, `title`, `content`, `icon`, `content_id`, `crea
 	(1, 'Coworking', 'Agradável ambiente de trabalho com salas equipadas, suporte técnico e uma equipe altamente qualificada.', NULL, 1, '2016-06-29 11:12:52', NULL),
 	(2, 'Hotspot', '<p>A Hotspot &eacute; mais que um espa&ccedil;o de trabalho compartilhado, a Hotspost &eacute; o caminho mais curto para o sucesso.</p>', NULL, 1, '2016-06-29 11:12:54', '2016-06-29 13:25:07'),
 	(3, 'Cup coffee', 'Disponibilizamos excelente copa, equipada com geladeira, micro-ondas, mesa, tv e sofá, para que possa fazer sua pausa de trabalho, tomar seu café e fazer suas refeições.', NULL, 1, '2016-06-29 11:12:55', NULL),
-	(4, 'Escritório Compartilhado', '<p>Modalidade em que o cliente contrata uma esta&ccedil;&atilde;o de trabalho e utiliza o coworking compartilhando com outros profissionais ambiente de trabalho. Dentro da mesma estrutura, profissionais de diversos ramos de atividade trabalham individualmente. Servi&ccedil;os de telefonia, recep&ccedil;&atilde;o, caf&eacute;, &aacute;gua, limpeza e manuten&ccedil;&atilde;o est&atilde;o inclu&iacute;dos na mensalidade. Outros podem ser solicitados sob demanda como motoboy e correios.</p><p><br />Vantagens:</p><ul><li>Servi&ccedil;os de telefonia</li><li>Internet</li><li>Recep&ccedil;&atilde;o</li><li>Caf&eacute;</li><li>&Aacute;gua.</li><li>Limpeza e manuten&ccedil;&atilde;o</li><li>Material para escrit&oacute;rio</li><li>Ambiente climatizado</li></ul>', 'leaf', 2, '2016-06-29 11:12:50', '2016-06-30 13:04:01'),
-	(5, 'Sala para Reuniões', '<p>Estrutura completa para sua reuni&atilde;o.</p><p>As salas s&atilde;o alugadas por hora, per&iacute;odo, di&aacute;rio e mensal, possuem servi&ccedil;os de copa com caf&eacute; e &aacute;gua inclusos. Nossas salas s&atilde;o equipadas:</p><p>Vantagens:</p><ul><li>Suporte de v&iacute;deo;</li><li>&Aacute;udio confer&ecirc;ncia;</li><li>TV Flipchart para trabalhos did&aacute;ticos;</li><li>Telefone;</li><li>Internet;</li><li>Ambiente climatizado;</li><li>Recep&ccedil;&atilde;o;</li><li>Caf&eacute;;</li><li>&Aacute;gua;</li><li>Limpeza e manuten&ccedil;&atilde;o;</li></ul><p><strong>&nbsp;</strong></p><p>Coffe Break podem ser servidos conforme solicita&ccedil;&atilde;o do cliente, servi&ccedil;o terceirizado disponibilizado separadamente</p>', 'blackboard', 2, NULL, '2016-06-29 18:25:49'),
+	(4, 'Escritório Compartilhado', '<p>Modalidade em&nbsp;que o cliente contrata uma esta&ccedil;&atilde;o de trabalho e utiliza o coworking compartilhando com outros profissionais ambiente de trabalho. Dentro da mesma estrutura, profissionais de diversos ramos de atividade trabalham individualmente. Servi&ccedil;os de telefonia, recep&ccedil;&atilde;o, caf&eacute;, &aacute;gua, limpeza e manuten&ccedil;&atilde;o est&atilde;o inclu&iacute;dos na mensalidade. Outros podem ser solicitados sob demanda como motoboy e correios.</p><p><br />Vantagens:</p><ul><li>Servi&ccedil;os de telefonia</li><li>Internet</li><li>Recep&ccedil;&atilde;o</li><li>Caf&eacute;</li><li>&Aacute;gua.</li><li>Limpeza e manuten&ccedil;&atilde;o</li><li>Material para escrit&oacute;rio</li><li>Ambiente climatizado</li></ul>', 'leaf', 2, '2016-06-29 11:12:50', '2016-07-04 13:52:21'),
+	(5, 'Sala para Reuniões', '<p>Estrutura completa para sua reuni&atilde;o.</p><p>As salas s&atilde;o alugadas por hora, per&iacute;odo, di&aacute;rio e mensal, possuem servi&ccedil;os de copa com caf&eacute; e &aacute;gua inclusos. Nossas salas s&atilde;o equipadas:</p><p>Vantagens:</p><ul><li>Suporte de v&iacute;deo;</li><li>&Aacute;udio confer&ecirc;ncia;</li><li>TV Flipchart para trabalhos did&aacute;ticos;</li><li>Telefone;</li><li>Internet;</li><li>Ambiente climatizado;</li><li>Recep&ccedil;&atilde;o;</li><li>Caf&eacute;;</li><li>&Aacute;gua;</li><li>Limpeza e manuten&ccedil;&atilde;o;</li></ul><p><strong>&nbsp;</strong></p><p>Coffe Break podem ser servidos conforme solicita&ccedil;&atilde;o do cliente, servi&ccedil;o terceirizado disponibilizado separadamente</p>', 'blackboard', 2, NULL, '2016-07-04 13:56:24'),
 	(6, 'Escritório Fiscal', '<p>Endere&ccedil;o fiscal para atender seus clientes.</p><p>O Escrit&oacute;rio Virtual proporciona a sua empresa uma imagem coorporativa de prest&iacute;gio sempre nos endere&ccedil;os mais nobres da cidade.</p><p>Al&eacute;m de reduzir custos operacionais. Permite que a empresa se concentre em sua atividade principal:</p><ul><li>Recepcionista;</li><li>Atendimento ao cliente;</li><li>Um telefone fixo exclusivo que &eacute; atendido com o nome da empresa do cliente;</li><li>Endere&ccedil;o comercial;</li><li>Gerenciamento das correspond&ecirc;ncias;</li><li>Endere&ccedil;o fiscal;</li><li>Central de correspond&ecirc;ncia;</li></ul>', 'globe', 2, NULL, '2016-06-29 18:24:09'),
 	(7, 'Sala Privativa', '<p>Sala reservada para equipe ou at&eacute; 3 pessoas.</p><p>Nossa sala Privativa possui ambiente mais reservado, para uma empresa ou compartilhada com at&eacute; 3 pessoas. Banheiro exclusivo- Sala rica em arm&aacute;rios e gaveteiros.</p><ul><li>Sala Reservada;</li><li>Banheiro;</li><li>Arm&aacute;rio Grande;</li><li>Ambiente climatizado;</li><li>Internet;</li><li>Mesa com cadeira;</li><li>Servi&ccedil;os de telefonia;</li><li>Recep&ccedil;&atilde;o;</li><li>Caf&eacute;;</li><li>&Aacute;gua;</li><li>Material para escrit&oacute;rio;</li></ul><p>Outros podem ser solicitados conforme necessidade, como motoboy e correios (servi&ccedil;os a parte).</p>', 'lock', 2, NULL, '2016-06-29 17:12:27'),
 	(8, 'Escritório Comercial', '<p>Endere&ccedil;o comercial para atender seus clientes.</p><p>O endere&ccedil;o comercial ser&aacute; utilizado pelo contratante para ter um endere&ccedil;o em local nobre que receba suas correspond&ecirc;ncias, que poder&aacute; ser utilizado em seu material de marketing, em cart&otilde;es de visita, panfletos, site etc.. Incluindo os servi&ccedil;os:</p><ul><li>Recepcionista;</li><li>Atendimento telef&ocirc;nico;</li><li>Endere&ccedil;o comercial;</li><li>Gerenciamento das correspond&ecirc;ncias;</li><li>Envio de recado.</li></ul>', 'usd', 2, NULL, '2016-06-29 18:28:06'),
@@ -135,6 +141,7 @@ INSERT INTO `information` (`id`, `title`, `content`, `icon`, `content_id`, `crea
 
 
 -- Copiando estrutura para tabela hotspot.pages
+DROP TABLE IF EXISTS `pages`;
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
@@ -144,17 +151,17 @@ CREATE TABLE IF NOT EXISTS `pages` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela hotspot.pages: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela hotspot.pages: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
 INSERT INTO `pages` (`id`, `name`, `cache`, `created_at`, `updated_at`) VALUES
 	(1, 'inicio', 'index', '2016-06-13 16:54:02', NULL),
 	(2, 'hotspot_coworking', 'about', '2016-06-13 16:53:59', NULL),
-	(3, 'como_funciona', 'works', '2016-06-13 16:54:01', NULL),
-	(4, 'imagens', 'images', '2016-06-29 17:00:19', NULL);
+	(3, 'como_funciona', 'works', '2016-06-13 16:54:01', NULL);
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 
 
 -- Copiando estrutura para tabela hotspot.photos
+DROP TABLE IF EXISTS `photos`;
 CREATE TABLE IF NOT EXISTS `photos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -187,6 +194,7 @@ INSERT INTO `photos` (`id`, `title`, `description`, `created_at`, `updated_at`, 
 
 
 -- Copiando estrutura para tabela hotspot.users
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,

@@ -1,36 +1,37 @@
-{% extends view('app') %}
-
-{% block content %}
-
-	<div class="service" id="works">
-		<div class="container">
-
-			<div class="col-md-5 ser-head">
-				<div class="col-md-12">
-					<h5>{{ contents['ev'].name|raw }}</h5>
-
-					<div class="col-md-12 ser-head" style="text-align: left">
-						<ul class="list_content">
-
-							{% for info in contents['ev'].Information() %}
-								<li><i class='glyphicon glyphicon-{{ info.icon }}'></i> {{ info.content|raw }} </li>
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="service-head">
-				<div class="col-md-7 ser-head">
-					<h5>{{ contents['cf'].name|raw }}</h5>
-					<p style="text-align: justify">
-						{{ contents['cf'].content|raw }}
-					</p>
-				</div>
-
-			<div class="clearfix"> </div>
+<div class="service" id="works">
+	<div class="container">
+		<div class="ser-top ga-top">
+			<h3 style="color: #263b67" >{{ contents['cwb'].name|raw }}</h3>
+			<div class="ser-t">
+				<b></b>
+				<b class="line"></b>
 			</div>
 		</div>
-	</div>
+		<div class="col-md-5 ser-head">
+			<div class="col-md-12">
+				<h5>{{ contents['ev'].name|raw }}</h5>
 
-{% endblock %}
+				<div class="col-md-12 ser-head" style="text-align: left">
+					<ul class="list_content">
+
+						{% for info in contents['ev'].Information() %}
+							<li><i class='glyphicon glyphicon-{{ info.icon }}'></i> {{ info.content|raw }} </li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="service-head">
+			<div class="col-md-7 ser-head">
+				<h5>{{ contents['cf'].name|raw }}</h5>
+				<p style="text-align: justify">
+					{{ contents['cf'].content|raw }}
+				</p>
+			</div>
+
+		<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+

@@ -30,7 +30,7 @@
 			loadingImg            : 'images/loading.gif',		
 			currentImage          : 0,						
 			setIndex              : 0,
-			setTitle              : '',
+			setTitle              : 'teste',
 			lastImage             : 0
 		},settings);
 		
@@ -233,7 +233,8 @@
 			var current = settings.currentImage + 1;
 			var last = settings.lastImage + 1;
 			$('#Choco_container_title').html(images[settings.setIndex][settings.currentImage]['caption']);
-			$('#Choco_container_via').html(settings.setTitle+settings.separator1+current +settings.separator2+last);
+			$('#Choco_container_via').html(current +settings.separator2+last);
+			//$('#Choco_container_via').html(settings.setTitle+settings.separator1+current +settings.separator2+last);
 		}
 		function isSet(variable,defaultValue){
 			// return variable === undefined ? defaultValue : variable; ?

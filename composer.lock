@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3cd18319059878176d0a78585d45cdc8",
+    "hash": "73d020c22254671a416f8decd3af8e70",
     "content-hash": "2ce908c0d182f0ca086a4e206905a362",
     "packages": [
         {
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/code-and-code/micro-fwk.git",
-                "reference": "fa4727ecc03fa6ec92b6dadebb91617b0fbcffef"
+                "reference": "51811cb146107f6b707af854d19042461d939195"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/code-and-code/micro-fwk/zipball/fa4727ecc03fa6ec92b6dadebb91617b0fbcffef",
-                "reference": "fa4727ecc03fa6ec92b6dadebb91617b0fbcffef",
+                "url": "https://api.github.com/repos/code-and-code/micro-fwk/zipball/51811cb146107f6b707af854d19042461d939195",
+                "reference": "51811cb146107f6b707af854d19042461d939195",
                 "shasum": ""
             },
             "require": {
@@ -42,7 +42,7 @@
                 "projecto inical",
                 "start"
             ],
-            "time": "2016-06-30 16:50:23"
+            "time": "2016-07-04 14:12:15"
         },
         {
             "name": "codeguy/upload",

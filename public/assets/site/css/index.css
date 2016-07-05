@@ -20,7 +20,7 @@
 
 /* Filter controls */
 .simplefilter li, .multifilter li, .sortandshuffle li {
-    color: #C3C3C3;
+    color: #0d1e3f;
     cursor: pointer;
     display: inline-block;
     padding: 10px 20px;
@@ -29,11 +29,11 @@
 	letter-spacing: 1px;
 }
 .simplefilter li {
-        border:2px solid #C3C3C3;
+        border:2px solid #dcba32;
 }
 .simplefilter li.active {
-    border: 2px solid #59b744;
-	color: #59b744;
+    border: 2px solid #dcba32;
+	color: #fff;
 }
 /* Shuffle and sort controls */
 select {

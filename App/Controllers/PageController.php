@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\Page;
+use App\Models\Gallery;
 
 class PageController extends Controller
 {
@@ -28,5 +29,14 @@ class PageController extends Controller
                 $contents[$content->flag] = $content;
             }
         }
+        $galleries = $this->gallery();
+        echo $this->render('app_cache', ['contents' => $contents, 'galleries' => $galleries]);
+    }
+
+    public function gallery()
+    {
+        $gallery = new Gallery();
+        $galleries = $gallery->all();
+        return $galleries;
     }
 }
