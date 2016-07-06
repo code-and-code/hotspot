@@ -3,16 +3,14 @@ namespace App\Controllers;
 
 use App\Models\Gallery;
 use App\Models\Page;
-use App\Support\Cache;
-use Cac\Controller\Action;
 
-class PageController extends Action
+class PageController extends Controller
 {
     private $page;
 
     public function __construct()
     {
-        $this->page = new Page();
+        $this->page  = new Page();
     }
 
     public function index()
@@ -22,7 +20,7 @@ class PageController extends Action
 
     public function showPublish()
     {
-        echo $this->render('admin.pages.showPublish', ['publish' => Cache::get('publish')]);
+        echo $this->render('admin.pages.showPublish', ['publish' => $this->cache()->get('publish')]);
     }
 
     public function publish ()
@@ -37,12 +35,9 @@ class PageController extends Action
                 $contents[$content->flag] = $content;
             }
         }
-
         $html = $this->render('app_cache',['contents' => $contents,'galleries' => $gallery->all()]);
-        Cache::set('page', $html);
-        Cache::delete('publish');
+        $this->cache()->set('page',$html);
+        $this->cache()->delete('publish');
         header('Location: /admin/pages/show-publish');
     }
-
-
 }

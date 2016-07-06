@@ -20,11 +20,11 @@ class Cache
         }
     }
 
-    public static function set($key,$value,$time = 0)
+    public static function set($key,$value)
     {
         if(self::init())
         {
-            return self::$cache->set($key, $value, $time);
+            return self::$cache->set($key, $value);
         }
 
     }

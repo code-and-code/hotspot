@@ -3,10 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\Information;
-use App\Support\Cache;
-use Cac\Controller\Action;
 
-class InformationController extends Action
+class InformationController extends Controller
 {
     private $information;
 
@@ -29,7 +27,7 @@ class InformationController extends Action
         {
             $id = $_GET['id'];
             $this->information->find($id)->update($_REQUEST);
-            Cache::set('publish',date('d-m-Y H:m:s'));
+            $this->cache()->set('publish',date('d-m-Y H:m:s'));
             http_response_code(200);
             echo json_encode('success');
         }

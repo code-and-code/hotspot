@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "73d020c22254671a416f8decd3af8e70",
-    "content-hash": "2ce908c0d182f0ca086a4e206905a362",
+    "hash": "f6111e7ad0e867d5e32924bec6fda6df",
+    "content-hash": "5834db8e625fc0329054a6861ddb731b",
     "packages": [
         {
             "name": "codeandcode/micro-fwk",
@@ -145,6 +145,57 @@
                 "redis"
             ],
             "time": "2015-11-26 12:29:49"
+        },
+        {
+            "name": "genkgo/cache",
+            "version": "0.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/genkgo/cache.git",
+                "reference": "b5ff519c6c9be54ba3a0f3dabbe1df2c5ed65704"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/genkgo/cache/zipball/b5ff519c6c9be54ba3a0f3dabbe1df2c5ed65704",
+                "reference": "b5ff519c6c9be54ba3a0f3dabbe1df2c5ed65704",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "phpunit/phpunit-mock-objects": "~2.0",
+                "predis/predis": "~1.0.3",
+                "tedivm/stash": "~0.12.3"
+            },
+            "suggest": {
+                "predis/predis": "~1.0.3",
+                "tedivm/stash": "~0.12.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Genkgo\\Cache\\": [
+                        "src"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Frederik Bosch",
+                    "email": "development@genkgo.nl",
+                    "homepage": "http://www.genkgo.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anthony Ferrara",
+                    "homepage": "http://blog.ircmaxell.com/",
+                    "role": "Developer"
+                }
+            ],
+            "time": "2015-12-21 10:42:36"
         },
         {
             "name": "phpmailer/phpmailer",

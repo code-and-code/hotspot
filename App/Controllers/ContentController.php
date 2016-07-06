@@ -3,10 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\Content;
-use App\Support\Cache;
-use Cac\Controller\Action;
 
-class ContentController extends Action
+class ContentController extends Controller
 {
     private $content;
 
@@ -35,7 +33,7 @@ class ContentController extends Action
         try{
             $id = $_GET['id'];
             $this->content->find($id)->update($_REQUEST);
-            Cache::set('publish',date('d-m-Y H:m:s'));
+            $this->cache()->set('publish',date('d-m-Y H:m:s'));
             http_response_code(200);
             echo json_encode('success');
 
