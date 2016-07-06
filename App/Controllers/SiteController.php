@@ -1,15 +1,12 @@
 <?php
 namespace App\Controllers;
 
-use App\Support\Cache;
-use Cac\Controller\Action;
 
-class SiteController extends Action
+class SiteController extends Controller
 {
-
     public function index()
     {
-        $html = Cache::get('page');
+        $html  = $this->cache()->get('page');
         echo $html;
     }
 }

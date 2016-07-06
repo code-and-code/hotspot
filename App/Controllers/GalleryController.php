@@ -3,10 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\Gallery;
-use App\Support\Cache;
-use Cac\Controller\Action;
 
-class GalleryController extends Action
+
+class GalleryController extends Controller
 {
     private $gallery;
 
@@ -40,7 +39,7 @@ class GalleryController extends Action
         {
             $this->limit();
             $this->gallery->create($_REQUEST);
-            Cache::delete('images');
+            $this->cache()->set('publish',date('d-m-Y H:m:s'));
             header('Location: /admin/gallery/create');
         }
         catch (\Exception $e){
@@ -60,7 +59,7 @@ class GalleryController extends Action
     {
         $id = $_GET['id'];
         $this->gallery->find($id)->update($_REQUEST);
-        Cache::delete('images');
+        $this->cache()->set('publish',date('d-m-Y H:m:s'));
         header('Location: /admin/gallery');
     }
 
@@ -71,7 +70,7 @@ class GalleryController extends Action
             $gallery = $this->gallery->find($_GET['id']);
             if($this->clearGallery($gallery))
             {
-                Cache::delete('images');
+                $this->cache()->set('publish',date('d-m-Y H:m:s'));
                 header('Location: /admin/gallery');
             }
         }catch (\Exception $e)
