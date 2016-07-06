@@ -25,7 +25,7 @@ class PhotoController extends Action
     public function store(array $photo)
     {
         try {
-
+            $this->limit();
             $this->photo->create($photo);
             header('Content-type: application/json');
             http_response_code(200);
@@ -87,6 +87,14 @@ class PhotoController extends Action
             header("Location: /admin/gallery/edit?id=".$file->Gallery()->id);
         }else{
             echo "file nao existe";
+        }
+    }
+
+    private function limit()
+    {
+        if(count($this->photo->all()) > 12)
+        {
+            throw new \Exception('Error: Você atingiu numero Maximo(5) de Galerias!');
         }
     }
 

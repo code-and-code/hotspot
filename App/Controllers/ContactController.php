@@ -51,7 +51,7 @@ class ContactController extends Action
     {
         try{
             $contact = $this->contact->find($_GET['id']);
-            echo $this->render('admin.contacts.message', ['contact' => $contact]);
+            echo $this->render('admin.contacts.show', ['contact' => $contact]);
         }catch (\Exception $e)
         {
             throw new \Exception($e);

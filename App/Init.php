@@ -40,15 +40,21 @@ class Init extends Bootstrap
         $ar['admin.gallery.update']        = ['route' => '/admin/gallery/update', 'method'=>'POST',     'controller' => 'GalleryController',      'auth' =>true,'action' => 'update'        ];
         $ar['admin.gallery.delete']        = ['route' => '/admin/gallery/delete',                       'controller' => 'GalleryController',      'auth' =>true,'action' => 'delete'        ];
 
-        $ar['admin.photo.create']          = ['route' => '/admin/photo/create',                         'controller' => 'PhotoController',      'auth' =>true,'action' => 'create'           ];
-        $ar['admin.photo.edit']            = ['route' => '/admin/photo/edit',                           'controller' => 'PhotoController',     'auth' =>true,'action' => 'edit'                 ];
-        $ar['admin.photo.update']          = ['route' => '/admin/photo/update','method'=>'POST',        'controller' => 'PhotoController',      'auth' =>true,'action' => 'update'           ];
-        $ar['admin.photo.upload']          = ['route' => '/admin/photo/upload','method'=>'POST',        'controller' => 'PhotoController',      'auth' =>true,'action' => 'upload'           ];
-        $ar['admin.photo.delete']          = ['route' => '/admin/photo/delete',                         'controller' => 'PhotoController',      'auth' =>true,'action' => 'delete'           ];
+        $ar['admin.photo.create']          = ['route' => '/admin/photo/create',                         'controller' => 'PhotoController',          'auth' =>true,'action' => 'create'           ];
+        $ar['admin.photo.edit']            = ['route' => '/admin/photo/edit',                           'controller' => 'PhotoController',          'auth' =>true,'action' => 'edit'                 ];
+        $ar['admin.photo.update']          = ['route' => '/admin/photo/update','method'=>'POST',        'controller' => 'PhotoController',          'auth' =>true,'action' => 'update'           ];
+        $ar['admin.photo.upload']          = ['route' => '/admin/photo/upload','method'=>'POST',        'controller' => 'PhotoController',          'auth' =>true,'action' => 'upload'           ];
+        $ar['admin.photo.delete']          = ['route' => '/admin/photo/delete',                         'controller' => 'PhotoController',          'auth' =>true,'action' => 'delete'           ];
 
         $ar['admin.contact']               = ['route' => '/admin/contact',                              'controller' => 'ContactController',      'auth' =>true,'action' => 'index'          ];
         $ar['admin.contact.show']          = ['route' => '/admin/contact/show',                         'controller' => 'ContactController',      'auth' =>true,'action' => 'show'           ];
         $ar['admin.contact.delete']        = ['route' => '/admin/contact/delete',                       'controller' => 'ContactController',      'auth' =>true,'action' => 'delete'         ];
+
+        $ar['admin.comment.create']        = ['route' => '/admin/comment/create',                        'controller' => 'CommentController',      'auth' =>true,'action' => 'create'            ];
+        $ar['admin.comment.store']         = ['route' => '/admin/comment/store',                         'controller' => 'CommentController',      'auth' =>true,'action' => 'store'             ];
+        $ar['admin.comment.edit']          = ['route' => '/admin/comment/edit',                          'controller' => 'CommentController',      'auth' =>true,'action' => 'edit'             ];
+        $ar['admin.comment.update']        = ['route' => '/admin/comment/update',                        'controller' => 'CommentController',      'auth' =>true,'action' => 'update'             ];
+        $ar['admin.comment.delete']        = ['route' => '/admin/comment/delete',                        'controller' => 'CommentController',      'auth' =>true,'action' => 'delete'             ];
 
         $this->setRoutes($ar);
     }

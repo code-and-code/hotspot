@@ -1,0 +1,84 @@
+{% extends view('admin.admin') %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="/admin/contact"> Contato </a>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-hover">
+                <thead>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Tel</th>
+                <th>Area de atuação</th>
+                <th>Data/Hora</th>
+                <th>#</th>
+
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.phone }}</td>
+
+                    {% if contact.acting == null %}
+                        <td class="danger">Em Branco</td>
+                    {% else %}
+                        <td>{{ contact.acting }}</td>
+                    {% endif %}
+
+                    <td>{{ contact.created_at }}</td>
+                    <td><a href="/admin/comment/create?id={{ contact.id }}"><i class= 'glyphicon glyphicon-comment'></i></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            Mensagem :
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover">
+                {{ contact.message }}
+            </table>
+        </div>
+    </div>
+
+    <p><h3>Comentários:</h3></p>
+
+    {% if not contact.Comments()  %}
+
+        <p><h4>Não existe comentários</h4></p>
+
+    {% else %}
+
+        {% for comment in contact.Comments() %}
+
+            <div class="col-lg-6">
+                <div class="panel  panel-primary">
+                    <div class=" panel-heading">
+                        {{ comment.title }}  <a href="/admin/comment/delete?id={{ comment.id }}&contact_id={{ comment.contact_id }}" title="Excluir Comentário" style="color: #fff"><i class="pull-right glyphicon glyphicon-trash"></i></a>
+                                             <a href="/admin/comment/edit?id={{ comment.id }}" title="Editar Comentário" style="color: #fff"><i class="pull-right glyphicon glyphicon-edit" style="padding-right: 5px"></i></a>
+
+                    </div>
+                    <div class=" panel-body">
+                        <table class="table table-hover">
+                            {{ comment.content }}
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+
+
+{% endblock %}
+
