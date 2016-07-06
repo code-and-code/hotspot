@@ -57,6 +57,7 @@ class Init extends Bootstrap
         $ar['admin.comment.delete']        = ['route' => '/admin/comment/delete',                        'controller' => 'CommentController',      'auth' =>true,'action' => 'delete'             ];
 
         $this->setRoutes($ar);
+
     }
 
 }
