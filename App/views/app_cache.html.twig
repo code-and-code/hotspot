@@ -252,7 +252,7 @@
             <div class="container" style="color: #666;border-top: 1px solid #666">
 
                 <div class="rdp" style="margin-top: 35px">
-                    <a href="http://alavancabrasil.com.br/" target="_blank"> <img src="../../assets/site/images/Alavanca.png" class="img-rodape" alt="Alavanca Brasil"> </a>
+                    <a href="http://alavancabrasil.com.br/" target="_blank"> <img src="../../assets/site/images/banner_alavanca.png" class="img-rodape" alt="Alavanca Brasil"> </a>
                 </div>
                 <div class="rdp">
                     <p class="footer-grid" style="font-family: sans-serif;"><h4>Endereço:</h4><br/>Rua: Solimões - 849 | Bairro: Mercês | Curitiba-PR </p>
@@ -282,18 +282,14 @@
     <script src="../../assets/site/js/responsiveslides.min.js"></script>
 
     <!--navegation Scroll -->
-    <script type="text/javascript" src="../../assets/site/js/move-top.js"></script>
-    <script type="text/javascript" src="../../assets/site/js/easing.js"></script>
-    <script type="text/javascript" src="../../assets/site/js/numscroller-1.0.js"></script>
+    <script type="text/javascript" src="../../assets/site/js/navigationScroll.min.js"></script>
 
     <!-- Gallery -->
-    <script src="../../../assets/site/js/jquery.filterizr.js"></script>
-    <script src="../../../assets/site/js/controls.js"></script>
-    <script src="../../../assets/site/js/jquery.chocolat.js"></script>
-    <script src="../../../assets/site/js/owl.carousel.js"></script>
+    <script src="../../../assets/site/js/gallery.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
+            addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
             //slider banner top
             $(".scroll").click(function(event){
                 event.preventDefault();
