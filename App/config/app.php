@@ -2,7 +2,7 @@
 
 return [
            'public'    => false,
-           'timezone' => 'UTC',
+           'timezone' => 'America/Sao_Paulo',
 
            'database' => [ 'host'     => '127.0.0.1',
                            'dbname'   => 'hotspot',
