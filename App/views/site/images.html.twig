@@ -50,30 +50,3 @@
 		<div class="botFaixa"><img src="/assets/site/images/bot_faixa.png" class="img-responsive" alt="bot faixa"></div>
 	</div>
 
-
-{% block scripts %}
-	<script src="../../../assets/site/js/jquery.filterizr.js"></script>
-	<script src="../../../assets/site/js/controls.js"></script>
-	<script src="../../../assets/site/js/jquery.chocolat.js"></script>
-	<link href="../../../assets/site/css/owl.carousel.css" rel="stylesheet">
-	<script src="../../../assets/site/js/owl.carousel.js"></script>
-	<link rel="stylesheet" href="../../../assets/site/css/chocolat.css" type="text/css" media="screen" charset="utf-8">
-
-	<!-- Kick off Filterizr -->
-	<script type="text/javascript">
-		$(function() {
-			$('.filtr-container').filterizr();
-			$('.filtr-item a').Chocolat();
-			$("#owl-demo2").owlCarousel({
-				items : 0,
-				lazyLoad : false,
-				autoPlay : true,
-				navigation : false,
-				navigationText :  false,
-				pagination : true
-			});
-			$(".simplefilter").find(".active").trigger("click");
-		});
-	</script>
-
-{% endblock %}
