@@ -6,7 +6,7 @@
 		<div class="container" id="gallery" >
 
 			<div class="ser-top ga-top">
-				<h3 style="color: #263b67" >{{ contents['gll'].name }}</h3>
+				<h1 style="color: #263b67" >{{ contents['gll'].name }}</h1>
 				<div class="ser-t">
 					<b></b>
 					<b class="line"></b>
@@ -32,7 +32,7 @@
 					<div class="filtr-item" data-category="{{ photo.gallery_id }}"  data-sort="{{ gallery.name }}">
 						<a href="../../../{{ photo.src }}" rel="title" class="b-link-stripe b-animate-go  thickbox">
 							<figure>
-								<img src="../../../{{ photo.src }}" class="img-responsive"/>	<figcaption>
+								<img src="../../../{{ photo.src }}" class="img-responsive" alt="{{ photo.title }}"/>	<figcaption>
 									<h3>{{ photo.title }}</h3>
 									<p>
 										{{ photo.description }}
