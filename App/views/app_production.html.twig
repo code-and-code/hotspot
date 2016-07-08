@@ -81,18 +81,18 @@
     <div class=container>
         <div class=service-head>
             <div class="col-md-5 ser-head">
-                <h5 id=services>Hotspot Curitiba</h5>
-                <img src=../../assets/site/images/img-vantagens.png class=img-responsive alt="Vantagens Hotspot">
-                <p>Confira os beneficios exclusivos que só a HOTSPOT tem:</p>
-                <ul class=list_content>
-                    {% if contents['list'] %}
+                {% if contents['list']  %}
+                    <h5 id="services">{{ contents['list'].name }}</h5>
+                    <img src="../../assets/site/images/img-vantagens.png" class="img-responsive" alt="Vantagens Hotspot">
+                    <p>{{ contents['list'].content }}</p>
+                    <ul class="list_content">
                         {% for info in contents['list'].information() %}
                             <li>
                                 <i class='glyphicon glyphicon-{{ info.icon }}'></i>{{ info.content|raw }}
                             </li>
                         {% endfor %}
-                    {% endif %}
-                </ul>
+                    </ul>
+                {% endif %}
             </div>
             <div class='col-md-7 ser-head1' id=modal>
                 {% if contents['services'] %}
