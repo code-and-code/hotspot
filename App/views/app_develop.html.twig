@@ -108,15 +108,13 @@
                     {% if contents['list']  %}
                         <h5 id="services">{{ contents['list'].name }}</h5>
                         <img src="../../assets/site/images/img-vantagens.png" class="img-responsive" alt="Vantagens Hotspot">
-                        <p>{{ contents['list'].content }}</p>
+                        <p>{{ contents['list'].content|raw }}</p>
                         <ul class="list_content">
-
                             {% for info in contents['list'].information() %}
                              <li>
                                 <i class='glyphicon glyphicon-{{ info.icon }}'></i>{{ info.content|raw }}
                              </li>
                             {% endfor %}
-
                         </ul>
                     {% endif %}
 
