@@ -35,7 +35,7 @@ class PageController extends Controller
                 $contents[$content->flag] = $content;
             }
         }
-        $html = $this->render('app_cache',['contents' => $contents,'galleries' => $gallery->all()]);
+        $html = $this->render('app_production',['contents' => $contents,'galleries' => $gallery->all()]);
         $this->cache()->set('page',$html);
         $this->cache()->delete('publish');
         header('Location: /admin/pages/show-publish');

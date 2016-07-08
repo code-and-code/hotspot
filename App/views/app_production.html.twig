@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang=pt-BR>
+<head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+    <meta http-equiv=Cache-Control content=no-cache />
+    <meta http-equiv=Pragma content=no-cache />
+    <meta http-equiv=Expires content=0 />
+    <meta name=description content="A Hotspot foi desenvolvida para atuar no mercado de Coworking. Trabalha de forma inovadora, séria e comprometida.">
+    <meta name=keywords content="Coworking Curitiba, hotspot, Escritório Compartilhado, Sala para Reuniões, Sala Privativa, Escritório Comercial, Video conferência">
+    <meta name=author content=http://www.codeandcode.com.br/>
+    <meta name=robots content=index,nofolow>
+    <meta name=googlebot content=index,nofolow>
+    <meta name="google-site-verification" content="RdjeHzlGSTi5ug_u-hdB1dpkGA3kkl9XXKjs4_ENh2k" />
+
+    <meta property=og:title content="Hotspot Coworking Curitiba"/>
+    <meta property=oq:image content=http://www.hotspotcwk.com.br/assets/site/images/banner_logo.jpg>
+    <meta property=og:site_name content="Hotspot Curitiba"/>
+
+    <title>Hotspot Coworking Curitiba</title>
+    <link rel=icon href=../../../assets/site/images/miniLogo.png>
+
+    <link href=../../assets/site/css/bootstrap.css rel=stylesheet type=text/css media=all />
+    <link href=../../assets/site/css/style.min.css rel=stylesheet type=text/css media=all />
+
+</head>
+<body>
+<div class=header id=header>
+    <div class=head>
+        <div class=nav-top>
+            <div class=navbar-header>
+                <button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#bs-example-navbar-collapse-1>
+                    <span class=sr-only>Toggle navigation</span>
+                    <span class=icon-bar></span>
+                    <span class=icon-bar></span>
+                    <span class=icon-bar></span>
+                </button>
+                <div class=clearfix></div>
+            </div>
+            <div class="collapse navbar-collapse nav-wil links" id=bs-example-navbar-collapse-1>
+                <div class=fill>
+                    <ul class="nav navbar-nav" id=nav>
+                        <li><a href=/ class="scroll active" data-hover=Home> HOME </a> </li>
+                        <li><a href=#works class=scroll data-hover="Como Funciona"> COMO FUNCIONA </a></li>
+                        <li><a href=#about class=scroll data-hover=Sobre> HOTSPOT COWORKING </a> </li>
+                        <li><a href=#gallery class=scroll data-hover=Salas> IMAGENS </a> </li>
+                        <li><a href=#services class=scroll data-hover=Serviços> SERVIÇOS </a></li>
+                        <li><a href=#contact class=scroll data-hover=Contact> CONTATO </a></li>
+                    </ul>
+                    <div class=clearfix></div>
+                </div>
+            </div>
+        </div>
+        <div class=clearfix></div>
+    </div>
+</div>
+<div class=banner>
+    <div class=container>
+        <div class=slider>
+            <ul class=rslides id=slider2>
+                {% if contents['banner'] %}
+                    {% for info in contents['banner'].information() %}
+                        <li>
+                            <div class=banner-text><b></b>
+                                <h2><span>{{info.title}}</span></h2>
+                                <h6>{{ info.content|raw }}</h6><b class=right-a></b>
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% block content %}
+    {% include view('site.works') %}
+    {% include view('site.about') %}
+    {% include view('site.images') %}
+{% endblock %}
+<div class=service>
+    <div class=container>
+        <div class=service-head>
+            <div class="col-md-5 ser-head">
+                <h5 id=services>Hotspot Curitiba</h5>
+                <img src=../../assets/site/images/img-vantagens.png class=img-responsive alt="Vantagens Hotspot">
+                <p>Confira os beneficios exclusivos que só a HOTSPOT tem:</p>
+                <ul class=list_content>
+                    {% if contents['list'] %}
+                        {% for info in contents['list'].information() %}
+                            <li>
+                                <i class='glyphicon glyphicon-{{ info.icon }}'></i>{{ info.content|raw }}
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+            <div class='col-md-7 ser-head1' id=modal>
+                {% if contents['services'] %}
+                    {% for info in contents['services'].information() %}
+                        <div class='col-md-6 ser-grid fix'>
+                            <span></span>
+                            <div class='hi-icon-effect-7 hi-icon-effect-7a'>
+                                <a type=button data-toggle=modal data-target='#{{ info.id }}'><i class='glyphicon glyphicon-{{ info.icon }} hi-icon'> </i></a>
+                            </div>
+                            <h3> {{info.title}} </h3>
+                            <p>{{ limit(info.content, 0, 50)|raw }}<a href type=button data-toggle=modal data-target='#{{ info.id }}'> Leia mais...</a></p>
+                            <div class='modal fade' id='{{ info.id }}' tabindex=-1 role=dialog aria-labelledby=myModalLabel style=padding:2em>
+                                <div class=modal-dialog role=document>
+                                    <div class=modal-content>
+                                        <div class=modal-header style=background-color:#263b67;text-align:center>
+                                            <button type=button class=close data-dismiss=modal aria-label=Close style=color:#fff><span aria-hidden=true>&times;</span></button>
+                                            <h4 class=modal-title id=myModalLabel style=color:#fff>{{ info.title|raw }}</h4>
+                                        </div>
+                                        <div class='modal-body ser-head' style=text-align:left>
+                                            <p>{{ info.content|raw }}</p>
+                                            <br/>
+                                        </div>
+                                        <div class=modal-footer style=background-color:#263b67>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class=textocor> </div>
+        </div>
+    </div>
+</div>
+<div class=map-top id=contact>
+    <div class=contact>
+        <div class=container>
+            <div class="ser-top ga-top">
+                <h1 style=color:#263b67>Fale Conosco</h1>
+                <div class=ser-t>
+                    <b></b>
+                    <b class=line></b>
+                </div>
+                <p> Qual sala você deseja? </p>
+            </div>
+            <div class=top-contact>
+                <form action=/email method=post id=mailForm>
+                    <div class="col-md-6 grid-contact">
+                        <div class=your-top>
+                            <i class="glyphicon glyphicon-user"> </i>
+                            <input type=text placeholder=Nome name=name required>
+                            <div class=clearfix> </div>
+                        </div>
+                        <div class=your-top>
+                            <i class="glyphicon glyphicon-envelope"> </i>
+                            <input type=text placeholder=E-mail name=email required>
+                            <div class=clearfix> </div>
+                        </div>
+                        <div class=your-top>
+                            <i class="glyphicon glyphicon-phone"> </i>
+                            <input type=text placeholder=Telefone name=phone required>
+                            <div class=clearfix> </div>
+                        </div>
+                        <div class=your-top>
+                            <select class=col-md-12 name=acting form=mailForm>
+                                <option style=color:#cecece value> Área de atuação </option>
+                                <option value=Administrativa> Administrativa </option>
+                                <option value=Advocacia> Advocacia </option>
+                                <option value=Arquitetura> Arquitetura </option>
+                                <option value=Coaching> Coaching </option>
+                                <option value=Comercial> Comercial </option>
+                                <option value=Contábil> Contábil </option>
+                                <option value=Corretor> Corretor </option>
+                                <option value=Design> Design </option>
+                                <option value=Educação> Educação </option>
+                                <option value=Engenharia> Engenharia </option>
+                                <option value=Saúde> Saúde </option>
+                                <option value=Tecnologia> Tecnologia </option>
+                                <option value=Outros> Outros </option>
+                            </select>
+                            <div class=clearfix> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 grid-contact-in">
+                        <textarea placeholder=" Menssagem" name=message required></textarea>
+                        <input type=submit value=Enviar>
+                    </div>
+                    <div class=clearfix> </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id=myModal tabindex=-1 role=dialog aria-labelledby=myModalLabel>
+        <div class=modal-dialog role=document>
+            <div class=modal-content>
+                <div class=modal-header style=background-color:#263b67;color:#fff;text-align:center>
+                    <button type=button class=close data-dismiss=modal aria-label=Close><span aria-hidden=true>&times;</span></button>
+                    <h4 class=modal-title id=myModalLabelSend style=color:#ffffff>Enviando <img src=../../assets/site/images/loadmail.gif alt=Carregando></h4>
+                    <h4 class=modal-title id=myModalLabelSuccess style=display:none;color:#fff>Hotspot</h4>
+                </div>
+                <div class=modal-body style=display:none>
+                    <p style=font-size:20px;font-family:sans-serif;text-align:center>
+                        Enviado com Sucesso!!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=copy>
+        <div class=container style="color:#666;border-top:1px solid #666">
+            <div class=rdp style=margin-top:35px>
+                <a href=http://alavancabrasil.com.br/ target=_blank> <img src=../../assets/site/images/banner_alavanca.png class=img-rodape alt="Alavanca Brasil"> </a>
+            </div>
+            <div class=rdp>
+                <p class=footer-grid style=font-family:sans-serif><h4>Endereço:</h4><br/>Rua: Solimões - 849 | Bairro: Mercês | Curitiba-PR </p>
+            </div>
+            <div class=rdp>
+                <p class=footer-grid style=font-family:sans-serif><h4>Contato:</h4><br/> contato@hotspotcwb.com.br </p>
+                <i class="glyphicon glyphicon-phone-alt" style=margin-left:1%></i> (041) 3205-5098
+            </div>
+            <div class=rdp style=margin-top:35px>
+                <ul class="captn2 footer-sc">
+                    <li><a href=https://www.facebook.com/www.hotspotcwk.com.br/ class=icon1 name=facebook></a></li>
+                    <li><a href=# class=icon2 name="google plus"></a></li>
+                    <li><a href=# class=icon3 name=instagram></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a href=# id=toTop style=display:block> <span id=toTopHover style=opacity:1> </span></a>
+</div>
+
+<link rel=stylesheet href=../../../assets/site/css/chocolat.min.css type=text/css media=screen charset=utf-8>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel=stylesheet type=text/css>
+<link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700' rel=stylesheet type=text/css>
+
+<script src=../../assets/site/js/jquery.min.js></script>
+<script src=../../assets/site/js/bootstrap.min.js></script>
+<script src=../../assets/site/js/responsiveslides.min.js></script>
+<script src=../../assets/site/js/navigationScroll.min.js></script>
+<script src=../../../assets/site/js/gallery.min.js></script>
+<script type=text/javascript>$(document).ready(function(){addEventListener("load",function(){setTimeout(a,0)},false);function a(){window.scrollTo(0,1)}$(".scroll").click(function(b){b.preventDefault();$("html,body").animate({scrollTop:$(this.hash).offset().top},1000)});$("#slider2").responsiveSlides({auto:true,pager:true,speed:300,namespace:"callbacks",});$().UItoTop({easingType:"easeOutQuart"});$("#modal").find("li").prepend("<i class='glyphicon glyphicon-ok'> </i>");$(".list_content li").each(function(b){var c=$(this).find("p").text();$(this).find("p").remove();$(this).append(c)});$("#mailForm").submit(function(d){d.preventDefault();var b=$(this),c=b.attr("action");inputs=b.serializeArray();$("#myModal").modal("show");$.post(c,inputs,function(){}).done(function(){$(".modal-body").toggle();$("#myModalLabelSend").toggle();$("#myModalLabelSuccess").toggle()}).fail(function(){alert("Erro ao enviar email")})});$("#myModal").on("hidden.bs.modal",function(b){location.reload()});$(".filtr-container").filterizr();$(".filtr-item a").Chocolat();$("#owl-demo2").owlCarousel({items:0,lazyLoad:false,autoPlay:true,navigation:false,navigationText:false,pagination:true});$(".simplefilter").find(".active").trigger("click")});</script>
+</body>
+</html>
