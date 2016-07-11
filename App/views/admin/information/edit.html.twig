@@ -99,8 +99,11 @@
     <script src="../../../../assets/admin/ckeditor_edit_info/ckeditor.js"></script>
     <script src="../../../../assets/admin/ckeditor_edit_info/sample.js"></script>
 
-    <div id="success" style="display: none">
-        <p style="text-align: center;padding: 3px" class="alert-success"><strong>Salvo com sucesso!</strong></p>
+    <div id="success" style="display: none" class="alert alert-success" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        Salvo com <strong>Sucesso!</strong>
     </div>
 
 
@@ -187,8 +190,6 @@
                 var old = $(this).clone();
                 $("#icon_select").html(old);
             });
-
-
             $('#form').submit(function(event)
             {
                 event.preventDefault();
@@ -206,6 +207,7 @@
                     data: formData,
                     success: function() {
                         $("#success").show();
+                        window.setTimeout('location.reload()', 1000);
                     },
                     fail: function() {
                         alert('Erro na Alteração!!');
