@@ -37,8 +37,8 @@
         }
 
         .profile-img-card {
-            width: 96px;
-            height: 96px;
+            width: 135px;
+            height: 100px;
             margin: 0 auto 10px;
             display: block;
             -moz-border-radius: 50%;
@@ -50,8 +50,8 @@
          * Form styles
          */
         .profile-name-card {
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 14px;
+            font-weight: normal;
             text-align: center;
             margin: 10px 0 0;
             min-height: 1em;
@@ -105,40 +105,21 @@
 <div class="container">
 
     <div class="card card-container">
-        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-        <p id="profile-name" class="profile-name-card"></p>
-
-        <form class="form-signin" method="post" action="/auth/login">
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/marc/password.png" />
+        <p id="profile-name" class="profile-name-card">A nova senha será enviada no e-mail</p>
+        <br/>
+        <form class="form-signin" method="post" action="/admin/user/passwordUpdate">
             <span id="reauth-email" class="reauth-email"></span>
-
             <input type="email"    name="email"     class="form-control" placeholder="Email" required autofocus>
-            <input type="password" name="password"  class="form-control" placeholder="Senha" minlength="5" maxlength="10" required>
-
-            <button class="btn btn-primary" type="submit">Entrar</button>
-            <a href='/admin/user/reset' title=''>Esqueceu sua senha?</a>
+            <button class="btn btn-primary" type="submit">Proximo</button>
+            <a href='/admin'>Voltar</a>
         </form>
     </div>
-
-    {% if newPassword %}
-        <div id="success" class="alert alert-success" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            Senha alterada com <strong>Sucesso!</strong>
-        </div>
-    {% endif %}
-
 </div>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<script>
-    $(document).ready(function(){
-        $("")
-    })
-</script>
 
 </html>
 

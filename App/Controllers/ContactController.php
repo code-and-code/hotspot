@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Client;
 use App\Models\Contact;
 use App\Support\Mail;
 use Cac\Controller\Action;
@@ -62,5 +63,15 @@ class ContactController extends Action
     {
         $this->contact->find($_GET['id'])->delete();
         header("Location: /admin/contact");
+    }
+
+    public function toClient()
+    {
+        $id = $_GET['id'];
+        $contact = $this->contact->find($id);
+        $client = new Client();
+            $client->fill($contact->toArray());
+        echo $this->render('admin.client.create', ['client' => $client]);
+
     }
 }

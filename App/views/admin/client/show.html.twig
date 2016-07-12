@@ -1,0 +1,28 @@
+{% extends view('admin.admin') %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="/admin/client"> Clientes </a> | Cadastro
+        </div>
+        <div class="panel-body">
+
+            <form class="form-horizontal">
+
+                {% include view('admin.client._inputs') %}
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <a href="/admin/client/edit?id={{ client.id }}" class="btn btn-primary"><i class="fa fa-btn fa-check"></i>Editar</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <a href="/admin/client" class="btn btn-success"> Voltar </a>
+
+
+{% endblock %}
