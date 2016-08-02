@@ -9,6 +9,6 @@ class Photo extends Model
 
     public function Gallery()
     {
-        return $this->belongsTo(Gallery::class);
+        return $this->hasOne(Gallery::class);
     }
 }

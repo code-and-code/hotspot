@@ -5,22 +5,16 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <a href="/admin/contact"> Comentário </a> | Criar
+            <a href="/admin/client"> Comentário </a> | Senha
         </div>
         <div class="panel-body">
 
-            <form method="post" action="/admin/comment/store?contact_id={{ id }}" class="form-horizontal">
+            <form method="post" action="/admin/personal_password/reset?id={{ id }}&client_id={{ client_id }}" class="form-horizontal">
 
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Título</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="title"/>
-                    </div>
-                </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Comentário</label>
                     <div class="col-sm-6">
-                        <textarea name="content" class="form-control"></textarea>
+                        <textarea name="comment" class="form-control" required></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -33,7 +27,6 @@
         </div>
     </div>
 
-    <a href="/admin/contact" class="btn btn-success"> Voltar </a>
-    <!-- Fazer java script pra voltar a div bootstrap de comunicação -->
+    <a href="javascript:history.go(-1)" type="submit" class="btn btn-success"> Voltar </a>
 
 {% endblock %}

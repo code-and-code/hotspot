@@ -16,12 +16,11 @@
                 <tbody>
                 {% for gallery in galleries %}
                     <tr>
-
                         <td>{{ gallery.id }}</td>
                         <td>{{ gallery.name }}</td>
                         <td>
-                            <a href='/admin/gallery/edit?id={{ gallery.id }}' title=''><i class= 'glyphicon glyphicon-edit'></i></a>
-                            <a href='/admin/gallery/delete?id={{ gallery.id }}' title=''><i class= 'glyphicon glyphicon-trash'></i></a>
+                            <a href='/admin/gallery/edit?id={{ gallery.id }}' title='Editar'><i class= 'glyphicon glyphicon-edit'></i></a>
+                            <a href='/admin/gallery/delete?id={{ gallery.id }}' title='Excluir'><i class= 'glyphicon glyphicon-trash'></i></a>
                         </td>
                     </tr>
                 {% endfor %}

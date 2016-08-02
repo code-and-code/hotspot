@@ -4,40 +4,46 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Conteudo da Pagina: <a href="/admin/client/create" title="Novo Cliente" ><i class="pull-right glyphicon glyphicon-plus"></i></a>
+            Clientes <a href="/admin/client/create" title="Novo Cliente" ><i class="pull-right glyphicon glyphicon-plus"></i></a>
         </div>
         <div class="panel-body">
 
             <table class="table table-hover">
                 <thead>
                 <th>Id</th>
-                <th>Nome</th>
+                <th>Senha</th>
                 <th>Razão Social</th>
                 <th>Email</th>
-                <th>Phone</th>
+                <th>Telefone</th>
                 <th>#</th>
                 </thead>
                 <tbody>
 
                 {% for client in clients %}
+
                     <tr>
-                        <td>{{ client.id }}</td>
-                        <td>{{ client.name }}</td>
+                        <td>{{ client.id }} </td>
+                        <td>
+                            {% if client.Password().status == 1 %}
+                                <i class= 'glyphicon glyphicon-lock'></i>
+                            {% endif %}
+                        </td>
                         <td>{{ client.social_name }}</td>
                         <td>{{ client.email }}</td>
                         <td>{{ client.phone }}</td>
                         <td>
-                            <a href='/admin/client/edit?id={{ client.id }}' title=''><i class= 'glyphicon glyphicon-edit'></i></a>
-                            <a href='/admin/client/show?id={{ client.id }}' title=''><i class= 'glyphicon glyphicon-eye-open'></i></a>
-                            <a href='/admin/client/delete?id={{ client.id }}' title=''><i class= 'glyphicon glyphicon-trash'></i></a>
+                            <a href='/admin/client/edit?id={{ client.id }}' title='Editar'><i class= 'glyphicon glyphicon-edit'></i></a>
+                            <a href='/admin/client/show?id={{ client.id }}' title='+ Informações'><i class= 'glyphicon glyphicon-eye-open'></i></a>
+                            <a href='/admin/personal_password/blockade?id={{ client.id }}' title='Bloquear Senha' style="color: red"><spam class='glyphicon glyphicon-ban-circle'></spam></a>
                         </td>
                     </tr>
+
                 {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
 
-    <a href="/admin/pages" type="submit" class="btn btn-success"> Voltar </a>
+    <a href="/admin" type="submit" class="btn btn-success"> Voltar </a>
 
 {% endblock %}

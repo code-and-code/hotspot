@@ -1,0 +1,38 @@
+{% extends view('admin.admin') %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Senhas
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-hover">
+                <tr class="success">
+                    <td><strong>Senhas Disponiveis:</strong></td>
+                    <td>{{ active }}</td>
+                    <td></td>
+                </tr>
+                <tr class="warning">
+                    <td><strong>Senhas Indisponiveis:</strong></td>
+                    <td>{{ inactive }}</td>
+                    <td>
+                        <a href='/admin/personal_password/inactive' title='+ Informações'><i class= 'glyphicon glyphicon-eye-open'></i></a>
+                    </td>
+                </tr>
+                <tr class="danger">
+                    <td><strong>Senhas Bloqueadas:</strong></td>
+                    <td>{{ blocked }}</td>
+                    <td>
+                        <a href='/admin/personal_password/blocked' title='+ Informações'><i class= 'glyphicon glyphicon-eye-open'></i></a>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+    <a href="/admin" type="submit" class="btn btn-success"> Voltar </a>
+
+{% endblock %}

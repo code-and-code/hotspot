@@ -66,7 +66,6 @@ class GalleryController extends Controller
     public function delete()
     {
         try {
-
             $gallery = $this->gallery->find($_GET['id']);
             if($this->clearGallery($gallery))
             {

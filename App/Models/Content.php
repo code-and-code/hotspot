@@ -14,7 +14,7 @@ class Content extends Model
 
     public function Page()
     {
-        return $this->belongsTo(Page::class);
+        return $this->hasOne(Page::class);
 
     }
 }

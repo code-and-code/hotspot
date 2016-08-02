@@ -20,8 +20,8 @@
                         <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
                         <td>
-                            <a href='/admin/user/edit?id={{ user.id }}' title=''><i class= 'glyphicon glyphicon-edit'></i></a>
-                            <a href='/admin/user/delete?id={{ user.id }}' title=''><i class= 'glyphicon glyphicon-trash'></i></a>
+                            <a href='/admin/user/edit?id={{ user.id }}' title='Editar'><i class= 'glyphicon glyphicon-edit'></i></a>
+                            <a href='/admin/user/delete?id={{ user.id }}' title='Exclir' style="color:red"><i class= 'glyphicon glyphicon-trash'></i></a>
                         </td>
                     </tr>
                 {% endfor %}

@@ -1,0 +1,34 @@
+{% extends view('admin.admin') %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Senhas Indisponíveis <a href="" title="Novo Cliente" ><i class="pull-right glyphicon glyphicon-plus"></i></a>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-hover">
+                <thead>
+                <th>Id</th>
+                <th>Cliente</th>
+                <th>Senha Telefone</th>
+                <th>Senha Impressora</th>
+                </thead>
+                <tbody>
+
+                {% for password in passwords %}
+                        <tr>
+                            <td>{{ password.id }} </td>
+                            <td>{{ password.comment }}</td>
+                            <td>**</td>
+                            <td>**</td>
+                        </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a href="/admin/personal_password/passwords" type="submit" class="btn btn-success"> Voltar </a>
+
+{% endblock %}

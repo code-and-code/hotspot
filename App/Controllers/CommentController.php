@@ -47,7 +47,7 @@ class CommentController extends Action
             header($this->header."{$comment->contact_id}");
         }catch (\Exception $e)
         {
-            echo $e->getMessage();
+            echo $this->render('admin.layout.message', ['danger' => 'Não foi possível editar esse comentário']);
         }
     }
 

@@ -9,4 +9,9 @@ class SiteController extends Controller
         $html  = $this->cache()->get('page');
         echo $html;
     }
+
+    public function help()
+    {
+        echo $this->render('admin.index.help');
+    }
 }

@@ -9,6 +9,6 @@ class Information extends Model
 
     public function Content()
     {
-        return $this->belongsTo(Content::class);
+        return $this->hasOne(Content::class);
     }
 }

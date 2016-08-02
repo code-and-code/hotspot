@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 
-use App\Support\File;
+use Cac\Support\File;
 use App\Models\Photo;
 
 class PhotoController extends Controller

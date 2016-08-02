@@ -1,0 +1,35 @@
+{% extends view('admin.admin') %}
+
+{% block content %}
+
+    {%  if danger %}
+        <h1>Ops!</h1>
+        <div class="alert alert-danger">
+            <h4>{{ danger }}</h4>
+        </div>
+    {% endif %}
+
+    {% if success %}
+        <h1></h1>
+        <div class="alert alert-success">
+            <h4>{{ success }}</h4>
+        </div>
+    {% endif %}
+
+    {% if warning %}
+        <h1>Ops!</h1>
+        <div class="alert alert-warning">
+            <h4>{{ warning }}</h4>
+        </div>
+    {% endif %}
+
+    {% if info %}
+        <h1>Ops!</h1>
+        <div class="alert alert-info">
+            <h4>{{ info }}</h4>
+        </div>
+    {% endif %}
+
+    <a href="javascript:history.go(-1)" type="submit" class="btn btn-success"> Voltar </a>
+
+{% endblock %}

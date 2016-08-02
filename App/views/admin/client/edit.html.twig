@@ -12,8 +12,16 @@
     {% endif %}
 
     <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading" style="padding: 20px 20px">
             <a href="/admin/client"> Clientes </a> | Cadastro
+
+            {% if client.Password().status %}
+                <a href="/admin/personal_password/comment?id={{ client.Password().id }}" type="submit" class="pull-right btn btn-danger">Resetar Senha</a>
+            {% else %}
+                <a href="/admin/personal_password/addPassword?id={{ client.id }}" type="submit" class="pull-right btn btn-success">Gerar Senha</a>
+            {% endif %}
+
+
         </div>
         <div class="panel-body">
 

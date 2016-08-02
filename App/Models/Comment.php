@@ -9,7 +9,7 @@ class Comment extends Model
 
     public function Contact()
     {
-        return $this->belongsTo(Contact::class);
+        return $this->hasOne(Contact::class);
 
     }
 }

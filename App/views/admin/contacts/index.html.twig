@@ -37,10 +37,10 @@
                         <td class="danger">Não</td>
                     {% endif %}
                     <td>
-                        <a href="/admin/contact/show?id={{ contact.id }}"><i class= 'glyphicon glyphicon-eye-open'></i></a>
-                        <a href="/admin/comment/create?id={{ contact.id }}"><i class= 'glyphicon glyphicon-comment'></i></a>
-                        <a href="/admin/contact/toClient?id={{ contact.id }}"><i class= 'glyphicon glyphicon-level-up'></i></a>
-                        <a href='/admin/contact/delete?id={{ contact.id }}' title=''><i class= 'glyphicon glyphicon-trash'></i></a>
+                        <a href="/admin/contact/show?id={{ contact.id }}"       title='+ Informções'        style="padding: 0 5px"><i class= 'glyphicon glyphicon-eye-open'></i></a>
+                        <a href="/admin/comment/create?id={{ contact.id }}"     title='Criar Comentário'    style="padding: 0 5px"><i class= 'glyphicon glyphicon-comment'></i></a>
+                        <a href="/admin/contact/toClient?id={{ contact.id }}"   title='Cadastrar Cliente'   style="padding: 0 5px"><i class= 'glyphicon glyphicon-level-up'></i></a>
+                        <a href='/admin/contact/delete?id={{ contact.id }}'     title='Excluir'             style="color: red"><i class= 'glyphicon glyphicon-trash'></i></a>
                     </td>
                 </tr>
 

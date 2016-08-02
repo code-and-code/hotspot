@@ -6,6 +6,6 @@ return [
                                'SMTPAuth' => true,
                                'SMTPDebug'=>false,
                                'Username' => 'contato@hotspotcwk.com.br',
-                               'Password' => 'xzB2y32~'
+                               'Password' => 'hotspot1057'
             ]
 ];

@@ -1,0 +1,52 @@
+{% extends view('admin.admin') %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Senhas Indisponíveis <a href="" title="Novo Cliente" ><i class="pull-right glyphicon glyphicon-plus"></i></a>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-hover">
+                <thead>
+                <th>Id</th>
+                <th>Cliente</th>
+                <th>Senha Telefone</th>
+                <th>Senha Impressora</th>
+                <th>Comentário</th>
+                </thead>
+                <tbody>
+
+                {% for password in passwords %}
+                    {% if password.comment %}
+                        <tr class="warning">
+                            <td>{{ password.id }} </td>
+                            <td></td>
+                            <td>{{ password.phone }}</td>
+                            <td>{{ password.print }}</td>
+                            <td>{{ password.comment }}</td>
+                            <td>
+                                <a href='/admin/personal_password/activate?id={{ password.id }}' title='Ativar Senha'><i class= 'glyphicon glyphicon-ok'></i></a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr >
+                            <td>{{ password.id }} </td>
+                            <td>{{ password.Client().name }}</td>
+                            <td>**</td>
+                            <td>**</td>
+                            <td>{{ password.comment }}</td>
+                            <td>
+                                <a href='/admin/personal_password/sendPassword?id={{ password.id }}' title='Enviar Email'><i class= 'glyphicon glyphicon-refresh'></i></a>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a href="/admin/personal_password/passwords" type="submit" class="btn btn-success"> Voltar </a>
+
+{% endblock %}

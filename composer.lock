@@ -13,16 +13,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/code-and-code/micro-fwk.git",
-                "reference": "51811cb146107f6b707af854d19042461d939195"
+                "reference": "a9d4b0d89a13e2c29ca872ef45f464cfe3db889c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/code-and-code/micro-fwk/zipball/51811cb146107f6b707af854d19042461d939195",
-                "reference": "51811cb146107f6b707af854d19042461d939195",
+                "url": "https://api.github.com/repos/code-and-code/micro-fwk/zipball/a9d4b0d89a13e2c29ca872ef45f464cfe3db889c",
+                "reference": "a9d4b0d89a13e2c29ca872ef45f464cfe3db889c",
                 "shasum": ""
             },
             "require": {
+                "codeguy/upload": "^1.3",
                 "php": ">=5.3",
+                "phpmailer/phpmailer": "^5.2",
                 "twig/twig": "~1.0"
             },
             "type": "project",
@@ -42,7 +44,7 @@
                 "projecto inical",
                 "start"
             ],
-            "time": "2016-07-04 14:12:15"
+            "time": "2016-07-25 19:19:39"
         },
         {
             "name": "codeguy/upload",
@@ -263,12 +265,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "cdccdbbdf35f38a70eb6931667a76fc68012a999"
+                "reference": "c535bc0b56aa93ead7a75b6841f28645153b0539"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/cdccdbbdf35f38a70eb6931667a76fc68012a999",
-                "reference": "cdccdbbdf35f38a70eb6931667a76fc68012a999",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c535bc0b56aa93ead7a75b6841f28645153b0539",
+                "reference": "c535bc0b56aa93ead7a75b6841f28645153b0539",
                 "shasum": ""
             },
             "require": {
@@ -316,7 +318,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-06-24 05:05:43"
+            "time": "2016-07-10 07:48:21"
         }
     ],
     "packages-dev": [],

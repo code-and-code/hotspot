@@ -15,25 +15,20 @@ CREATE DATABASE IF NOT EXISTS `hotspot` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `hotspot`;
 
 
--- Copiando estrutura para tabela hotspot.clients
-CREATE TABLE IF NOT EXISTS `clients` (
+-- Copiando estrutura para tabela hotspot.personal_password
+DROP TABLE IF EXISTS `personal_password`;
+CREATE TABLE IF NOT EXISTS `personal_password` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `acting` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
-  `social_name` varchar(255) NOT NULL,
-  `fantasy_name` varchar(255) NOT NULL,
-  `cpf_cnpj` varchar(20) NOT NULL,
-  `cep` varchar(11) NOT NULL,
-  `city` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `number` varchar(255) NOT NULL,
-  `neighborhood` varchar(255) NOT NULL,
-  `IE` int(20) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
+  `print` varchar(50) NOT NULL,
+  `phone` varchar(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `client_id` int(11) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `client_id` (`client_id`),
+  CONSTRAINT `client_id` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.
