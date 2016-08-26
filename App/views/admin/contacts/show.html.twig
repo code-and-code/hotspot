@@ -62,9 +62,10 @@
             <div class="col-lg-6">
                 <div class="panel  panel-primary">
                     <div class=" panel-heading">
-                        {{ comment.title }}  <a href="/admin/comment/delete?id={{ comment.id }}&contact_id={{ comment.contact_id }}" title="Excluir Comentário" style="color: #fff"><i class="pull-right glyphicon glyphicon-trash"></i></a>
-                                             <a href="/admin/comment/edit?id={{ comment.id }}" title="Editar Comentário" style="color: #fff"><i class="pull-right glyphicon glyphicon-edit" style="padding-right: 5px"></i></a>
-
+                        {{ comment.title }}
+                          <a href="/admin/comment/delete?id={{ comment.id }}&contact_id={{ comment.contact_id }}" title="Excluir Comentário" style="color: #fff"><i class="pull-right glyphicon glyphicon-trash"></i></a>
+                          <a href="/admin/comment/edit?id={{ comment.id }}" title="Editar Comentário" style="color: #fff"><i class="pull-right glyphicon glyphicon-edit" style="padding-right: 5px"></i></a>
+                          <a class="pull-right" style="color: #fff; padding-right: 10px" >{{ comment.created_at }}</a>
                     </div>
                     <div class=" panel-body">
                         <table class="table table-hover">
@@ -81,4 +82,3 @@
 
 
 {% endblock %}
-
