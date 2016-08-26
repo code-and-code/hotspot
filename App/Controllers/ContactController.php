@@ -22,14 +22,25 @@ class ContactController extends Action
         $contacts = $this->contact->all();
         echo $this->render('admin.contacts.index', ['contacts' => $contacts]);
     }
+    
+    public function create()
+    {
+      echo $this->render('admin.contacts.create');
+    }
 
     public function store()
     {
+      $_GET['send'] ? $send = true : $send = false;
         try{
-            $contact = $this->contact->create($_REQUEST);
-            $this->send($contact);
-            $contact->update(['status' => true]);
-            echo json_encode(['msg' => 'Email enviado com sucesso']);
+            $contact = $this->contact->create($_POST);
+            if($send)
+            {
+              $this->send($contact);
+              $contact->update(['status' => true]);
+              echo json_encode(['msg' => 'Email enviado com sucesso']);
+            }else{
+              return $this->index();
+            }
         }catch (\Exception $e)
         {
             echo json_encode(['Error' => $e->getMessage()]);
