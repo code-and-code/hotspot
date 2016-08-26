@@ -49,8 +49,10 @@ class Init extends Bootstrap
 
         $ar['admin.contact']               = ['route' => '/admin/contact',                              'controller' => 'ContactController',      'auth' =>true,'action' => 'index'             ];
         $ar['admin.contact.show']          = ['route' => '/admin/contact/show',                         'controller' => 'ContactController',      'auth' =>true,'action' => 'show'              ];
+        $ar['admin.contact.create']        = ['route' => '/admin/contact/create',                       'controller' => 'ContactController',      'auth' =>true,'action' => 'create'            ];
+        $ar['admin.contact.store']         = ['route' => '/admin/contact/store',                        'controller' => 'ContactController',      'auth' =>true,'action' => 'store'             ];
         $ar['admin.contact.delete']        = ['route' => '/admin/contact/delete',                       'controller' => 'ContactController',      'auth' =>true,'action' => 'delete'            ];
-        $ar['admin.contact.toClient']      = ['route' => '/admin/contact/toClient',                   'controller' => 'ContactController',      'auth' =>true,'action' => 'toClient'            ];
+        $ar['admin.contact.toClient']      = ['route' => '/admin/contact/toClient',                     'controller' => 'ContactController',      'auth' =>true,'action' => 'toClient'          ];
 
         $ar['admin.comment.create']        = ['route' => '/admin/comment/create',                        'controller' => 'CommentController',      'auth' =>true,'action' => 'create'           ];
         $ar['admin.comment.store']         = ['route' => '/admin/comment/store',                         'controller' => 'CommentController',      'auth' =>true,'action' => 'store'            ];
